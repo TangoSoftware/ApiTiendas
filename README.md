@@ -1,4 +1,4 @@
-Tabla de contenido
+**Tabla de contenido**
 
 | 1Instalación |
 | --- |
@@ -7,9 +7,8 @@ Tabla de contenido
 | 1.1.2Ambientes |
 | 1.2Asociar aplicación con API |
 | 1.3Datos del Json |
+| 1.3.1Tablas de Referencia |
 |         |
-
-
 
 
 
@@ -122,12 +121,14 @@ A continuación, se detalla a modo orientativo, el contenido de cada uno de los 
 
 _Recuerde_: es obligatorio cargar un registro en este tópico para generar una orden.
 
+
+
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **Date** | Si | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual. | Datetime | DD/MM/YYYY |
 | **Total** | Si | Es el importe total de la orden. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0∑ [(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount  |
-| **TotalDiscount** | No | Importe de descuento total de la operación.  Sólo valido en pesos argentinos.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0 **&lt; Principal.**** Total** |
-| **PaidTotal** | Solo si se informa el tópico Payments o CashPayment | Importe total pagado. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0**∑ (Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal** |
+| **TotalDiscount** | No | Importe de descuento total de la operación.  Sólo valido en pesos argentinos.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total |
+| **PaidTotal** | Solo si se informa el tópico Payments o CashPayment | Importe total pagado. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0∑ (Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal |
 | **FinancialSurcharge** | No | Importe del recargo financiero.  Sólo válido en pesos argentinos.  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;= 0 |
 | **OrderID** | Si | Identificador de la orden. Debe ser distinto para cada operación. | Alfanumérico de hasta 200 caracteres | &gt;0 |
 | **OrderNumber** | Si | Número de la orden.  Es el número con el cual podrá identificar la orden desde revisión de pedidos web | Alfanumérico de hasta 200 caracteres |   |
@@ -144,7 +145,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **CustomerId** | Si | Identificador del cliente. | Numérico de tipo entero hasta 50 posiciones | &gt;0 |
-| **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Código     Descripción80            C.U.I.T.86            C.U.I.L.87            C.D.I.89            L.E.90            L.C.96            D.N.I. |
+| **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Ver Tablas de Referencia, Tipo de Documento. |
 | **DocumentNumber** | No | Número de documento sin símbolos ni puntuaciones. | Alfanumérico de hasta 20 caracteres |   |
 | **User** | Si | Usuario de la tienda. | Alfanumérico de hasta 200 caracteres |   |
 | **BussinessName** | No | Razón social del cliente a nombre de quién se emitirá la factura. | Alfanumérico de hasta 200 caracteres |   |
@@ -154,13 +155,11 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Comments** | No | Comentarios realizados por el cliente. | Alfanumérico de hasta 280 caracteres |   |
 | **MobilePhoneNumber** | No | Número de celular del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **BusinessAdress** | No | Dirección comercial del cliente. | Alfanumérico de hasta 255 caracteres |   |
-| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres | Código AFIP        Descripción0            CIUDAD AUTONOMA BUENOS AIRES1            BUENOS AIRES2            CATAMARCA3            CORDOBA4            CORRIENTES5            ENTRE RIOS6            JUJUY7            MENDOZA8            LA RIOJA9            SALTA10            SAN JUAN11            SAN LUIS12            SANTA FE13            SANTIAGO DEL ESTERO14            TUCUMAN16            CHACO17            CHUBUT18            FORMOSA19            MISIONES20            NEUQUEN21            LA PAMPA22            RIO NEGRO23            SANTA CRUZ24            TIERRA DEL FUEGO  |
+| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres | Ver Tablas de Referencia, Provincias. |
 | **PostalCode** | No | Código postal del domicilio del cliente | Alfanumérico de hasta 10 caracteres |   |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
-| **IvaCategoryCode** | Si | Código de Categoría de I.V.A. del cliente | Alfanumérico de hasta 3 caracteres | Código      DescripciónCF            Consumidor finalEX            ExentoINR            No responsableRI            Responsable inscriptoRS            Responsable monotributista  |
-
-
+| **IvaCategoryCode** | Si | Código de Categoría de I.V.A. del cliente | Alfanumérico de hasta 3 caracteres | Ver Tablas de Referencia, Condición Fiscal. |
 
 
 
@@ -197,7 +196,7 @@ Este tópico se completa siempre que se requiere informar el envío.  Se puede c
 | **ShippingCost** | No | Importe correspondiente al costo de envío. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;=0 |
 | **Street**** HouseNumber ****Floor**** Apartment ****City**   | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
 | **PostalCode** | No | Código postal de la dirección del cliente. | Alfanumérico de hasta 10 caracteres. |   |
-| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Código AFIP        Descripción0            CIUDAD AUTONOMA BUENOS AIRES1            BUENOS AIRES2            CATAMARCA3            CORDOBA4            CORRIENTES5            ENTRE RIOS6            JUJUY7            MENDOZA8            LA RIOJA9            SALTA10            SAN JUAN11            SAN LUIS12            SANTA FE13            SANTIAGO DEL ESTERO14            TUCUMAN16            CHACO17            CHUBUT18            FORMOSA19            MISIONES20            NEUQUEN21            LA PAMPA22            RIO NEGRO23            SANTA CRUZ24            TIERRA DEL FUEGO  |
+| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Ver Tablas de Referencia, Provincias. |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
 | **DeliversMonday** | No | Entrega lunes | Alfanumérico de hasta 1 caracteres | &quot;S&quot;/&quot;N&quot;Si se deja vacío toma como defecto el valor &quot;N&quot; |
@@ -220,7 +219,7 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **PaymentID** | Si | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones. | &gt;0 |
-| **PaymentMethod** | Si | Código de Forma de Pago. | Alfanumérico de hasta 3 caracteres. | Código          DescripciónA01          Forma de cobro Web API 01A02          Forma de cobro Web API 02A03          Forma de cobro Web API 03A04          Forma de cobro Web API 04A05          Forma de cobro Web API 05A06          Forma de cobro Web API 06A07          Forma de cobro Web API 07A08          Forma de cobro Web API 08A09          Forma de cobro Web API 09A10          Forma de cobro Web API 10MPA          MercadoPago ArgentinaPPA          PayPal ArgentinaPUA          PayU ArgentinaTPA          Todo Pago Argentina |
+| **PaymentMethod** | Si | Código de Forma de Pago. | Alfanumérico de hasta 3 caracteres. | Ver Tablas de Referencia, Formas de Pago. |
 | **PaymentTotal** | Si | Total, del pago.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;0  |
 
 
@@ -236,13 +235,92 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **PaymentsId** | Si | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentID si se combina con efectivo. | Numérico de tipo entero hasta 50 posiciones. | &gt;0 |
-| **TransactionDate** | Si | Fecha en que se realizó el pago. | Datetime | &gt; **Principal.Date** DD/MM/YYYY |
+| **TransactionDate** | Si | Fecha en que se realizó el pago. | Datetime | &gt;Principal.DateDD/MM/YYYY |
 | **AuthorizationCode** | No | Código de autorización del pago de tarjeta. | Alfanumérico de hasta 8 caracteres |   |
 | **TransactionNumber** | No | Número de transacción de pago. | Alfanumérico de hasta 40 caracteres |   |
 | **Installments** | Si | Cantidad de cuotas. | Numérico hasta 2 posiciones | &gt;0 |
 | **InstallmentsAmount** | Si | Importe correspondiente a la cuota. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0 |
-| **Total** | Si | Total, del pago.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0 **Installments \* InstallmentsAmount** |
+| **Total** | Si | Total, del pago.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0Installments \* InstallmentsAmount |
 | **CardCode** | Si | Código de la tarjeta de crédito. | Alfanumérico de hasta 3 caracteres | Código de la tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Tarjetas. |
 | **CardPlanCode** | Si | Plan de la tarjeta de crédito. | Alfanumérico de hasta 10 caracteres | Código del plan de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Planes. |
 | **VoucherNro** | Si | Número de cupón de tarjeta de crédito. | Numérico hasta 8 posiciones | &gt;0 |
 | **CardPromotionCode** | No | Código de promoción de la tarjeta de crédito. | Alfanumérico de hasta 10 caracteres | Código de promoción de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Promociones. |
+
+1.
+  1.
+    1. 1.3.1Tablas de Referencia
+
+**Tipo de Documento**
+
+| **Código** | **Descripción** |
+| --- | --- |
+| 80 | C.U.I.T. |
+| 86 | C.U.I.L. |
+| 87 | C.D.I. |
+| 89 | L.E. |
+| 90 | L.C. |
+| 96 | D.N.I. |
+
+
+
+**Provincias**
+
+| **Código** | **Descripción** |
+| --- | --- |
+| 0 | CIUDAD AUTONOMA BUENOS AIRES |
+| 1 | BUENOS AIRES |
+| 2 | CATAMARCA |
+| 3 | CORDOBA |
+| 4 | CORRIENTES |
+| 5 | ENTRE RIOS |
+| 6 | JUJUY |
+| 7 | MENDOZA |
+| 8 | LA RIOJA |
+| 9 | SALTA |
+| 10 | SAN JUAN |
+| 11 | SAN LUIS |
+| 12 | SANTA FE |
+| 13 | SANTIAGO DEL ESTERO |
+| 14 | TUCUMAN |
+| 16 | CHACO |
+| 17 | CHUBUT |
+| 18 | FORMOSA |
+| 19 | MISIONES |
+| 20 | NEUQUEN |
+| 21 | LA PAMPA |
+| 22 | RIO NEGRO |
+| 23 | SANTA CRUZ |
+| 24 | TIERRA DEL FUEGO |
+
+
+
+**Condición Fiscal**
+
+| **Código** | **Descripción** |
+| --- | --- |
+| CF | CONSUMIDOR FINAL |
+| EX | EXENTO |
+| INR | NO RESPONSABLE |
+| RI | RESPONSABLE INSCRIPTO |
+| RS | RESPONSABLE MONOTRIBUTISTA |
+
+
+
+**Formas de Pago**
+
+| **Código** | **Descripción** |
+| --- | --- |
+| A01 | Forma de cobro Web API 01 |
+| A02 | Forma de cobro Web API 02 |
+| A03 | Forma de cobro Web API 03 |
+| A04 | Forma de cobro Web API 04 |
+| A05 | Forma de cobro Web API 05 |
+| A06 | Forma de cobro Web API 06 |
+| A07 | Forma de cobro Web API 07 |
+| A08 | Forma de cobro Web API 08 |
+| A09 | Forma de cobro Web API 098 |
+| A10 | Forma de cobro Web API 10 |
+| MPA | MercadoPago Argentina |
+| PPA | PayPal Argentina |
+| PUA | PayU Argentina |
+| TPA | Todo Pago Argentina |
