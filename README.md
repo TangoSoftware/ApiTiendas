@@ -13,20 +13,23 @@ Tango Software - API Tiendas
 
 
 <a name="instalacion"></a>
-## Instalación [<sub>Volver</sub>](#inicio)
+## Instalación
 
 <a name="versiones"></a>
-### Versiones soportadas de Tango Gestión [<sub>Volver</sub>](#inicio)
+### Versiones soportadas de Tango Gestión
+[<sub>Volver</sub>](#inicio)
 
 <a name="generalidades"></a>
-#### Generalidades [<sub>Volver</sub>](#inicio)
+#### Generalidades
+[<sub>Volver</sub>](#inicio)
 
 Esta versión soporta órdenes de pedido únicamente en moneda nacional argentina.
 
 Aceptando hasta 2 decimales en los datos de importes y precios.
 
 <a name="ambientes"></a>
-#### Ambientes [<sub>Volver</sub>](#inicio)
+#### Ambientes
+[<sub>Volver</sub>](#inicio)
 
 • Ambiente de testeo
 
@@ -38,7 +41,8 @@ Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa 
 
 
 <a name="asociarapi"></a>
-### Asociar aplicación con API [<sub>Volver</sub>](#inicio)
+### Asociar aplicación con API
+[<sub>Volver</sub>](#inicio)
 
 Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión, acceda a nexo Tiendas / API para obtener el un Access Token que le permitirá enviar órdenes de pedido a Tango Gestión.
 
@@ -116,7 +120,8 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 | --- |
 
 <a name="djson"></a>
-### Datos del Json [<sub>Volver</sub>](#inicio)
+### Datos del Json
+[<sub>Volver</sub>](#inicio)
 
 A continuación, se detalla a modo orientativo, el contenido de cada uno de los datos del json
 
@@ -252,7 +257,8 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | **CardPromotionCode** | No | Código de promoción de la tarjeta de crédito. | Alfanumérico de hasta 10 caracteres | Código de promoción de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Promociones. |
 
 <a name="tablas"></a>
-### Tablas de Referencia [<sub>Volver</sub>](#inicio)
+### Tablas de Referencia
+[<sub>Volver</sub>](#inicio)
 
 <a name="tipodoc"></a>
 #### Tipo de Documento
