@@ -1,12 +1,14 @@
-**Tabla de contenido**
+<a name="inicio"></a>
+Tango Software - API Tiendas
+=======
 
-+ [Instalación](#instalacion)
-+     [Versiones soportadas de Tango Gestión](#versiones)
-+         [Generalidades](#generalidades)
-+         [Ambientes](#ambientes)
-+     [Asociar aplicación con API](#asociarapi)
-+     [Datos del Json](#djson)
-+       [Tablas de Referencia](#tablas)
+ + [Instalación](#instalacion)
+    + [Versiones soportadas de Tango Gestión](#versiones)
+      + [Generalidades](#generalidades)
+      + [Ambientes](#ambientes)
+    + [Asociar aplicación con API](#asociarapi)
+    + [Datos del Json](#djson)
+      + [Tablas de Referencia](#tablas)
 
 
 
@@ -59,12 +61,12 @@ La URL del servicio de API es:
 
 Tenga en cuenta los siguientes temas:
 
-+ [Notificaciones]
++ [Notificaciones](#notificaciones)
 
-+ [Preguntas frecuentes]
++ [Preguntas frecuentes](#faqs)
 
 
-
+<a name="notificaciones"></a>
 #### Notificaciones
 
 Si desea recibir notificaciones, en la configuración de la **API** debe marcar el check y configurar una URL donde recibirá las notificaciones.
@@ -88,7 +90,7 @@ Formato de json de notificación:
 }
 
 
-
+<a name="faqs"></a>
 #### Preguntas Frecuentes
 
 
