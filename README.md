@@ -18,7 +18,7 @@ Tango Software - API Tiendas
 <a name="versiones"></a>
 ### Versiones soportadas de Tango Gestión
 
-La versión requerida de ventas para implementar Tango Gestión API es: 18.01.000.5000
+La versión requerida de ventas para implementar Tango Gestión API es: 18.01.000.3500
 
 <a name="generalidades"></a>
 #### Generalidades
