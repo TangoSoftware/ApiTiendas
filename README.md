@@ -165,7 +165,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **PostalCode** | No | Código postal del domicilio del cliente | Alfanumérico de hasta 10 caracteres |   |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
-| **IvaCategoryCode** | Si | Código de Categoría de I.V.A. del cliente | Alfanumérico de hasta 3 caracteres | Ver Tablas de Referencia, + [Condición Fiscal](#cfiscal). |
+| **IvaCategoryCode** | Si | Código de Categoría de I.V.A. del cliente | Alfanumérico de hasta 3 caracteres | Ver Tablas de Referencia, [Condición Fiscal](#cfiscal). |
 
 
 
