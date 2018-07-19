@@ -51,10 +51,7 @@ Presione el botón &quot;Obtener&quot; e introduzca un nombre de referencia para
 
 Al presionar el botón &quot;Aceptar&quot; se generará un Access token con el cual se podrá conectar la **API** con **nexo Tiendas**.
 
-
-IMAGEN
-
-** **
+![imagen api](https://github.com/TangoSoftware/ApiTiendas/blob/master/api.jpg)
 
 A partir de ese momento ya puede comenzar a utilizar la **API** en  **nexo Tiendas**  y manejar sus ventas desde  **Tango Gestión**.
 
