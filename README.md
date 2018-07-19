@@ -17,7 +17,6 @@ Tango Software - API Tiendas
 
 <a name="versiones"></a>
 ### Versiones soportadas de Tango Gestión
-[<sub>Volver</sub>](#inicio)
 
 <a name="generalidades"></a>
 #### Generalidades
