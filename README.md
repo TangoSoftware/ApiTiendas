@@ -28,11 +28,11 @@ Aceptando hasta 2 decimales en los datos de importes y precios.
 <a name="ambientes"></a>
 #### Ambientes
 
-Ambiente de testeo
+• Ambiente de testeo
 
 Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa de nube con una empresa ejemplo de Tango Gestión.
 
-Ambiente de producción
+• Ambiente de producción
 
 Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa de nube con una empresa operativa de Tango Gestión.
 
@@ -79,7 +79,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 • Al facturar el pedido generado. (Se enviará el Tópico: OrderBilled)
 
-Formato de json de notificación:
+**Formato de json de notificación:**
 
 {
 
@@ -97,16 +97,22 @@ Formato de json de notificación:
 
 - **¿Cómo debo armar el JSON para cargar una orden a través de la API?**
 
-| En la solapa API en nexo Tiendas se muestra un Ejemplo del JSON. Además, se puede ver un Modelo, Respuesta, Notificación y Respuesta notificación.Datos del Json |
+| En la solapa API en nexo Tiendas se muestra un Ejemplo del JSON. Además, se puede ver un Modelo, Respuesta, Notificación y Respuesta notificación.Datos del Json. |
 | --- |
 
 - **¿El Access token se genera una sola vez?**
 
-| Se genera un Access token por cuenta. Si se elimina la cuenta, al crear una nueva se generará un nuevo Access token.
+| Se genera un Access token por cuenta. Si se elimina la cuenta, al crear una nueva se generará un nuevo Access token. |
+| --- |
+
 - **¿Qué pasa si elimino el Access token?**
-Perderá el acceso para enviar órdenes de pedidos desde su API a Tango Gestión y estas tampoco serán recibidas en Revisión de pedidos web.
+
+| Perderá el acceso para enviar órdenes de pedidos desde su API a Tango Gestión y estas tampoco serán recibidas en Revisión de pedidos web. |
+| --- |
+
 - **¿A nombre de quién se emite la factura de venta?**
-Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. ó D.N.I.  y se corresponden con datos de A.F.I.P., será considerada esta información para emitir la factura de ventas en la ausencia de esta información se tomará el Nombre Comercial indicado.  Cuando no se informa el número del C.U.I.L / C.U.I.T. ó  D.N.I.  se utilizará el nombre y apellido ingresado en la orden de pedido     |
+
+| Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. ó D.N.I.  y se corresponden con datos de A.F.I.P., será considerada esta información para emitir la factura de ventas en la ausencia de esta información se tomará el Nombre Comercial indicado.  Cuando no se informa el número del C.U.I.L / C.U.I.T. ó  D.N.I.  se utilizará el nombre y apellido ingresado en la orden de pedido. |
 | --- |
 
 <a name="djson"></a>
