@@ -102,7 +102,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 - **¿El Access token se genera una sola vez?**
 
-| Se genera un Access token por cuenta. Si se elimina la cuenta, al crear una nueva se generará un nuevo Access token. |
+| Se genera un Access token por cuenta. Si se elimina la cuenta, al crear una nueva se generará un nuevo Access token.                  |
 | --- |
 
 - **¿Qué pasa si elimino el Access token?**
@@ -151,7 +151,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **CustomerId** | Si | Identificador del cliente. | Numérico de tipo entero hasta 50 posiciones | &gt;0 |
-| **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Ver Tablas de Referencia, + [Tipo de Documento](#tipodoc). |
+| **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). |
 | **DocumentNumber** | No | Número de documento sin símbolos ni puntuaciones. | Alfanumérico de hasta 20 caracteres |   |
 | **User** | Si | Usuario de la tienda. | Alfanumérico de hasta 200 caracteres |   |
 | **BussinessName** | No | Razón social del cliente a nombre de quién se emitirá la factura. | Alfanumérico de hasta 200 caracteres |   |
@@ -161,7 +161,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Comments** | No | Comentarios realizados por el cliente. | Alfanumérico de hasta 280 caracteres |   |
 | **MobilePhoneNumber** | No | Número de celular del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **BusinessAdress** | No | Dirección comercial del cliente. | Alfanumérico de hasta 255 caracteres |   |
-| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres | Ver Tablas de Referencia, + [Provincias](#provincias). |
+| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres | Ver Tablas de Referencia, [Provincias](#provincias). |
 | **PostalCode** | No | Código postal del domicilio del cliente | Alfanumérico de hasta 10 caracteres |   |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
@@ -202,7 +202,7 @@ Este tópico se completa siempre que se requiere informar el envío.  Se puede c
 | **ShippingCost** | No | Importe correspondiente al costo de envío. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;=0 |
 | **Street**** HouseNumber ****Floor**** Apartment ****City**   | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
 | **PostalCode** | No | Código postal de la dirección del cliente. | Alfanumérico de hasta 10 caracteres. |   |
-| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Ver Tablas de Referencia, + [Provincias](#provincias). |
+| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Ver Tablas de Referencia, [Provincias](#provincias). |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
 | **DeliversMonday** | No | Entrega lunes | Alfanumérico de hasta 1 caracteres | &quot;S&quot;/&quot;N&quot;Si se deja vacío toma como defecto el valor &quot;N&quot; |
@@ -225,7 +225,7 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **PaymentID** | Si | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones. | &gt;0 |
-| **PaymentMethod** | Si | Código de Forma de Pago. | Alfanumérico de hasta 3 caracteres. | Ver Tablas de Referencia, + [Formas de Pago](#fpago). |
+| **PaymentMethod** | Si | Código de Forma de Pago. | Alfanumérico de hasta 3 caracteres. | Ver Tablas de Referencia, [Formas de Pago](#fpago). |
 | **PaymentTotal** | Si | Total, del pago.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;0  |
 
 
