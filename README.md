@@ -158,7 +158,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **User** | Si | Usuario de la tienda. | Alfanumérico de hasta 200 caracteres |   |
 | **BussinessName** | No | Razón social del cliente a nombre de quién se emitirá la factura. | Alfanumérico de hasta 200 caracteres |   |
 | **FirstName y LastName** | No | Nombre y apellido del cliente. Los cuales se utilizarán para emitir la factura si mediante el C.U.I.L / C.U.I.T. / D.N.I. no se encontraron datos en la A.F.I.P. | Alfanumérico.  Ambos datos pueden ocupar hasta 200 caracteres.    |   |
-| **Street**** HouseNumber ****Floor**** Apartment ****City** | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
+| **Street, HouseNumber, Floor, Apartment, City** | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
 | **Email** | Si | Correo electrónico del cliente.   | Alfanumérico de hasta 255 caracteres | cliente@mail.com |
 | **Comments** | No | Comentarios realizados por el cliente. | Alfanumérico de hasta 280 caracteres |   |
 | **MobilePhoneNumber** | No | Número de celular del cliente. | Alfanumérico de hasta 30 caracteres |   |
@@ -202,7 +202,7 @@ Este tópico se completa siempre que se requiere informar el envío.  Se puede c
 | --- | --- | --- | --- | --- |
 | **ShippingID** | Si | Identificador del envío. Debe ser distinto para cada operación. | Numérico de tipo entero hasta 50 posiciones. | &gt;0 |
 | **ShippingCost** | No | Importe correspondiente al costo de envío. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;=0 |
-| **Street**** HouseNumber ****Floor**** Apartment ****City**   | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
+| **Street, HouseNumber, Floor, Apartment, City**   | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
 | **PostalCode** | No | Código postal de la dirección del cliente. | Alfanumérico de hasta 10 caracteres. |   |
 | **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Ver Tablas de Referencia, [Provincias](#provincias). |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
