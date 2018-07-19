@@ -38,7 +38,7 @@ Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa 
 
 • Ambiente de producción
 
-Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa de nube con una empresa operativa de Tango Gestión.
+Para configurar el ambiente de producción desde Tango Sync debe asociar una empresa de nube con una empresa operativa de Tango Gestión.
 
 
 <a name="asociarapi"></a>
