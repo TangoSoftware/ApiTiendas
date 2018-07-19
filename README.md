@@ -144,7 +144,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **CustomerId** | Si | Identificador del cliente. | Numérico de tipo entero hasta 50 posiciones | &gt;0 |
-| **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Ver Tablas de Referencia, Tipo de Documento. |
+| **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Ver Tablas de Referencia, + [Tipo de Documento](#tipodoc). |
 | **DocumentNumber** | No | Número de documento sin símbolos ni puntuaciones. | Alfanumérico de hasta 20 caracteres |   |
 | **User** | Si | Usuario de la tienda. | Alfanumérico de hasta 200 caracteres |   |
 | **BussinessName** | No | Razón social del cliente a nombre de quién se emitirá la factura. | Alfanumérico de hasta 200 caracteres |   |
@@ -154,11 +154,11 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Comments** | No | Comentarios realizados por el cliente. | Alfanumérico de hasta 280 caracteres |   |
 | **MobilePhoneNumber** | No | Número de celular del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **BusinessAdress** | No | Dirección comercial del cliente. | Alfanumérico de hasta 255 caracteres |   |
-| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres | Ver Tablas de Referencia, Provincias. |
+| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres | Ver Tablas de Referencia, + [Provincias](#provincias). |
 | **PostalCode** | No | Código postal del domicilio del cliente | Alfanumérico de hasta 10 caracteres |   |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 30 caracteres |   |
-| **IvaCategoryCode** | Si | Código de Categoría de I.V.A. del cliente | Alfanumérico de hasta 3 caracteres | Ver Tablas de Referencia, Condición Fiscal. |
+| **IvaCategoryCode** | Si | Código de Categoría de I.V.A. del cliente | Alfanumérico de hasta 3 caracteres | Ver Tablas de Referencia, + [Condición Fiscal](#cfiscal). |
 
 
 
@@ -195,7 +195,7 @@ Este tópico se completa siempre que se requiere informar el envío.  Se puede c
 | **ShippingCost** | No | Importe correspondiente al costo de envío. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;=0 |
 | **Street**** HouseNumber ****Floor**** Apartment ****City**   | No | Dirección del cliente. | Alfanumérico de hasta 200 caracteres |   |
 | **PostalCode** | No | Código postal de la dirección del cliente. | Alfanumérico de hasta 10 caracteres. |   |
-| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Ver Tablas de Referencia, Provincias. |
+| **ProvinceCode** | Si | Código A.F.I.P. con la cual se identifica la provincia del cliente. | Alfanumérico de hasta 4 caracteres. | Ver Tablas de Referencia, + [Provincias](#provincias). |
 | **PhoneNumber1** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
 | **PhoneNumber2** | No | Número de teléfono del cliente. | Alfanumérico de hasta 100 caracteres |   |
 | **DeliversMonday** | No | Entrega lunes | Alfanumérico de hasta 1 caracteres | &quot;S&quot;/&quot;N&quot;Si se deja vacío toma como defecto el valor &quot;N&quot; |
@@ -218,7 +218,7 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **PaymentID** | Si | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones. | &gt;0 |
-| **PaymentMethod** | Si | Código de Forma de Pago. | Alfanumérico de hasta 3 caracteres. | Ver Tablas de Referencia, Formas de Pago. |
+| **PaymentMethod** | Si | Código de Forma de Pago. | Alfanumérico de hasta 3 caracteres. | Ver Tablas de Referencia, + [Formas de Pago](#fpago). |
 | **PaymentTotal** | Si | Total, del pago.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales. | &gt;0  |
 
 
@@ -246,9 +246,10 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | **CardPromotionCode** | No | Código de promoción de la tarjeta de crédito. | Alfanumérico de hasta 10 caracteres | Código de promoción de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Promociones. |
 
 <a name="tablas"></a>
-#### Tablas de Referencia
+### Tablas de Referencia
 
-**Tipo de Documento**
+<a name="tipodoc"></a>
+#### Tipo de Documento
 
 | **Código** | **Descripción** |
 | --- | --- |
@@ -260,8 +261,8 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | 96 | D.N.I. |
 
 
-
-**Provincias**
+<a name="provincias"></a>
+#### Provincias
 
 | **Código** | **Descripción** |
 | --- | --- |
@@ -291,8 +292,8 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | 24 | TIERRA DEL FUEGO |
 
 
-
-**Condición Fiscal**
+<a name="cfiscal"></a>
+#### Condición Fiscal
 
 | **Código** | **Descripción** |
 | --- | --- |
@@ -303,8 +304,8 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 | RS | RESPONSABLE MONOTRIBUTISTA |
 
 
-
-**Formas de Pago**
+<a name="fpago"></a>
+#### Formas de Pago
 
 | **Código** | **Descripción** |
 | --- | --- |
