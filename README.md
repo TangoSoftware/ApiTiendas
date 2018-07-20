@@ -85,7 +85,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 {
 
-  &quot;Topic&quot;: &quot; OrderProcessed&quot;,
+  &quot;Topic&quot;: &quot;OrderProcessed&quot;,
 
   &quot;Resource&quot;: &quot;1&quot;
 
@@ -191,56 +191,56 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 <a name="Ejemplo"></a>
 Ejemplo de una publicación de artículos con escalas:
 
-  "OrderItems": 
+ 
+  &quot;OrderItems&quot;: 
   \[
     {
-      "ProductCode": "010040",
-      "SKUCode": "010040001RBL",
-      "VariantCode": "BL",
-      "Description": "TV",
-      "VariantDescription": "TV BLANCO",
-      "Quantity": 1.0,
-      "UnitPrice": 500.0,
-      "DiscountPercentage": 0.0
+      &quot;ProductCode&quot;: &quot;010040&quot;,
+      &quot;SKUCode&quot;: &quot;010040001RBL&quot;,
+      &quot;VariantCode&quot;: &quot;BL&quot;,
+      &quot;Description&quot;: &quot;TV&quot;,
+      &quot;VariantDescription&quot;: &quot;TV BLANCO&quot;,
+      &quot;Quantity&quot;: 1.0,
+      &quot;UnitPrice&quot;: 500.0,
+      &quot;DiscountPercentage&quot;: 0.0
     },
     {
-      "ProductCode": "010040",
-      "SKUCode": "010040002NG",
-      "VariantCode": "NG",
-      "Description": "TV",
-      "VariantDescription": "TV NEGRO",
-      "Quantity": 1.0,
-      "UnitPrice": 1000.0,
-      "DiscountPercentage": 0.0
+      &quot;ProductCode&quot;: &quot;010040&quot;,
+      &quot;SKUCode&quot;: &quot;010040002NG&quot;,
+      &quot;VariantCode&quot;: &quot;NG&quot;,
+      &quot;Description&quot;: &quot;TV&quot;,
+      &quot;VariantDescription&quot;: &quot;TV NEGRO&quot;,
+      &quot;Quantity&quot;: 1.0,
+      &quot;UnitPrice&quot;: 1000.0,
+      &quot;DiscountPercentage&quot;: 0.0
     }
 \]
 
 Ejemplo de una publicación de artículos sin escalas:
 
-  "OrderItems": 
+  &quot;OrderItems&quot;: 
  \[
     {
-      "ProductCode": "1000",
-      "SKUCode": "0100100150",
-      "VariantCode": " ",
-      "Description": "TV",
-      "VariantDescription": " ",
-      "Quantity": 1.0,
-      "UnitPrice": 500.0,
-      "DiscountPercentage": 0.0
+      &quot;ProductCode&quot;: &quot;1000&quot;,
+      &quot;SKUCode&quot;: &quot;0100100150&quot;,
+      &quot;VariantCode&quot;: &quot; &quot;,
+      &quot;Description&quot;: &quot;TV&quot;,
+      &quot;VariantDescription&quot;: &quot; &quot;,
+      &quot;Quantity&quot;: 1.0,
+      &quot;UnitPrice&quot;: 500.0,
+      &quot;DiscountPercentage&quot;: 0.0
     },
     {
-      "ProductCode": "2000",
-      "SKUCode": "0100100150",
-      "VariantCode": " ",
-      "Description": "TV",
-      "VariantDescription": " ",
-      "Quantity": 1.0,
-      "UnitPrice": 1000.0,
-      "DiscountPercentage": 0.0
+      &quot;ProductCode&quot;: &quot;2000&quot;,
+      &quot;SKUCode&quot;: &quot;0100100150&quot;,
+      &quot;VariantCode&quot;: &quot; &quot;,
+      &quot;Description&quot;: &quot;TV&quot;,
+      &quot;VariantDescription&quot;: &quot; &quot;,
+      &quot;Quantity&quot;: 1.0,
+      &quot;UnitPrice&quot;: 1000.0,
+      &quot;DiscountPercentage&quot;: 0.0
     }
 \]
-
 
 
 **Tópico Shipping**
