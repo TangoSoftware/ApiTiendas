@@ -189,7 +189,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **DiscountPercentage** | No | Porcentaje de descuento aplicado al artículo. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0  |
 
 <a name="Ejemplo"></a>
-Ejemplo de una publicación de artículos con escalas:
+**Ejemplo de una publicación de artículos con escalas:**
 
  
   &quot;OrderItems&quot;: 
@@ -216,7 +216,7 @@ Ejemplo de una publicación de artículos con escalas:
     \}  
 \]  
 
-Ejemplo de una publicación de artículos sin escalas:
+**Ejemplo de una publicación de artículos sin escalas:**
 
   &quot;OrderItems&quot;: 
 \[  
