@@ -193,53 +193,53 @@ Ejemplo de una publicación de artículos con escalas:
 
  
   &quot;OrderItems&quot;: 
-  \[
-    {
-      &quot;ProductCode&quot;: &quot;010040&quot;,
-      &quot;SKUCode&quot;: &quot;010040001RBL&quot;,
-      &quot;VariantCode&quot;: &quot;BL&quot;,
-      &quot;Description&quot;: &quot;TV&quot;,
-      &quot;VariantDescription&quot;: &quot;TV BLANCO&quot;,
-      &quot;Quantity&quot;: 1.0,
-      &quot;UnitPrice&quot;: 500.0,
-      &quot;DiscountPercentage&quot;: 0.0
-    },
-    {
-      &quot;ProductCode&quot;: &quot;010040&quot;,
-      &quot;SKUCode&quot;: &quot;010040002NG&quot;,
-      &quot;VariantCode&quot;: &quot;NG&quot;,
-      &quot;Description&quot;: &quot;TV&quot;,
-      &quot;VariantDescription&quot;: &quot;TV NEGRO&quot;,
-      &quot;Quantity&quot;: 1.0,
-      &quot;UnitPrice&quot;: 1000.0,
-      &quot;DiscountPercentage&quot;: 0.0
-    }
-\]
+\[  
+   \{  
+      &quot;ProductCode&quot;: &quot;010040&quot;,  
+      &quot;SKUCode&quot;: &quot;010040001RBL&quot;,  
+      &quot;VariantCode&quot;: &quot;BL&quot;,  
+      &quot;Description&quot;: &quot;TV&quot;,  
+      &quot;VariantDescription&quot;: &quot;TV BLANCO&quot;,  
+      &quot;Quantity&quot;: 1.0,  
+      &quot;UnitPrice&quot;: 500.0,  
+      &quot;DiscountPercentage&quot;: 0.0  
+    \},  
+    \{  
+      &quot;ProductCode&quot;: &quot;010040&quot;,  
+      &quot;SKUCode&quot;: &quot;010040002NG&quot;,  
+      &quot;VariantCode&quot;: &quot;NG&quot;,  
+      &quot;Description&quot;: &quot;TV&quot;,  
+      &quot;VariantDescription&quot;: &quot;TV NEGRO&quot;,  
+      &quot;Quantity&quot;: 1.0,  
+      &quot;UnitPrice&quot;: 1000.0,  
+      &quot;DiscountPercentage&quot;: 0.0  
+    \}  
+\]  
 
 Ejemplo de una publicación de artículos sin escalas:
 
   &quot;OrderItems&quot;: 
- \[
-    {
-      &quot;ProductCode&quot;: &quot;1000&quot;,
-      &quot;SKUCode&quot;: &quot;0100100150&quot;,
-      &quot;VariantCode&quot;: &quot; &quot;,
-      &quot;Description&quot;: &quot;TV&quot;,
-      &quot;VariantDescription&quot;: &quot; &quot;,
-      &quot;Quantity&quot;: 1.0,
-      &quot;UnitPrice&quot;: 500.0,
-      &quot;DiscountPercentage&quot;: 0.0
-    },
-    {
-      &quot;ProductCode&quot;: &quot;2000&quot;,
-      &quot;SKUCode&quot;: &quot;0100100150&quot;,
-      &quot;VariantCode&quot;: &quot; &quot;,
-      &quot;Description&quot;: &quot;TV&quot;,
-      &quot;VariantDescription&quot;: &quot; &quot;,
-      &quot;Quantity&quot;: 1.0,
-      &quot;UnitPrice&quot;: 1000.0,
-      &quot;DiscountPercentage&quot;: 0.0
-    }
+\[  
+   \{  
+      &quot;ProductCode&quot;: &quot;1000&quot;,  
+      &quot;SKUCode&quot;: &quot;0100100150&quot;,  
+      &quot;VariantCode&quot;: &quot; &quot;,  
+      &quot;Description&quot;: &quot;TV&quot;,  
+      &quot;VariantDescription&quot;: &quot; &quot;,  
+      &quot;Quantity&quot;: 1.0,  
+      &quot;UnitPrice&quot;: 500.0,  
+      &quot;DiscountPercentage&quot;: 0.0  
+   \},  
+   \{  
+      &quot;ProductCode&quot;: &quot;2000&quot;,  
+      &quot;SKUCode&quot;: &quot;0100100150&quot;,  
+      &quot;VariantCode&quot;: &quot; &quot;,  
+      &quot;Description&quot;: &quot;TV&quot;,  
+      &quot;VariantDescription&quot;: &quot; &quot;,  
+      &quot;Quantity&quot;: 1.0,  
+      &quot;UnitPrice&quot;: 1000.0,  
+      &quot;DiscountPercentage&quot;: 0.0  
+   \}  
 \]
 
 
