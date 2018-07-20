@@ -134,9 +134,9 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **Date** | Si | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual. | Datetime | DD/MM/YYYY |
-| **Total** | Si | Es el importe total de la orden. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0∑ [(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount  |
+| **Total** | Si | Es el importe total de la orden. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0 ∑[(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount  |
 | **TotalDiscount** | No | Importe de descuento total de la operación.  Sólo valido en pesos argentinos.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total |
-| **PaidTotal** | Solo si se informa el tópico Payments o CashPayment | Importe total pagado. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0∑ (Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal |
+| **PaidTotal** | Solo si se informa el tópico Payments o CashPayment | Importe total pagado. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0  ∑(Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal |
 | **FinancialSurcharge** | No | Importe del recargo financiero.  Sólo válido en pesos argentinos.  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;= 0 |
 | **OrderID** | Si | Identificador de la orden. Debe ser distinto para cada operación. | Alfanumérico de hasta 200 caracteres | &gt;0 |
 | **OrderNumber** | Si | Número de la orden.  Es el número con el cual podrá identificar la orden desde revisión de pedidos web | Alfanumérico de hasta 200 caracteres |   |
@@ -179,7 +179,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
-| **ProductCode** | Si | Código del artículo de la publicación. | Alfanumérico de hasta 200 caracteres | &lt;&gt;Vacío |
+| **ProductCode** | Si | Código del artículo de la publicación. | Alfanumérico de hasta 200 caracteres | &lt;&gt;Vacío. Debe ser único si la publicación no se trata de un artículo con escala.[Ejemplo](#Ejemplo) |
 | **SKUCode** | No | Código del artículo de Tango Gestión (se refiere al que se guarda en el campo  STA11.Cod\_Sta11 de las tablas de Tango Gestión)  | Alfanumérico de hasta 17 caracteres |   |
 | **VariantCode** | No | Código del artículo que representa una combinación. | Alfanumérico de hasta 200 caracteres |   |
 | **Description** | No | Descripción del artículo. | Alfanumérico de hasta 400 caracteres |   |
@@ -188,6 +188,54 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **UnitPrice** | Si | Precio unitario.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0  |
 | **DiscountPercentage** | No | Porcentaje de descuento aplicado al artículo. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0  |
 
+
+Ejemplo de una publicación de artículos con escalas
+
+  "OrderItems": [
+    {
+      "ProductCode": "010040",
+      "SKUCode": "010040001RBL",
+      "VariantCode": "BL",
+      "Description": "TV",
+      "VariantDescription": "TV BLANCO",
+      "Quantity": 1.0,
+      "UnitPrice": 500.0,
+      "DiscountPercentage": 0.0
+    },
+    {
+      "ProductCode": "010040",
+      "SKUCode": "010040002NG",
+      "VariantCode": "NG",
+      "Description": "TV",
+      "VariantDescription": "TV NEGRO",
+      "Quantity": 1.0,
+      "UnitPrice": 1000.0,
+      "DiscountPercentage": 0.0
+    }
+
+<a name="Ejemplo"></a>
+Ejemplo de una publicación de artículos sin escalas
+  "OrderItems": [
+    {
+      "ProductCode": "1000",
+      "SKUCode": "0100100150",
+      "VariantCode": " ",
+      "Description": "TV",
+      "VariantDescription": " ",
+      "Quantity": 1.0,
+      "UnitPrice": 500.0,
+      "DiscountPercentage": 0.0
+    },
+    {
+      "ProductCode": "2000",
+      "SKUCode": "0100100150",
+      "VariantCode": " ",
+      "Description": "TV",
+      "VariantDescription": " ",
+      "Quantity": 1.0,
+      "UnitPrice": 1000.0,
+      "DiscountPercentage": 0.0
+    }
 
 
 
@@ -220,7 +268,7 @@ Este tópico se completa siempre que se requiere informar el envío.  Se puede c
 
 **Tópico CashPayment**
 
-_Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
+_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura.
 
 
 
@@ -236,7 +284,7 @@ _Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
 
 **Tópico Payments**
 
-_Recuerde_: es obligatorio cargar un registro en Payments, CashPayment o ambos.
+_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura.
 
 
 
