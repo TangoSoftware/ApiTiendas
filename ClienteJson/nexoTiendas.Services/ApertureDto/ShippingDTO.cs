@@ -43,6 +43,7 @@ namespace nexoTiendas.ApertureDto
 
         public string City { get; set; }
 
+        [Required(AllowEmptyStrings = false)]
         public string ProvinceCode { get; set; }
 
         public string PostalCode { get; set; }
