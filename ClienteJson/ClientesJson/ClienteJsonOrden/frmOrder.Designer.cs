@@ -1301,7 +1301,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "frmOrder";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Tango Gestión - API";
+            this.Text = "Tango Gestión – Grabación de órdenes de venta usando Tango Tiendas API";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabResultado.ResumeLayout(false);
             this.tabResultado.PerformLayout();
