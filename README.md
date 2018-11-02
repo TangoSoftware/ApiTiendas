@@ -9,7 +9,7 @@ Tango Software - API Tiendas
     + [Asociar aplicación con API](#asociarapi)
     + [Datos del Json](#djson)
       + [Tablas de Referencia](#tablas)
-
+      + [Ejemplo de json de una órden](#ejemplojson)
 
 
 <a name="instalacion"></a>
@@ -58,7 +58,7 @@ Al presionar el botón &quot;Aceptar&quot; se generará un Access token con el c
 
 A partir de ese momento ya puede comenzar a utilizar la **API** en  **nexo Tiendas**  y manejar sus ventas desde  **Tango Gestión**.
 
-La URL del servicio de API para verificación es:  
+**La URL del servicio de API para verificación es:**  
 
 [https://tiendas.axoft.com/api/v2/Aperture/dummy](https://tiendas.axoft.com/api/v2/Aperture/dummy)  
 
@@ -73,7 +73,7 @@ En caso de que el acceso se invalido:
 {"Status":1,"Message":"Invalid AccessToken ","Data":null,"isOk":false}  
 ~~~
 
-La URL del servicio de API para órdenes es:
+**La URL del servicio de API para órdenes es:**
 
 [https://tiendas.axoft.com/api/v2/Aperture/order](https://tiendas.axoft.com/api/v2/Aperture/order)
 
@@ -403,7 +403,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 
 
 
-<a name="tablas"></a>
+<a name="ejemplojson"></a>
 ### Ejemplo de json de una órden
 [<sub>Volver</sub>](#inicio)
 
