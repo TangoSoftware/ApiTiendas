@@ -205,57 +205,57 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 <a name="Ejemplo"></a>
 **Ejemplo de una publicación de artículos con escalas:**
 
- 
-  &quot;OrderItems&quot;: 
-\[  
-   \{  
-      &quot;ProductCode&quot;: &quot;010040&quot;,  
-      &quot;SKUCode&quot;: &quot;010040001RBL&quot;,  
-      &quot;VariantCode&quot;: &quot;BL&quot;,  
-      &quot;Description&quot;: &quot;TV&quot;,  
-      &quot;VariantDescription&quot;: &quot;TV BLANCO&quot;,  
-      &quot;Quantity&quot;: 1.0,  
-      &quot;UnitPrice&quot;: 500.0,  
-      &quot;DiscountPercentage&quot;: 0.0  
-    \},  
-    \{  
-      &quot;ProductCode&quot;: &quot;010040&quot;,  
-      &quot;SKUCode&quot;: &quot;010040002NG&quot;,  
-      &quot;VariantCode&quot;: &quot;NG&quot;,  
-      &quot;Description&quot;: &quot;TV&quot;,  
-      &quot;VariantDescription&quot;: &quot;TV NEGRO&quot;,  
-      &quot;Quantity&quot;: 1.0,  
-      &quot;UnitPrice&quot;: 1000.0,  
-      &quot;DiscountPercentage&quot;: 0.0  
-    \}  
-\]  
-
+~~~  
+"OrderItems": 
+[  
+   {  
+      "ProductCode": "010040",  
+      "SKUCode": "010040001RBL",  
+      "VariantCode": "BL",  
+      "Description": "TV",  
+      "VariantDescription": "TV BLANCO",  
+      "Quantity": 1.0,  
+      "UnitPrice": 500.0,  
+      "DiscountPercentage": 0.0  
+    },  
+    {  
+      "ProductCode": "010040",  
+      "SKUCode": "010040002NG",  
+      "VariantCode": "NG",  
+      "Description": "TV",  
+      "VariantDescription": "TV NEGRO",  
+      "Quantity": 1.0,  
+      "UnitPrice": 1000.0,  
+      "DiscountPercentage": 0.0  
+    }  
+] 
+~~~  
 **Ejemplo de una publicación de artículos sin escalas:**
-
-  &quot;OrderItems&quot;: 
-\[  
-   \{  
-      &quot;ProductCode&quot;: &quot;1000&quot;,  
-      &quot;SKUCode&quot;: &quot;0100100150&quot;,  
-      &quot;VariantCode&quot;: &quot; &quot;,  
-      &quot;Description&quot;: &quot;TV&quot;,  
-      &quot;VariantDescription&quot;: &quot; &quot;,  
-      &quot;Quantity&quot;: 1.0,  
-      &quot;UnitPrice&quot;: 500.0,  
-      &quot;DiscountPercentage&quot;: 0.0  
-   \},  
-   \{  
-      &quot;ProductCode&quot;: &quot;2000&quot;,  
-      &quot;SKUCode&quot;: &quot;0100100150&quot;,  
-      &quot;VariantCode&quot;: &quot; &quot;,  
-      &quot;Description&quot;: &quot;TV&quot;,  
-      &quot;VariantDescription&quot;: &quot; &quot;,  
-      &quot;Quantity&quot;: 1.0,  
-      &quot;UnitPrice&quot;: 1000.0,  
-      &quot;DiscountPercentage&quot;: 0.0  
-   \}  
-\]
-
+~~~  
+"OrderItems": 
+[  
+   {  
+      "ProductCode": "1000",  
+      "SKUCode": "0100100150",  
+      "VariantCode": " ",  
+      "Description": "TV",  
+      "VariantDescription": " ",  
+      "Quantity": 1.0,  
+      "UnitPrice": 500.0,  
+      "DiscountPercentage": 0.0  
+   },  
+   {  
+      "ProductCode": "2000",  
+      "SKUCode": "0100100150",  
+      "VariantCode": " ",  
+      "Description": "TV",  
+      "VariantDescription": " ",  
+      "Quantity": 1.0,  
+      "UnitPrice": 1000.0,  
+      "DiscountPercentage": 0.0  
+   }  
+]
+~~~  
 
 **Tópico Shipping**
 
@@ -398,3 +398,121 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 | PPA | PayPal Argentina |
 | PUA | PayU Argentina |
 | TPA | Todo Pago Argentina |
+
+
+
+<a name="tablas"></a>
+### Ejemplo de json de una órden
+[<sub>Volver</sub>](#inicio)
+
+~~~   
+{
+  "Date": "2018-07-23T10:03:25",
+  "Total": 8523.0,
+  "TotalDiscount": 77.0,
+  "PaidTotal": 8523.0,
+  "FinancialSurcharge": 200.0,
+  "OrderID": "75906",
+  "OrderNumber": "75906",
+  "Customer": {
+    "CustomerID": 227060905,
+    "DocumentType": "80",
+    "DocumentNumber": "11-11111111-1",
+    "IVACategoryCode": "CF",
+    "User": "ADMIN",
+    "Email": "api@axoft.com",
+    "FirstName": "Carlos",
+    "LastName": "Perez",
+    "BusinessName": "Empresa",
+    "Street": "Cerrrito",
+    "HouseNumber": "1186",
+    "Floor": "2",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "12459856",
+    "PhoneNumber2": "42563698",
+    "MobilePhoneNumber": "165952141",
+    "BusinessAddress": "Cerrito 1186",
+    "Comments": "Comentario"
+  },
+  "CancelOrder": false,
+  "OrderItems": [
+    {
+      "ProductCode": "203",
+      "SKUCode": "0100200659",
+      "VariantCode": null,
+      "Description": "LAVARROPAS AUTOM. MOD.BLUE ",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 7700.0,
+      "DiscountPercentage": 1.0
+    },
+    {
+      "ProductCode": "104",
+      "SKUCode": "0100100269",
+      "VariantCode": null,
+      "Description": "CÁMARA DIGITAL 4X MARCA TCL",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 300.0,
+      "DiscountPercentage": 0.0
+    }
+  ],
+  "Shipping": {
+    "ShippingID": 71906,
+    "Street": "9 de Julio",
+    "HouseNumber": "1186",
+    "Floor": "1",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "125165151",
+    "PhoneNumber2": "12345678",
+    "ShippingCost": 400.0,
+    "DeliversMonday": "S",
+    "DeliversTuesday": "S",
+    "DeliversWednesday": "S",
+    "DeliversThursday": "S",
+    "DeliversFriday": "S",
+    "DeliversSaturday": "S",
+    "DeliversSunday": "S",
+    "DeliveryHours": "8"
+  },
+  "CashPayment": {
+    "PaymentID": 38566912,
+    "PaymentMethod": "A02",
+    "PaymentTotal": 123.0
+  },
+  "Payments": [
+    {
+      "PaymentId": 38566913,
+      "TransactionDate": "2018-07-24T10:03:00",
+      "AuthorizationCode": "52",
+      "TransactionNumber": "998595",
+      "Installments": 1,
+      "InstallmentAmount": 8100.0,
+      "Total": 8100.0,
+      "CardCode": "DI",
+      "CardPlanCode": "1",
+      "VoucherNo": 48,
+      "CardPromotionCode": "2"
+    },
+    {
+      "PaymentId": 38566914,
+      "TransactionDate": "2018-07-25T10:03:00",
+      "AuthorizationCode": "53",
+      "TransactionNumber": "5849849",
+      "Installments": 2,
+      "InstallmentAmount": 150.0,
+      "Total": 300.0,
+      "CardCode": "DI",
+      "CardPlanCode": "2",
+      "VoucherNo": 49,
+      "CardPromotionCode": "1"
+    }
+  ]
+}
+~~~ 
