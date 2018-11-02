@@ -64,12 +64,14 @@ La URL del servicio de API para verificación es:
 
 **Formato de respuestas del metodo Dummy:**  
 
-En caso de que el acceso se valido:  
-{&quot;Status&quot;:0,&quot;Message&quot;:&quot;Valid AccessToken&quot;,&quot;Data&quot;:null,&quot;isOk&quot;:true}  
-
+En caso de que el acceso se valido: 
+~~~
+{"Status":0,"Message":"Valid AccessToken","Data":null,"isOk":true}  
+~~~  
 En caso de que el acceso se invalido:  
-{&quot;Status&quot;:1,&quot;Message":&quot;Invalid AccessToken &quot;,&quot;Data&quot;:null,&quot;isOk&quot;:false}  
-
+~~~
+{"Status":1,"Message":"Invalid AccessToken ","Data":null,"isOk":false}  
+~~~
 
 La URL del servicio de API para órdenes es:
 
@@ -96,15 +98,15 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 • Al facturar el pedido generado. (Se enviará el Tópico: OrderBilled)
 
 **Formato de json de notificación:**
-
+~~~  
 {
 
-  &quot;Topic&quot;: &quot;OrderProcessed&quot;,
+  "Topic": "OrderProcessed",
 
-  &quot;Resource&quot;: &quot;1&quot;
+  "Resource": "1"
 
 }
-
+~~~  
 
 <a name="faqs"></a>
 #### Preguntas Frecuentes
