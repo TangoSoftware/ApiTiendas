@@ -58,13 +58,20 @@ Al presionar el botón &quot;Aceptar&quot; se generará un Access token con el c
 
 A partir de ese momento ya puede comenzar a utilizar la **API** en  **nexo Tiendas**  y manejar sus ventas desde  **Tango Gestión**.
 
-La URL del servicio de API de verificación es:
+La URL del servicio de API para verificación es:  
 
-[https://tiendas.axoft.com/api/v2/Aperture/dummy](https://tiendas.axoft.com/api/v2/Aperture/dummy)
+[https://tiendas.axoft.com/api/v2/Aperture/dummy](https://tiendas.axoft.com/api/v2/Aperture/dummy)  
+
+**Formato de respuestas del metodo Dummy:**  
+
+En caso de que el acceso se valido:  
+{&quot;Status&quot;:0,&quot;Message&quot;:&quot;Valid AccessToken&quot;,&quot;Data&quot;:null,&quot;isOk&quot;:true}  
+
+En caso de que el acceso se invalido:  
+{&quot;Status&quot;:1,&quot;Message":&quot;Invalid AccessToken &quot;,&quot;Data&quot;:null,&quot;isOk&quot;:false}  
 
 
-
-La URL del servicio de API de órdenes es:
+La URL del servicio de API para órdenes es:
 
 [https://tiendas.axoft.com/api/v2/Aperture/order](https://tiendas.axoft.com/api/v2/Aperture/order)
 
