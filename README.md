@@ -287,7 +287,7 @@ Este tópico se completa siempre que se requiere informar el envío.  Se puede c
 
 **Tópico CashPayment**
 
-_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura.
+_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía el tópico CashPayment y ahora no, se procederá a cancelar el pago anterior.
 
 
 
@@ -303,7 +303,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 
 **Tópico Payments**
 
-_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura.
+_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía un pago que ahora no, se procederá a cancelar el pago anterior no enviado en la modificación.
 
 
 
