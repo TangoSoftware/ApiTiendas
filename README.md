@@ -64,11 +64,11 @@ A partir de ese momento ya puede comenzar a utilizar la **API** en  **nexo Tiend
 
 **Formato de respuestas del metodo Dummy:**  
 
-En caso de que el acceso se valido: 
+En caso de que el acceso sea válido: 
 ~~~
 {"Status":0,"Message":"Valid AccessToken","Data":null,"isOk":true}  
 ~~~  
-En caso de que el acceso se invalido:  
+En caso de que el acceso sea inválido:  
 ~~~
 {"Status":1,"Message":"Invalid AccessToken ","Data":null,"isOk":false}  
 ~~~
