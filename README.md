@@ -13,9 +13,9 @@ Tango Software - API Tiendas
      + [Tablas de Referencia](#tablas)
      + [Ejemplo de json de una órden](#ejemplojson)
  + [Consulta de datos](#subida)
-	 + [Configurcación](#configuracion)
-	 + [Conceptos básicos](#ConceptosBasicos)
-	 + [Recursos de consulta](#recursos)
+     + [Configurcación](#configuracion)
+     + [Conceptos básicos](#ConceptosBasicos) 
+     + [Recursos de consulta](#recursos)
 
 <a name="instalacion"></a>
 ## Instalación
@@ -776,10 +776,10 @@ Respuesta
 Permite obtener datos de artículos, con su composición y comentarios.
 
 Solo se mostrarán artículos que en **Tango Gestión** cumplan:
-+ Perfil de Venta, Compra-Venta o Inhabilitado.
-+ Tipo Simple, Fórmula, o Kit fijo.
-+ No sean artículos Base.
-+ No posean doble unidad de medida.
+ + Perfil de Venta, Compra-Venta o Inhabilitado.
+ + Tipo Simple, Fórmula, o Kit fijo.
+ + No sean artículos Base.
+ + No posean doble unidad de medida.
 
 | **Recurso** |
 | --- |
@@ -1231,13 +1231,13 @@ Respuesta
 Permite obtener datos de precios.
 
 Solo se mostrarán precios de:
-+ Artículos que en **Tango Gestión** cumplan:
- + Perfil de Venta, Compra-Venta o Inhabilitado.
- + Tipo Simple, Fórmula, o Kit fijo.
- + No sean artículos Base.
- + No posean doble unidad de medida.
- + No estén inhabilitados.
-+ Listas de precios que en **Tango Gestión** no estén inhabilitadas.
+ + Artículos que en **Tango Gestión** cumplan:
+     + Perfil de Venta, Compra-Venta o Inhabilitado.
+     + Tipo Simple, Fórmula, o Kit fijo.
+     + No sean artículos Base.
+     + No posean doble unidad de medida.
+     + No estén inhabilitados.
+ + Listas de precios que en **Tango Gestión** no estén inhabilitadas.
 
 | **Recurso** |
 | --- |
@@ -1339,14 +1339,14 @@ Respuesta
 Permite obtener datos de precios por cliente.
 
 Solo se mostrarán precios por cliente de:
-+ Artículos que en **Tango Gestión** cumplan:
- + Perfil de Venta, Compra-Venta o Inhabilitado.
- + Tipo Simple, Fórmula, o Kit fijo.
- + No sean artículos Base.
- + No posean doble unidad de medida.
- + No estén inhabilitados.
-+ Listas de precios que en **Tango Gestión** no estén inhabilitadas.
-+ Clientes que en **Tango Gestión** no estén inhabilitados.
+ + Artículos que en **Tango Gestión** cumplan:
+     + Perfil de Venta, Compra-Venta o Inhabilitado.
+     + Tipo Simple, Fórmula, o Kit fijo.
+     + No sean artículos Base.
+     + No posean doble unidad de medida.
+     + No estén inhabilitados.
+ + Listas de precios que en **Tango Gestión** no estén inhabilitadas.
+ + Clientes que en **Tango Gestión** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
@@ -1409,13 +1409,13 @@ Respuesta
 Permite obtener datos de descuentos por cliente.
 
 Solo se mostrarán descuentos por cliente de:
-+ Artículos que en **Tango Gestión** cumplan:
- + Perfil de Venta, Compra-Venta o Inhabilitado.
- + Tipo Simple, Fórmula, o Kit fijo.
- + No sean artículos Base.
- + No posean doble unidad de medida.
- + No estén inhabilitados.
-+ Clientes que en **Tango Gestión** no estén inhabilitados.
+ + Artículos que en **Tango Gestión** cumplan:
+     + Perfil de Venta, Compra-Venta o Inhabilitado.
+     + Tipo Simple, Fórmula, o Kit fijo.
+     + No sean artículos Base.
+     + No posean doble unidad de medida.
+     + No estén inhabilitados.
+ + Clientes que en **Tango Gestión** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
@@ -1498,13 +1498,13 @@ Permite obtener datos de saldos de stock detallados por sucursal, depósito y ar
 En el campo **Quantity** se muestra el stock disponible el cual se calcula de la siguiente manera:  cantidad en stock físico más la cantidad pendiente de recepción, menos la cantidad comprometida.
 
 Solo se mostrarán saldos de stock de:
-+ Artículos que en **Tango Gestión** cumplan:
- + Perfil de Venta, Compra-Venta o Inhabilitado.
- + Tipo Simple, Fórmula, o Kit fijo.
- + No sean artículos Base.
- + No posean doble unidad de medida.
- + No estén inhabilitados.
-+ Depósitos que en **Tango Gestión** no estén inhabilitados.
+ + Artículos que en **Tango Gestión** cumplan:
+     + Perfil de Venta, Compra-Venta o Inhabilitado.
+     + Tipo Simple, Fórmula, o Kit fijo.
+     + No sean artículos Base.
+     + No posean doble unidad de medida.
+     + No estén inhabilitados.
+ + Depósitos que en **Tango Gestión** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
