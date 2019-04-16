@@ -4,7 +4,7 @@ Tango Software - API Tiendas
 
 
  + [Instalación](#instalacion)
-    + [Versiones soportadas de Tango Gestión](#versiones)
+    + [Versiones soportadas de Tango Tiendas](#versiones)
     + [Generalidades](#generalidades)
     + [Ambientes](#ambientes)
     + [Asociar aplicación con API](#asociarapi)
@@ -21,17 +21,17 @@ Tango Software - API Tiendas
 ## Instalación
 
 <a name="versiones"></a>
-### Versiones soportadas de Tango Gestión
+### Versiones soportadas de Tango Tiendas
 
 ##### Recepción de órdenes API
-La versión requerida de ventas para implementar Tango Gestión API es: 18.01.000.3500 (o superior).  
-Es necesario contar con el producto Ventas Gestión y el módulo de tesorería activado.  
-Es necesario contar con la aplicación **nexo Tiendas** activada.  
+La versión requerida de ventas para implementar Tango Tiendas API es: 18.01.000.3500 (o superior).  
+Es necesario contar con el producto Ventas Gestión o Ventas Punto de venta y el módulo de tesorería activado.  
+Es necesario contar con la aplicación **Tango Tiendas** activada.  
 
 ##### Consulta de datos
 Los datos comienzan a estar disponibles cuando se cumplen las siguientes condiciones:  
-La versión requerida de ventas para implementar Tango Gestión API es: 19.01.000.605 (o superior).  
-Es necesario que la licencia de **Tango Gestión** tenga la aplicación **nexo Tiendas Full** activada. 
+La versión requerida de ventas para implementar Tango Tiendas API es: 19.01.000.605 (o superior).  
+Es necesario que la licencia de **Tango Gestión o Tango Punto de Venta** tenga la aplicación **Tango Tiendas Full** activada. 
 
 <a name="generalidades"></a>
 #### Generalidades
@@ -49,28 +49,28 @@ Aceptando hasta 2 decimales en los datos de importes y precios.
 
 • Ambiente de testeo
 
-Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa de nube con una empresa ejemplo de Tango Gestión.
+Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa de nube con una empresa ejemplo de Tango Gestión o Tango Punto de Venta.
 
 • Ambiente de producción
 
-Para configurar el ambiente de producción desde Tango Sync debe asociar una empresa de nube con una empresa operativa de Tango Gestión.
+Para configurar el ambiente de producción desde Tango Sync debe asociar una empresa de nube con una empresa operativa de Tango Gestión o Tango Punto de Venta.
 
 
 <a name="asociarapi"></a>
 ### Asociar aplicación con API
 [<sub>Volver</sub>](#inicio)
 
-Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión, acceda a nexo Tiendas / API para obtener el un Access Token que le permitirá enviar órdenes de pedido a Tango Gestión.
+Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión o Tango Punto de Venta, acceda a Tango Tiendas / API para obtener el un Access Token que le permitirá enviar órdenes de pedido a Tango.
 
-A continuación, explicamos la configuración a aplicar desde nexo Tiendas, para cargar órdenes de pedido a través de una interfaz API.
+A continuación, explicamos la configuración a aplicar desde Tango Tiendas, para cargar órdenes de pedido a través de una interfaz API.
 
 Presione el botón &quot;Obtener&quot; e introduzca un nombre de referencia para la **API**.
 
-Al presionar el botón &quot;Aceptar&quot; se generará un Access token con el cual se podrá conectar la **API** con **nexo Tiendas**.
+Al presionar el botón &quot;Aceptar&quot; se generará un Access token con el cual se podrá conectar la **API** con **Tango Tiendas**.
 
 ![imagenapi](https://github.com/TangoSoftware/ApiTiendas/blob/master/api.jpg)
 
-A partir de ese momento ya puede comenzar a utilizar la **API** en  **nexo Tiendas**  y manejar sus ventas desde  **Tango Gestión**.
+A partir de ese momento ya puede comenzar a utilizar la **API** en  **Tango Tiendas**  y manejar sus ventas desde  **Tango Gestión o Tango Punto de venta**.
 
 El Access token obtenido se debe utilizar en el header de la llamada en la key "accesstoken".
 
@@ -136,7 +136,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 - **¿Cómo debo armar el JSON para cargar una orden a través de la API?**
 
-En la solapa API en nexo Tiendas se muestra un Ejemplo del JSON. Además, se puede ver un Modelo, Respuesta, Notificación y Respuesta notificación.Datos del Json.
+En la solapa API en Tango Tiendas se muestra un Ejemplo del JSON. Además, se puede ver un Modelo, Respuesta, Notificación y Respuesta notificación.Datos del Json.
 
 
 - **¿El Access token se genera una sola vez?**
@@ -558,7 +558,7 @@ La consulta de datos se basa en una serie de servicios que permiten consultar da
 ### Configuración
 [<sub>Volver</sub>](#inicio)
 
-Previo a comenzar a utilizar los servicios de consulta debe verificar la configuración general de **nexo Tiendas**. Allí debe indicar mediante la configuración "Centraliza stock de varias sucursales", si los saldos de stock se tomarán desde central o desde la sucursal de la empresa asociada.
+Previo a comenzar a utilizar los servicios de consulta debe verificar la configuración general de **Tango Tiendas**. Allí debe indicar mediante la configuración "Centraliza stock de varias sucursales", si los saldos de stock se tomarán desde central o desde la sucursal de la empresa asociada.
 
 Se debe tener en cuenta que los artículos se obtienen siempre de la sucursal asociada, por lo cual si se centralizan saldos de stock es necesario que todos los artículos de las diferentes sucursales hayan sido importados en la sucursal asociada.
 
