@@ -25,7 +25,7 @@ Tango Software - API Tiendas
 
 ##### Recepción de órdenes API
 La versión requerida de ventas para implementar Tango Tiendas API es: 18.01.000.3500 (o superior).  
-Es necesario contar con el producto Ventas Gestión o Ventas Punto de venta y el módulo de tesorería activado.  
+Es necesario contar con el producto Ventas Gestión o Ventas Punto de Venta y el módulo de tesorería activado.  
 Es necesario contar con la aplicación **Tango Tiendas** activada.  
 
 ##### Consulta de datos
@@ -70,7 +70,7 @@ Al presionar el botón &quot;Aceptar&quot; se generará un Access token con el c
 
 ![imagenapi](https://github.com/TangoSoftware/ApiTiendas/blob/master/api.jpg)
 
-A partir de ese momento ya puede comenzar a utilizar la **API** en  **Tango Tiendas**  y manejar sus ventas desde  **Tango Gestión o Tango Punto de venta**.
+A partir de ese momento ya puede comenzar a utilizar la **API** en  **Tango Tiendas**  y manejar sus ventas desde  **Tango Gestión o Tango Punto de Venta**.
 
 El Access token obtenido se debe utilizar en el header de la llamada en la key "accesstoken".
 
@@ -146,7 +146,7 @@ Se genera un Access token por cuenta. Si se elimina la cuenta, al crear una nuev
 
 - **¿Qué pasa si elimino el Access token?**
 
-Perderá el acceso para enviar órdenes de pedidos desde su API a Tango Gestión y estas tampoco serán recibidas en Revisión de pedidos web.
+Perderá el acceso para enviar órdenes de pedidos desde su API a Tango y estas tampoco serán recibidas en Revisión de pedidos de Tango Tiendas.
 
 
 - **¿A nombre de quién se emite la factura de venta?**
@@ -552,7 +552,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 ## Consulta de datos
 [<sub>Volver</sub>](#inicio)
 
-La consulta de datos se basa en una serie de servicios que permiten consultar datos obtenidos de **Tango Gestión** y devolviendo como resultado, la respuesta en formato json.
+La consulta de datos se basa en una serie de servicios que permiten consultar datos obtenidos de **Tango Gestión o Tango Punto de Venta** y devolviendo como resultado, la respuesta en formato json.
 
 <a name="configuracion"></a>
 ### Configuración
@@ -1233,13 +1233,13 @@ Respuesta
 Permite obtener datos de precios.
 
 Solo se mostrarán precios de:
- + Artículos que en **Tango Gestión** cumplan:
+ + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Listas de precios que en **Tango Gestión** no estén inhabilitadas.
+ + Listas de precios que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitadas.
 
 | **Recurso** |
 | --- |
@@ -1341,14 +1341,14 @@ Respuesta
 Permite obtener datos de precios por cliente.
 
 Solo se mostrarán precios por cliente de:
- + Artículos que en **Tango Gestión** cumplan:
+ + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Listas de precios que en **Tango Gestión** no estén inhabilitadas.
- + Clientes que en **Tango Gestión** no estén inhabilitados.
+ + Listas de precios que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitadas.
+ + Clientes que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
@@ -1411,13 +1411,13 @@ Respuesta
 Permite obtener datos de descuentos por cliente.
 
 Solo se mostrarán descuentos por cliente de:
- + Artículos que en **Tango Gestión** cumplan:
+ + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Clientes que en **Tango Gestión** no estén inhabilitados.
+ + Clientes que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
@@ -1500,13 +1500,13 @@ Permite obtener datos de saldos de stock detallados por sucursal, depósito y ar
 En el campo **Quantity** se muestra el stock disponible el cual se calcula de la siguiente manera:  cantidad en stock físico más la cantidad pendiente de recepción, menos la cantidad comprometida.
 
 Solo se mostrarán saldos de stock de:
- + Artículos que en **Tango Gestión** cumplan:
+ + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Depósitos que en **Tango Gestión** no estén inhabilitados.
+ + Depósitos que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
