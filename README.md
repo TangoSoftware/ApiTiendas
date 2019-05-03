@@ -112,7 +112,7 @@ Si desea recibir notificaciones, en la configuración de la **API** debe marcar 
 
 Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
-• Al generar el pedido de una orden de pedido web. (Se enviará el Tópico: OrderProcessed)
+• Al generar el pedido de una orden de pedido Tango Tiendas. (Se enviará el Tópico: OrderProcessed)
 
 • Al rechazar una orden de pedido. (Se enviará el Tópico: OrderRejected)
 
@@ -171,7 +171,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
 | **OrderID** | Si | Identificador de la orden. Debe ser distinto para cada operación. | Alfanumérico de hasta 200 caracteres | &gt;0 |
-| **OrderNumber** | Si | Número de la orden.  Es el número con el cual podrá identificar la orden desde revisión de pedidos web | Alfanumérico de hasta 200 caracteres |   |
+| **OrderNumber** | Si | Número de la orden.  Es el número con el cual podrá identificar la orden desde revisión de pedidos de Tango Tiendas | Alfanumérico de hasta 200 caracteres |   |
 | **Date** | Si | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual. | Datetime | DD/MM/YYYY hh:mm:ss |
 | **Total** | Si | Es el importe total de la orden. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0 ∑[(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount  |
 | **TotalDiscount** | No | Importe de descuento total de la operación.  Sólo valido en pesos argentinos.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total |
@@ -1233,13 +1233,13 @@ Respuesta
 Permite obtener datos de precios.
 
 Solo se mostrarán precios de:
- + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
+ + Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Listas de precios que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitadas.
+ + Listas de precios que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitadas.
 
 | **Recurso** |
 | --- |
@@ -1341,14 +1341,14 @@ Respuesta
 Permite obtener datos de precios por cliente.
 
 Solo se mostrarán precios por cliente de:
- + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
+ + Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Listas de precios que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitadas.
- + Clientes que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitados.
+ + Listas de precios que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitadas.
+ + Clientes que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
@@ -1411,13 +1411,13 @@ Respuesta
 Permite obtener datos de descuentos por cliente.
 
 Solo se mostrarán descuentos por cliente de:
- + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
+ + Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Clientes que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitados.
+ + Clientes que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
@@ -1500,13 +1500,13 @@ Permite obtener datos de saldos de stock detallados por sucursal, depósito y ar
 En el campo **Quantity** se muestra el stock disponible el cual se calcula de la siguiente manera:  cantidad en stock físico más la cantidad pendiente de recepción, menos la cantidad comprometida.
 
 Solo se mostrarán saldos de stock de:
- + Artículos que en **Tango Gestión o Tango Punto de Venta** cumplan:
+ + Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
      + Perfil de Venta, Compra-Venta o Inhabilitado.
      + Tipo Simple, Fórmula, o Kit fijo.
      + No sean artículos Base.
      + No posean doble unidad de medida.
      + No estén inhabilitados.
- + Depósitos que en **Tango Gestión o Tango Punto de Venta** no estén inhabilitados.
+ + Depósitos que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
 | **Recurso** |
 | --- |
