@@ -25,13 +25,13 @@ Tango Software - API Tango Tiendas
 
 ##### Recepción de órdenes API
 La versión requerida de ventas para implementar Tango Tiendas API es: 18.01.000.3500 (o superior).  
-Es necesario contar con el producto Ventas Gestión o Ventas Punto de Venta y el módulo de tesorería activado.  
+Es necesario contar con el producto Tango Gestión y Tango Punto de Venta Argentina y el módulo de tesorería activado.  
 Es necesario contar con la aplicación **Tango Tiendas** activada.  
 
 ##### Consulta de datos
 Los datos comienzan a estar disponibles cuando se cumplen las siguientes condiciones:  
 La versión requerida de ventas para implementar Tango Tiendas API es: 19.01.000.605 (o superior).  
-Es necesario que la licencia de **Tango Gestión o Tango Punto de Venta** tenga la aplicación **Tango Tiendas Full** activada. 
+Es necesario que la licencia de **Tango Gestión y Tango Punto de Venta Argentina** tenga la aplicación **Tango Tiendas Full** activada. 
 
 <a name="generalidades"></a>
 #### Generalidades
