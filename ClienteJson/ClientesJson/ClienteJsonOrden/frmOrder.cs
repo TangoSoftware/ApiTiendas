@@ -41,6 +41,11 @@ namespace ClienteJsonOrden
             var sourcePayments = new BindingSource(bindingListPayments, null);
             dataGridPayments.DataSource = sourcePayments;
             dataGridPayments.DataError += new DataGridViewDataErrorEventHandler(handle_DataError);
+
+            URL.Text = "https://ttiendas.axoft.com/api/v2/Aperture/order";
+
+            //URL.Text = "http://localhost/NexoTiendas/api/v2/Aperture/Order";
+            //AccessToken.Text = "044f5ff5-74e6-43bf-9e9b-9788214b08b1_10778";
         }
 
         /// <summary>
@@ -56,7 +61,10 @@ namespace ClienteJsonOrden
             {
                 orderDto.CancelOrder = Convert.ToBoolean(principalCancelOrder.Text.ToLower());
             }
-            catch { }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
 
             CustomerDto customerDto = new CustomerDto();
             customerDto.Apartment = customerApartment.Text;
@@ -68,7 +76,11 @@ namespace ClienteJsonOrden
             {
                 customerDto.CustomerID = Convert.ToInt64(customerCustomerID.Text);
             }
-            catch { }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
             customerDto.DocumentNumber = customerDocumentNumber.Text;
             customerDto.DocumentType = customerDocumentType.Text;
             customerDto.Email = customerEmail.Text;
@@ -89,37 +101,29 @@ namespace ClienteJsonOrden
             try
             {
                 orderDto.Date = Convert.ToDateTime(principalDate.Text);
-            }
-            catch { }
-            orderDto.OrderID = principalOrderID.Text;
-
-            orderDto.OrderItems = ListaOrderItems;
-
-            orderDto.OrderNumber = principalOrderNumber.Text;
-            try
-            {
                 orderDto.PaidTotal = Convert.ToDecimal(principalPaidTotal.Text);
-            }
-            catch { }
-            try
-            {
                 orderDto.FinancialSurcharge = Convert.ToDecimal(principalFinancialSurcharge.Text);
             }
-            catch { }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
 
+            orderDto.OrderID = principalOrderID.Text;
+            orderDto.OrderItems = ListaOrderItems;
+            orderDto.OrderNumber = principalOrderNumber.Text;
             orderDto.Payments = ListaPayments;
 
             CashPaymentDto cashPayment = new CashPaymentDto();
             try
             {
                 cashPayment.PaymentTotal = Convert.ToDecimal(cashPaymentTotal.Text);
-            }
-            catch { }
-            try
-            {
                 cashPayment.PaymentID = Convert.ToInt64(cashPaymentId.Text);
             }
-            catch { }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
             cashPayment.PaymentMethod = cashPaymentMethod.Text;
 
             if (checkGenerarCashPayment.Checked)
@@ -144,18 +148,20 @@ namespace ClienteJsonOrden
             shipping.PhoneNumber2 = shippingPhoneNumber2.Text;
             shipping.PostalCode = shippingPostalCode.Text;
             shipping.ProvinceCode = shippingProvinceCode.Text;
-            try
+            shipping.Street = shippingStreet.Text;
+
+            shipping.ShippingCost = 0;
+            if (!String.IsNullOrWhiteSpace(shippingShippingCost.Text))
             {
                 shipping.ShippingCost = Convert.ToDecimal(shippingShippingCost.Text);
             }
-            catch { }
-            try
+
+            shipping.ShippingID = 0;
+            if (!String.IsNullOrWhiteSpace(shippingShippingID.Text))
             {
                 shipping.ShippingID = Convert.ToInt64(shippingShippingID.Text);
             }
-            catch { }
-            shipping.Street = shippingStreet.Text;
-
+        
             if (checkGenerarShipping.Checked)
             {
                 orderDto.Shipping = shipping;
@@ -164,13 +170,12 @@ namespace ClienteJsonOrden
             try
             {
                 orderDto.Total = Convert.ToDecimal(principalTotal.Text);
-            }
-            catch { }
-            try
-            {
                 orderDto.TotalDiscount = Convert.ToDecimal(principalTotalDiscount.Text);
             }
-            catch { }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
 
             string json = JsonConvert.SerializeObject(orderDto, Formatting.Indented);
             resultadoSerializado.Text = json;
@@ -234,22 +239,26 @@ namespace ClienteJsonOrden
 
             if (orderDto != null)
             {
+                principalOrderID.Text = orderDto.OrderID;
+                principalOrderNumber.Text = orderDto.OrderNumber;
                 try
                 {
                     principalCancelOrder.Text = Convert.ToString(orderDto.CancelOrder);
+                    principalDate.Text = Convert.ToString(orderDto.Date);
+                    principalPaidTotal.Text = Convert.ToString(orderDto.PaidTotal);
+                    principalFinancialSurcharge.Text = Convert.ToString(orderDto.FinancialSurcharge);
+                    customerCustomerID.Text = Convert.ToString(orderDto.Customer.CustomerID);
                 }
-                catch { }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
 
                 customerApartment.Text = orderDto.Customer.Apartment;
                 customerBusinessAddress.Text = orderDto.Customer.BusinessAddress;
                 customerBusinessName.Text = orderDto.Customer.BusinessName;
                 customerCity.Text = orderDto.Customer.City;
                 customerComments.Text = orderDto.Customer.Comments;
-                try
-                {
-                    customerCustomerID.Text = Convert.ToString(orderDto.Customer.CustomerID);
-                }
-                catch { }
                 customerDocumentNumber.Text = orderDto.Customer.DocumentNumber;
                 customerDocumentType.Text = orderDto.Customer.DocumentType;
                 customerEmail.Text = orderDto.Customer.Email;
@@ -266,65 +275,48 @@ namespace ClienteJsonOrden
                 customerStreet.Text = orderDto.Customer.Street;
                 customerUser.Text = orderDto.Customer.User;
 
-                try
-                {
-                    principalDate.Text = Convert.ToString(orderDto.Date);
-                }
-                catch { }
-                principalOrderID.Text = orderDto.OrderID;
-
                 ListaOrderItems = (List<OrderItemDto>)orderDto.OrderItems;
                 var bindingListOrderItems = new BindingList<OrderItemDto>(ListaOrderItems);
                 var sourceOrderItems = new BindingSource(bindingListOrderItems, null);
                 dataGridOrderItems.DataSource = sourceOrderItems;
 
-                principalOrderNumber.Text = orderDto.OrderNumber;
-                try
-                {
-                    principalPaidTotal.Text = Convert.ToString(orderDto.PaidTotal);
-                }
-                catch { }
-
-                try
-                {
-                    principalFinancialSurcharge.Text = Convert.ToString(orderDto.FinancialSurcharge);
-                }
-                catch { }
-
                 ListaPayments = (List<PaymentDto>)orderDto.Payments;
-                var bindingListPayments = new BindingList<PaymentDto>(ListaPayments);
-                var sourcePayments = new BindingSource(bindingListPayments, null);
-                dataGridPayments.DataSource = sourcePayments;
 
-                if (orderDto.Shipping != null)
+                if (ListaPayments != null)
                 {
-                    shippingApartment.Text = orderDto.Shipping.Apartment;
-                    shippingCity.Text = orderDto.Shipping.City;
-                    shippingDeliversMonday.Text = orderDto.Shipping.DeliversMonday;
-                    shippingDeliversTuesday.Text = orderDto.Shipping.DeliversTuesday;
-                    shippingDeliversWednesday.Text = orderDto.Shipping.DeliversWednesday;
-                    shippingDeliversThursday.Text = orderDto.Shipping.DeliversThursday;
-                    shippingDeliversFriday.Text = orderDto.Shipping.DeliversFriday;
-                    shippingDeliversSaturday.Text = orderDto.Shipping.DeliversSaturday;
-                    shippingDeliversSunday.Text = orderDto.Shipping.DeliversSunday;
-                    shippingDeliveryHours.Text = orderDto.Shipping.DeliveryHours;
-                    shippingFloor.Text = orderDto.Shipping.Floor;
-                    shippingHouseNumber.Text = orderDto.Shipping.HouseNumber;
-                    shippingPhoneNumber1.Text = orderDto.Shipping.PhoneNumber1;
-                    shippingPhoneNumber2.Text = orderDto.Shipping.PhoneNumber2;
-                    shippingPostalCode.Text = orderDto.Shipping.PostalCode;
-                    shippingProvinceCode.Text = orderDto.Shipping.ProvinceCode;
-                    try
+                    var bindingListPayments = new BindingList<PaymentDto>(ListaPayments);
+                    var sourcePayments = new BindingSource(bindingListPayments, null);
+                    dataGridPayments.DataSource = sourcePayments;
+
+                    if (orderDto.Shipping != null)
                     {
-                        shippingShippingCost.Text = Convert.ToString(orderDto.Shipping.ShippingCost);
+                        shippingApartment.Text = orderDto.Shipping.Apartment;
+                        shippingCity.Text = orderDto.Shipping.City;
+                        shippingDeliversMonday.Text = orderDto.Shipping.DeliversMonday;
+                        shippingDeliversTuesday.Text = orderDto.Shipping.DeliversTuesday;
+                        shippingDeliversWednesday.Text = orderDto.Shipping.DeliversWednesday;
+                        shippingDeliversThursday.Text = orderDto.Shipping.DeliversThursday;
+                        shippingDeliversFriday.Text = orderDto.Shipping.DeliversFriday;
+                        shippingDeliversSaturday.Text = orderDto.Shipping.DeliversSaturday;
+                        shippingDeliversSunday.Text = orderDto.Shipping.DeliversSunday;
+                        shippingDeliveryHours.Text = orderDto.Shipping.DeliveryHours;
+                        shippingFloor.Text = orderDto.Shipping.Floor;
+                        shippingHouseNumber.Text = orderDto.Shipping.HouseNumber;
+                        shippingPhoneNumber1.Text = orderDto.Shipping.PhoneNumber1;
+                        shippingPhoneNumber2.Text = orderDto.Shipping.PhoneNumber2;
+                        shippingPostalCode.Text = orderDto.Shipping.PostalCode;
+                        shippingProvinceCode.Text = orderDto.Shipping.ProvinceCode;
+                        shippingStreet.Text = orderDto.Shipping.Street;
+                        try
+                        {
+                            shippingShippingCost.Text = Convert.ToString(orderDto.Shipping.ShippingCost);
+                            shippingShippingID.Text = Convert.ToString(orderDto.Shipping.ShippingID);
+                        }
+                        catch (Exception exc)
+                        {
+                            MessageBox.Show(exc.Message);
+                        }
                     }
-                    catch { }
-                    try
-                    {
-                        shippingShippingID.Text = Convert.ToString(orderDto.Shipping.ShippingID);
-                    }
-                    catch { }
-                    shippingStreet.Text = orderDto.Shipping.Street;
                 }
 
                 if (orderDto.CashPayment != null)
@@ -332,26 +324,27 @@ namespace ClienteJsonOrden
                     try
                     {
                         cashPaymentId.Text = Convert.ToString(orderDto.CashPayment.PaymentID);
-                    }
-                    catch { }
-                    try
-                    {
                         cashPaymentTotal.Text = Convert.ToString(orderDto.CashPayment.PaymentTotal);
                     }
-                    catch { }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.Message);
+                    }
                     cashPaymentMethod.Text = orderDto.CashPayment.PaymentMethod;
                 }
 
                 try
                 {
                     principalTotal.Text = Convert.ToString(orderDto.Total);
-                }
-                catch { }
-                try
-                {
                     principalTotalDiscount.Text = Convert.ToString(orderDto.TotalDiscount);
                 }
-                catch { }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+
+                tabControl1.SelectedIndex = 0;
+                MessageBox.Show("Json ingresado");
             }
             else
             {
