@@ -819,6 +819,12 @@ Respuesta
             "Kit": false,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": []
@@ -839,6 +845,12 @@ Respuesta
             "Kit": false,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": [
@@ -864,6 +876,12 @@ Respuesta
             "Kit": false,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": [
@@ -889,6 +907,12 @@ Respuesta
             "Kit": true,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
             "Disabled": false,
             "ProductComposition": [
                 {
@@ -918,6 +942,12 @@ Respuesta
             "Kit": true,
             "KitValidityDateSince": "2019-02-01T00:00:00",
             "KitValidityDateUntil": null,
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
             "Disabled": false,
             "ProductComposition": [
                 {
@@ -937,36 +967,29 @@ Respuesta
             ]
         },
         {
-            "SKUCode": "KITF001",
-            "Description": "KIT HOGAR COMPLETO",
-            "AdditionalDescription": "",
+            "SKUCode": "010030001BLA",
+            "Description": "VENT.DE TECHO MADERA 3 PALAS",
+            "AdditionalDescription": "MADERA PINT.BLAN.",
             "AlternativeCode": "",
             "BarCode": "",
-            "Commission": 6,
+            "Commission": 0,
             "Discount": 0,
-            "MeasureUnitCode": "UNI",
-            "MaximumStock": 0,
-            "MinimumStock": 0,
-            "RestockPoint": 0,
+            "MeasureUnitCode": "C/U",
+            "MaximumStock": 32,
+            "MinimumStock": 4,
+            "RestockPoint": 6,
             "Observations": "",
-            "Kit": true,
+            "Kit": false,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
+            "UseScale": "S",
+            "Scale1": "TI",
+            "Scale2": "CO",
+            "BaseArticle": "010030",
+            "ScaleValue1": "001",
+            "ScaleValue2": "BLA",
             "Disabled": false,
-            "ProductComposition": [
-                {
-                    "ComponentSKUCode": "0100100150",
-                    "Quantity": 3
-                },
-                {
-                    "ComponentSKUCode": "0100100151",
-                    "Quantity": 1
-                },
-                {
-                    "ComponentSKUCode": "0100100134",
-                    "Quantity": 2
-                }
-            ],
+            "ProductComposition": [],
             "ProductComments": []
         }
     ]
