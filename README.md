@@ -569,7 +569,7 @@ Se debe tener en cuenta que los artículos se obtienen siempre de la sucursal as
 ### Conceptos básicos
 [<sub>Volver</sub>](#inicio)
 
-####Caracteristicas de la URL
+#### Caracteristicas de la URL
 La consulta se entregará de forma paginada, para lo cual se debe realizar una petición por página que tenga el resultado.
 
 Las url de los métodos tendrán el siguiente formato:
