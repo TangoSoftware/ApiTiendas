@@ -1010,7 +1010,7 @@ Respuesta
             "ScaleValue2": "BLA",
             "DescriptionScale1": "TIPO DE VENTILADORES",
             "DescriptionScale2": "COLORES",
-            "DescriptionValueScale1": "MADERA"
+            "DescriptionValueScale1": "MADERA",
             "DescriptionValueScale2": "BLANCO",
             "Disabled": false,
             "ProductComposition": [],
