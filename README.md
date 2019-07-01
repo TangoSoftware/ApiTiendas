@@ -825,6 +825,10 @@ Respuesta
             "BaseArticle": "",
             "ScaleValue1": "",
             "ScaleValue2": "",
+            "DescriptionScale1": "",
+            "DescriptionScale2": "",
+            "DescriptionValueScale1": "",
+            "DescriptionValueScale2": "",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": []
@@ -851,6 +855,10 @@ Respuesta
             "BaseArticle": "",
             "ScaleValue1": "",
             "ScaleValue2": "",
+            "DescriptionScale1": "",
+            "DescriptionScale2": "",
+            "DescriptionValueScale1": "",
+            "DescriptionValueScale2": "",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": [
@@ -882,6 +890,10 @@ Respuesta
             "BaseArticle": "",
             "ScaleValue1": "",
             "ScaleValue2": "",
+            "DescriptionScale1": "",
+            "DescriptionScale2": "",
+            "DescriptionValueScale1": "",
+            "DescriptionValueScale2": "",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": [
@@ -913,6 +925,10 @@ Respuesta
             "BaseArticle": "",
             "ScaleValue1": "",
             "ScaleValue2": "",
+            "DescriptionScale1": "",
+            "DescriptionScale2": "",
+            "DescriptionValueScale1": "",
+            "DescriptionValueScale2": "",
             "Disabled": false,
             "ProductComposition": [
                 {
@@ -948,6 +964,10 @@ Respuesta
             "BaseArticle": "",
             "ScaleValue1": "",
             "ScaleValue2": "",
+            "DescriptionScale1": "",
+            "DescriptionScale2": "",
+            "DescriptionValueScale1": "",
+            "DescriptionValueScale2": "",
             "Disabled": false,
             "ProductComposition": [
                 {
@@ -988,6 +1008,10 @@ Respuesta
             "BaseArticle": "010030",
             "ScaleValue1": "001",
             "ScaleValue2": "BLA",
+            "DescriptionScale1": "TIPO DE VENTILADORES",
+            "DescriptionScale2": "COLORES",
+            "DescriptionValueScale1": "MADERA"
+            "DescriptionValueScale2": "BLANCO",
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": []
