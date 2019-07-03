@@ -775,7 +775,8 @@ Respuesta
 #### Artículos
 [<sub>Volver</sub>](#iniciorecursos)
 
-Permite obtener datos de artículos, con su composición y comentarios.
+Permite obtener datos de artículos, con su composición, comentarios y valores de escala.
+Nota: Si tenia implementado la consulta de API, para visualizar las descripciones de las escalas deberá realizar alguna modificación sobre el maestro de definición de escalas desde Tango.
 
 Solo se mostrarán artículos que en **Tango Gestión** cumplan:
  + Perfil de Venta, Compra-Venta o Inhabilitado.
