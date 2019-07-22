@@ -1410,7 +1410,7 @@ Ejemplos
 | **Para** | **GET** |
 | --- | --- |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028" | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028 |
-| Obtener los precios de los clientes cuyo código contenga la cadena "CL00028" y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01 |
+| Obtener los precios de los clientes cuyo código contenga la cadena "CL00028", el código de artículo contenga la cadena "01" y la lista de precios la lista número 2 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01&PriceListNumber=2 |
 | Obtener todos los precios por cliente | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1 |
 
 Respuesta
