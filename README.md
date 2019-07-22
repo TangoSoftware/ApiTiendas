@@ -1300,7 +1300,7 @@ Ejemplos
 | **Para** | **GET** |
 | --- | --- |
 | Obtener los precios de la lista de precios cuyo número de lista es 1 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1 |
-| Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://ttiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01 |
+| Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01 |
 | Obtener todos los precios | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1 |
 
 Respuesta
