@@ -1293,7 +1293,7 @@ Solo se mostrarán precios de:
 
 | **Recurso** |
 | --- |
-| https://tiendas.axoft.com/api/Aperture/Price?{pageSize}&{pageNumber}&[filter] |
+| https://tiendas.axoft.com/api/Aperture/Price?{pageSize}&{pageNumber}&[filter]&[SKUCode] |
 
 Ejemplos
 
@@ -1403,7 +1403,7 @@ Solo se mostrarán precios por cliente de:
 
 | **Recurso** |
 | --- |
-| https://tiendas.axoft.com/api/Aperture/PriceByCustomer?{pageSize}&{pageNumber}&[filter] |
+| https://tiendas.axoft.com/api/Aperture/PriceByCustomer?{pageSize}&{pageNumber}&[filter]&[SKUCode]&[PriceListNumber] |
 
 Ejemplos
 
@@ -1473,7 +1473,7 @@ Solo se mostrarán descuentos por cliente de:
 
 | **Recurso** |
 | --- |
-| https://tiendas.axoft.com/api/Aperture/DiscountByCustomer?{pageSize}&{pageNumber}&[filter] |
+| https://tiendas.axoft.com/api/Aperture/DiscountByCustomer?{pageSize}&{pageNumber}&[filter]&[SKUCode] |
 
 Ejemplos
 
@@ -1563,7 +1563,7 @@ Solo se mostrarán saldos de stock de:
 
 | **Recurso** |
 | --- |
-| https://tiendas.axoft.com/api/Aperture/Stock?{pageSize}&{pageNumber}&[filter]&[groupByProduct]&[discountPendingOrders] |
+| https://tiendas.axoft.com/api/Aperture/Stock?{pageSize}&{pageNumber}&[filter]&[groupByProduct]&[discountPendingOrders]&[StoreNumber]&[WarehouseCode] |
 
 Ejemplos
 
