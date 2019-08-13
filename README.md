@@ -191,7 +191,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 
 | **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
 | --- | --- | --- | --- | --- |
-| **CustomerId** | Si | Identificador del cliente. | Numérico de tipo entero hasta 50 posiciones | &gt;0 |
+| **CustomerId** | Si | Identificador del cliente. | Numérico de tipo entero hasta 10 posiciones | &gt;0 |
 | **DocumentType** | Si | Código del tipo de documento. | Numérico con longitud de 2 posiciones | Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). |
 | **DocumentNumber** | No | Número de documento sin símbolos ni puntuaciones. | Alfanumérico de hasta 20 caracteres |   |
 | **User** | Si | Usuario de la tienda. | Alfanumérico de hasta 200 caracteres |   |
