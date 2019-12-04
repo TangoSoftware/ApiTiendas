@@ -1550,7 +1550,9 @@ Respuesta
 [<sub>Volver</sub>](#iniciorecursos)
 
 Permite obtener datos de saldos de stock detallados por sucursal, depósito y artículo; o acumulado por artículo.
-En el campo **Quantity** se muestra el stock disponible el cual se calcula de la siguiente manera:  cantidad en stock físico más la cantidad pendiente de recepción, menos la cantidad comprometida.
+En el campo **Quantity** se muestra la cantidad física en stock.
+En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock.
+En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock.
 
 Solo se mostrarán saldos de stock de:
  + Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
@@ -1588,61 +1590,81 @@ Respuesta
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100129",
-            "Quantity": 244
+            "Quantity": 244,
+            "EngagedQuantity": 5.00,
+            "PendingQuantity": 2.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "2",
             "SKUCode": "0100100129",
-            "Quantity": 5
+            "Quantity": 5,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 1.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "2",
             "SKUCode": "0100100134",
-            "Quantity": 3
+            "Quantity": 3,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100134",
-            "Quantity": 115
+            "Quantity": 115,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100135",
-            "Quantity": 102
+            "Quantity": 102,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "80",
             "SKUCode": "0100100136",
-            "Quantity": 10
+            "Quantity": 10,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100136",
-            "Quantity": 95
+            "Quantity": 95,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100150",
-            "Quantity": 115
+            "Quantity": 115,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100151",
-            "Quantity": 100
+            "Quantity": 100,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         },
         {
             "StoreNumber": 1,
             "WarehouseCode": "1",
             "SKUCode": "0100100152",
-            "Quantity": 182
+            "Quantity": 182,
+            "EngagedQuantity": 0.00,
+            "PendingQuantity": 0.00
         }
     ]
 }
