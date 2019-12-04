@@ -1550,9 +1550,9 @@ Respuesta
 [<sub>Volver</sub>](#iniciorecursos)
 
 Permite obtener datos de saldos de stock detallados por sucursal, depósito y artículo; o acumulado por artículo.
- +En el campo **Quantity** se muestra la cantidad física en stock.
- +En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock.
- +En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock.
+En el campo **Quantity** se muestra la cantidad física en stock.
+En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock.
+En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock.
 
 Solo se mostrarán saldos de stock de:
  + Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
