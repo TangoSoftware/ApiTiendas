@@ -179,7 +179,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **TotalDiscount** | No | Importe de descuento total de la operación.  Sólo valido en pesos argentinos.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total |
 | **PaidTotal** | Solo si se informa el tópico Payments o CashPayment | Importe total pagado. Sólo válido en pesos argentinos. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;=0  ∑(Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal |
 | **FinancialSurcharge** | No | Importe del recargo financiero.  Sólo válido en pesos argentinos.  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;= 0 |
-| **WarehouseCode** | No | Código del depósito. Si el depósito no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Alfanumérico de hasta 2 caracteres | &gt;= 0 |
+| **WarehouseCode** | No | Código del depósito. Si el depósito no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Alfanumérico de hasta 2 caracteres |  |
 | **CancelOrden** | No | Indica que la orden está cancelada | De tipo lógico | True/False |
 | **ValidateTotalWithPaidTotal** | Si | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado. | De tipo lógico | True/False |
 
