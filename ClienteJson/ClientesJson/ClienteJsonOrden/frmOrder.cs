@@ -103,6 +103,7 @@ namespace ClienteJsonOrden
                 orderDto.Date = Convert.ToDateTime(principalDate.Text);
                 orderDto.PaidTotal = Convert.ToDecimal(principalPaidTotal.Text);
                 orderDto.FinancialSurcharge = Convert.ToDecimal(principalFinancialSurcharge.Text);
+                orderDto.WarehouseCode = Convert.ToString(principalWarehouseCode.Text);                
             }
             catch (Exception exc)
             {
@@ -113,6 +114,7 @@ namespace ClienteJsonOrden
             orderDto.OrderItems = ListaOrderItems;
             orderDto.OrderNumber = principalOrderNumber.Text;
             orderDto.Payments = ListaPayments;
+            orderDto.ValidateTotalWithPaidTotal = checkValidateTotalWithPaidTotal.Checked;
 
             CashPaymentDto cashPayment = new CashPaymentDto();
             try
@@ -236,24 +238,24 @@ namespace ClienteJsonOrden
         private void CargarJson_Click(object sender, EventArgs e)
         {
             OrderDto orderDto = JsonConvert.DeserializeObject<OrderDto>(resultadoSerializado.Text);
-
             if (orderDto != null)
-            {
+            {                
                 principalOrderID.Text = orderDto.OrderID;
-                principalOrderNumber.Text = orderDto.OrderNumber;
+                principalOrderNumber.Text = orderDto.OrderNumber;                           
                 try
                 {
                     principalCancelOrder.Text = Convert.ToString(orderDto.CancelOrder);
                     principalDate.Text = Convert.ToString(orderDto.Date);
                     principalPaidTotal.Text = Convert.ToString(orderDto.PaidTotal);
                     principalFinancialSurcharge.Text = Convert.ToString(orderDto.FinancialSurcharge);
+                    principalWarehouseCode.Text = orderDto.WarehouseCode;
                     customerCustomerID.Text = Convert.ToString(orderDto.Customer.CustomerID);
+                    checkValidateTotalWithPaidTotal.Checked = orderDto.ValidateTotalWithPaidTotal;
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message);
                 }
-
                 customerApartment.Text = orderDto.Customer.Apartment;
                 customerBusinessAddress.Text = orderDto.Customer.BusinessAddress;
                 customerBusinessName.Text = orderDto.Customer.BusinessName;
@@ -278,7 +280,9 @@ namespace ClienteJsonOrden
                 ListaOrderItems = (List<OrderItemDto>)orderDto.OrderItems;
                 var bindingListOrderItems = new BindingList<OrderItemDto>(ListaOrderItems);
                 var sourceOrderItems = new BindingSource(bindingListOrderItems, null);
+                dataGridOrderItems.Columns["WarehouseCode"].Visible = false;
                 dataGridOrderItems.DataSource = sourceOrderItems;
+               
 
                 ListaPayments = (List<PaymentDto>)orderDto.Payments;
 
@@ -318,7 +322,6 @@ namespace ClienteJsonOrden
                         }
                     }
                 }
-
                 if (orderDto.CashPayment != null)
                 {
                     try

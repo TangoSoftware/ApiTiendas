@@ -128,6 +128,10 @@
             this.tabPrincipal = new System.Windows.Forms.TabPage();
             this.principalFinancialSurcharge = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.principalWarehouseCode = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.checkValidateTotalWithPaidTotal = new System.Windows.Forms.CheckBox();
             this.principalCancelOrder = new System.Windows.Forms.TextBox();
             this.principalOrderNumber = new System.Windows.Forms.TextBox();
             this.principalOrderID = new System.Windows.Forms.TextBox();
@@ -1040,6 +1044,10 @@
             // 
             this.tabPrincipal.Controls.Add(this.principalFinancialSurcharge);
             this.tabPrincipal.Controls.Add(this.label12);
+            this.tabPrincipal.Controls.Add(this.principalWarehouseCode);
+            this.tabPrincipal.Controls.Add(this.label13);
+            this.tabPrincipal.Controls.Add(this.label60);
+            this.tabPrincipal.Controls.Add(this.checkValidateTotalWithPaidTotal);
             this.tabPrincipal.Controls.Add(this.principalCancelOrder);
             this.tabPrincipal.Controls.Add(this.principalOrderNumber);
             this.tabPrincipal.Controls.Add(this.principalOrderID);
@@ -1072,32 +1080,64 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 122);
+            this.label12.Location = new System.Drawing.Point(20, 119);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 13);
             this.label12.TabIndex = 61;
             this.label12.Text = "FinancialSurcharge";
             // 
+            // principalWarehouseCode
+            // 
+            this.principalWarehouseCode.Location = new System.Drawing.Point(182, 145);
+            this.principalWarehouseCode.Name = "principalWarehouseCode";
+            this.principalWarehouseCode.Size = new System.Drawing.Size(150, 20);
+            this.principalWarehouseCode.TabIndex = 6;           
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(20, 145);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 13);
+            this.label13.TabIndex = 62;
+            this.label13.Text = "WarehouseCode";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(46, 259);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(136, 13);
+            this.label60.TabIndex = 70;
+            this.label60.Text = "ValidateTotalWithPaidTotal";
+            // 
+            // checkValidateTotalWithPaidTotal
+            // 
+            this.checkValidateTotalWithPaidTotal.Location = new System.Drawing.Point(23, 254);
+            this.checkValidateTotalWithPaidTotal.Name = "checkValidateTotalWithPaidTotal";
+            this.checkValidateTotalWithPaidTotal.Size = new System.Drawing.Size(17, 24);
+            this.checkValidateTotalWithPaidTotal.TabIndex = 71;
+            // 
             // principalCancelOrder
             // 
-            this.principalCancelOrder.Location = new System.Drawing.Point(182, 197);
+            this.principalCancelOrder.Location = new System.Drawing.Point(182, 223);
             this.principalCancelOrder.Name = "principalCancelOrder";
             this.principalCancelOrder.Size = new System.Drawing.Size(150, 20);
-            this.principalCancelOrder.TabIndex = 10;
+            this.principalCancelOrder.TabIndex = 11;
             // 
             // principalOrderNumber
             // 
-            this.principalOrderNumber.Location = new System.Drawing.Point(182, 171);
+            this.principalOrderNumber.Location = new System.Drawing.Point(182, 197);
             this.principalOrderNumber.Name = "principalOrderNumber";
             this.principalOrderNumber.Size = new System.Drawing.Size(150, 20);
-            this.principalOrderNumber.TabIndex = 7;
+            this.principalOrderNumber.TabIndex = 8;
             // 
             // principalOrderID
             // 
-            this.principalOrderID.Location = new System.Drawing.Point(182, 145);
+            this.principalOrderID.Location = new System.Drawing.Point(182, 171);
             this.principalOrderID.Name = "principalOrderID";
             this.principalOrderID.Size = new System.Drawing.Size(150, 20);
-            this.principalOrderID.TabIndex = 6;
+            this.principalOrderID.TabIndex = 7;            
             // 
             // principalPaidTotal
             // 
@@ -1130,7 +1170,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(20, 200);
+            this.label19.Location = new System.Drawing.Point(20, 223);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(66, 13);
             this.label19.TabIndex = 59;
@@ -1139,7 +1179,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 174);
+            this.label10.Location = new System.Drawing.Point(21, 197);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 31;
@@ -1148,7 +1188,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 148);
+            this.label11.Location = new System.Drawing.Point(21, 171);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 28;
@@ -1157,7 +1197,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 96);
+            this.label9.Location = new System.Drawing.Point(20, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 13;
@@ -1166,7 +1206,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 70);
+            this.label5.Location = new System.Drawing.Point(21, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 8;
@@ -1175,7 +1215,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 44);
+            this.label6.Location = new System.Drawing.Point(20, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 7;
@@ -1184,7 +1224,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 18);
+            this.label2.Location = new System.Drawing.Point(20, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
@@ -1439,6 +1479,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox principalFinancialSurcharge;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox principalWarehouseCode;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.CheckBox checkValidateTotalWithPaidTotal;        
         private System.Windows.Forms.TabPage tabCashPayment;
         private System.Windows.Forms.TextBox cashPaymentTotal;
         private System.Windows.Forms.TextBox cashPaymentMethod;
