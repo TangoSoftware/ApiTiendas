@@ -440,7 +440,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 
 ~~~   
 {
-  "Date": "2018-07-23T10:03:25",
+  "Date": "2020-02-14T00:00:00",
   "Total": 8523.0,
   "TotalDiscount": 77.0,
   "PaidTotal": 8523.0,
@@ -451,6 +451,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "ValidateTotalWithPaidTotal": true,
   "Customer": {
     "CustomerID": 227060905,
+    "Code": null,
     "DocumentType": "80",
     "DocumentNumber": "11111111111",
     "IVACategoryCode": "CF",
@@ -468,9 +469,15 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
     "PostalCode": "1122",
     "PhoneNumber1": "12459856",
     "PhoneNumber2": "42563698",
+    "Bonus": 0.0,
     "MobilePhoneNumber": "165952141",
+    "WebPage": null,
     "BusinessAddress": "Cerrito 1186",
-    "Comments": "Comentario"
+    "Comments": "Comentario",
+    "NumberListPrice": 0,
+    "Removed": false,
+    "DateUpdate": "0001-01-01T00:00:00",
+    "Disable": "0001-01-01T00:00:00"
   },
   "CancelOrder": false,
   "OrderItems": [
@@ -482,7 +489,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
       "VariantDescription": null,
       "Quantity": 1.0,
       "UnitPrice": 7700.0,
-      "DiscountPercentage": 1.0
+      "DiscountPercentage": 0.0
     },
     {
       "ProductCode": "104",
@@ -524,7 +531,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "Payments": [
     {
       "PaymentId": 38566913,
-      "TransactionDate": "2018-07-24T10:03:00",
+      "TransactionDate": "2020-02-14T00:00:00",
       "AuthorizationCode": "52",
       "TransactionNumber": "998595",
       "Installments": 1,
@@ -537,7 +544,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
     },
     {
       "PaymentId": 38566914,
-      "TransactionDate": "2018-07-25T10:03:00",
+      "TransactionDate": "2020-02-14T00:00:00",
       "AuthorizationCode": "53",
       "TransactionNumber": "5849849",
       "Installments": 2,
