@@ -629,7 +629,8 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
  + [Precios por cliente](#precioscliente)
  + [Descuentos por cliente](#descuentoscliente)
  + [Saldos de stock](#saldosstock)
-
+ + [Vendedores](#vendedores)
+ + [Monedas](#monedas)
 
 <a name="sucursales"></a>
 #### Sucursales
@@ -1082,6 +1083,12 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "Discount": 15,
             "Observations": "",
             "DisabledDate": null,
+            "SellerCode": "1",
+            "CreditQuota": 15000.00,
+            "LocalAccountBalance": 6500.50,
+            "ForeignAccountBalance": 30.00,
+            "ForeignCurrencyClause": false,
+            "CreditQuotaCurrencyCode": "1",
             "ShippingAddresses": [
                 {
                     "Code": "PRINCIPAL",
@@ -1125,6 +1132,12 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "Discount": 10,
             "Observations": "sin observaciones",
             "DisabledDate": null,
+            "SellerCode": "1",
+            "CreditQuota": 40000.00,
+            "LocalAccountBalance": 12000.00,
+            "ForeignAccountBalance": 0.00,
+            "ForeignCurrencyClause": false,
+            "CreditQuotaCurrencyCode": "1",
             "ShippingAddresses": [
                 {
                     "Code": "LOCAL",
@@ -1192,6 +1205,12 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "Discount": 10,
             "Observations": "",
             "DisabledDate": "2019-02-02T00:00:00",
+            "SellerCode": "2",
+            "CreditQuota": 0.00,
+            "LocalAccountBalance": 0.00,
+            "ForeignAccountBalance": 0.00,
+            "ForeignCurrencyClause": false,
+            "CreditQuotaCurrencyCode": "1",
             "ShippingAddresses": [
                 {
                     "Code": "SUCU_100",
@@ -1676,6 +1695,96 @@ Respuesta
             "Quantity": 182,
             "EngagedQuantity": 0.00,
             "PendingQuantity": 0.00
+        }
+    ]
+}
+~~~
+<div id="vendedores" />
+
+#### Vendedores
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de vendedores.
+
+| **Recurso** |
+| --- |
+| <https://tiendas.axoft.com/api/Aperture/Seller?{pageSize}&{pageNumber}&[filter]> |
+
+Ejemplos
+
+| **Para** | **GET** |
+| --- | --- |
+| Obtener el vendedor cuyo código de vendedor es 4 | https://tiendas.axoft.com/api/Aperture/Seller?pageSize=500&pageNumber=1&filter=4 |
+| Obtener todos los vendedores | https://tiendas.axoft.com/api/Aperture/Seller?pageSize=500&pageNumber=1 |
+
+Respuesta
+
+~~~
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 500,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "SellerCode": "1",
+            "Name": "Carlos Perez",
+            "CommissionPercentage": 5.00,
+            "Disabled": false
+        },
+        {
+            "SellerCode": "2",
+            "Name": "Javier Garcia",
+            "CommissionPercentage": 6.00,
+            "Disabled": false
+        }
+    ]
+}
+~~~
+<div id="monedas" />
+
+#### Monedas
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de monedas.
+
+| **Recurso** |
+| --- |
+| <https://tiendas.axoft.com/api/Aperture/Currency?{pageSize}&{pageNumber}&[filter]> |
+
+Ejemplos
+
+| **Para** | **GET** |
+| --- | --- |
+| Obtener la moneda cuyo código de moneda es 2 | https://tiendas.axoft.com/api/Aperture/Currency?pageSize=500&pageNumber=1&filter=2 |
+| Obtener todas las monedas | https://tiendas.axoft.com/api/Aperture/Currency?pageSize=500&pageNumber=1 |
+
+Respuesta
+
+~~~
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 500,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "CurrencyCode": "1",
+            "Description": "Pesos",
+            "Symbol": "$",
+            "Type": "Corriente",
+            "RG1547Code": "80",
+            "AFIPCode": "PES"
+        },
+        {
+            "CurrencyCode": "2",
+            "Description": "Dolares",
+            "Symbol": "u$s",
+            "Type": "Extranjera contable",
+            "RG1547Code": "",
+            "AFIPCode": "DOL"
         }
     ]
 }
