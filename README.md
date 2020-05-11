@@ -592,7 +592,7 @@ https://tiendas.axoft.com/api/Aperture/Store?pageSize=500&pageNumber=1&filter=1
 ~~~
 | **Sección** | **Obligatorio** | **Descripción** |
 | --- | --- | --- |
-| pageSize | Si | Indica la cantidad de ítems a mostrar por página (No podrá ser superior a 500) |
+| pageSize | Si | Indica la cantidad de ítems a mostrar por página (No podrá ser superior a 5000) |
 | pageNumber | Si | Indica la página solicitada |
 | filter | No | Indica el valor por el cual filtrar la consulta (Si no se coloca, no se aplicarán filtros.) |
 
