@@ -228,7 +228,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **ProductCode** | Si | Código del artículo de la publicación. | Alfanumérico de hasta 200 caracteres | &lt;&gt;Vacío. Debe ser único si la publicación no se trata de un artículo con escala.[Ejemplo](#Ejemplo) |
 | **SKUCode** | No | Código del artículo de Tango Gestión (se refiere al que se guarda en el campo  STA11.Cod\_Sta11 de las tablas de Tango Gestión)  | Alfanumérico de hasta 17 caracteres |   |
 | **VariantCode** | No | Código del artículo que representa una combinación. | Alfanumérico de hasta 200 caracteres |   |
-| **Description** | No | Descripción del artículo. | Alfanumérico de hasta 400 caracteres |   |
+| **Description** | Sí | Descripción del artículo. | Alfanumérico de hasta 400 caracteres |   |
 | **VariantDescription** | No | Descripción del artículo que representa una variación. | Alfanumérico de hasta 400 caracteres |   |
 | **Quantity** | Si | Cantidad del artículo. | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales |        &gt;0 |
 | **UnitPrice** | Si | Precio unitario.   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC].  Usando el punto como separador de decimales | &gt;0  |
