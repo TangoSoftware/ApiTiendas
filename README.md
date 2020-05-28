@@ -118,7 +118,7 @@ Tenga en cuenta los siguientes temas:
 
 - [Preguntas frecuentes](#faqs)
 
-- [Notificaciones](#novedades)
+- [Novedades en el Json de la orden](#novedades)
 
 
 <a name="notificaciones"></a>
