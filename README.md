@@ -170,26 +170,32 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 Ahora en los datos del json se puede especificar los siguientes campos:  
 
-• SaleConditionCode: Condición de Venta
+  • SaleConditionCode: Condición de Venta
 
-• TranportCode: Código del transporte
+  • TranportCode: Código del transporte
 
-• SellerCode: Código del vendedor
+  • SellerCode: Código del vendedor
 
 
 #### Consideraciones al enviar órdenes
 
 - **Condición de venta**
 
-Si la condición de venta no es al contado, se podrá generar intereses o recargo por transporte modificando el total del comprobante.
+Si la condición de venta es distinto de 'Contado', es posible que al valor de la factura se le apliquen cargos propios de dicha condición (Ej. 30/60/90 días con un 2% de interes).
 
 - **Transporte**
 
-No se podrá informar el transporte que posea porcentaje de recargo en una orden de pago contado.
+Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), entonces se válida que el código de tranporte informado no tenga recargo (SurchargePercentage = 0).
 
 - **Pagos**
 
-No se deberán informar pagos en aquellas órdenes cuya condición de venta no sea al contado
+Si la "Condición de Venta" es distinto de 'Contado', entonces se válida que no se informen los tópicos de:    
+  • CashPayment
+  • Payments
+
+- **General**
+
+Si ninguno de estos códigos se informan, se mantiene el comportamiento actual.
 
 
 ### Datos del JSON
@@ -457,7 +463,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 
 <a name="ejemplojson"></a>
 
-### Ejemplo de JSON de una órden
+### Ejemplo de JSON de una órden (Condición de venta - Contado)
 
 [<sub>Volver</sub>](#inicio)
 
@@ -469,6 +475,9 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "PaidTotal": 8523.0,
   "FinancialSurcharge": 200.0,
   "WarehouseCode": "2",
+  "SellerCode": "2",
+  "TransportCode": "01",
+  "SaleConditionCode": 1,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": true,
@@ -579,6 +588,93 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
       "CardPromotionCode": "1"
     }
   ]
+}
+```
+
+### Ejemplo de JSON de una órden (Condición de venta - cuenta corriente)
+
+[<sub>Volver</sub>](#inicio)
+
+```
+{
+  "Date": "2020-05-28T00:00:00",
+  "Total": 8400.0,
+  "TotalDiscount": 0.0,
+  "PaidTotal": 0.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "2",
+  "SellerCode": "2",
+  "TransportCode": "02",
+  "SaleConditionCode": 3,
+  "OrderID": "75906",
+  "OrderNumber": "75906",
+  "ValidateTotalWithPaidTotal": false,
+  "Customer": {
+    "CustomerID": 227060905,
+    "Code": null,
+    "DocumentType": "80",
+    "DocumentNumber": "11111111111",
+    "IVACategoryCode": "CF",
+    "User": "ADMIN",
+    "Email": "api@axoft.com",
+    "FirstName": "Carlos",
+    "LastName": "Perez",
+    "BusinessName": "Empresa",
+    "Street": "Cerrrito",
+    "HouseNumber": "1186",
+    "Floor": "2",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "12459856",
+    "PhoneNumber2": "42563698",
+    "Bonus": 0.0,
+    "MobilePhoneNumber": "165952141",
+    "WebPage": null,
+    "BusinessAddress": "Cerrito 1186",
+    "Comments": "Comentario",
+    "NumberListPrice": 0,
+    "Removed": false,
+    "DateUpdate": "0001-01-01T00:00:00",
+    "Disable": "0001-01-01T00:00:00"
+  },
+  "CancelOrder": false,
+  "OrderItems": [
+    {
+      "ProductCode": "203",
+      "SKUCode": "0100200659",
+      "VariantCode": null,
+      "Description": "LAVARROPAS AUTOM. MOD.BLUE ",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 8000.0,
+      "DiscountPercentage": 0.0
+    }
+  ],
+  "Shipping": {
+    "ShippingID": 71906,
+    "Street": "9 de Julio",
+    "HouseNumber": "1186",
+    "Floor": "1",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "125165151",
+    "PhoneNumber2": "12345678",
+    "ShippingCost": 400.0,
+    "DeliversMonday": "S",
+    "DeliversTuesday": "S",
+    "DeliversWednesday": "S",
+    "DeliversThursday": "S",
+    "DeliversFriday": "S",
+    "DeliversSaturday": "S",
+    "DeliversSunday": "S",
+    "DeliveryHours": "8"
+  },
+  "CashPayment": null,
+  "Payments": []
 }
 ```
 
