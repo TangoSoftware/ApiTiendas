@@ -118,6 +118,9 @@ Tenga en cuenta los siguientes temas:
 
 - [Preguntas frecuentes](#faqs)
 
+- [Notificaciones](#novedades)
+
+
 <a name="notificaciones"></a>
 
 #### Notificaciones
@@ -164,7 +167,7 @@ Perderá el acceso para enviar órdenes de pedidos desde su API a Tango y estas 
 
 Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. ó D.N.I. y se corresponden con datos de A.F.I.P., será considerada esta información para emitir la factura de ventas en la ausencia de esta información se tomará el Nombre Comercial indicado. Cuando no se informa el número del C.U.I.L / C.U.I.T. ó D.N.I. se utilizará el nombre y apellido ingresado en la orden de pedido.
 
-<a name="djson"></a>
+<a name="novedades"></a>
 
 #### Novedades en el Json de la orden
 
@@ -199,6 +202,8 @@ Si la "Condición de Venta" es distinto de 'Contado', entonces se válida que no
 
 Si ninguno de estos códigos se informan, se mantiene el comportamiento actual.
 
+
+<a name="djson"></a>
 
 ### Datos del JSON
 
@@ -1994,7 +1999,7 @@ Respuesta
         {
             "Code": "01",
             "Name": "TRANSPORTE PROPIO",
-            "IVACategoryCode": "Responsable Inscripto",
+            "IVACategory": "Responsable Inscripto",
             "Cuit": null,
             "SurchargePercentage": 10.0000000,
             "Address": "Av.Santa Fe 1284 ",
@@ -2009,7 +2014,7 @@ Respuesta
         {
             "Code": "02",
             "Name": "TRANSPORTES LA ESTRELLA",
-            "IVACategoryCode": "Responsable Inscripto",
+            "IVACategory": "Responsable Inscripto",
             "Cuit": null,
             "SurchargePercentage": 0.0000000,
             "Address": "Salta 348 ",
@@ -2024,7 +2029,7 @@ Respuesta
         {
             "Code": "03",
             "Name": "TRANSPORTE SILVANA",
-            "IVACategoryCode": "",
+            "IVACategory": "",
             "Cuit": null,
             "SurchargePercentage": null,
             "Address": "",
