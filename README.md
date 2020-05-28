@@ -191,8 +191,9 @@ Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), enton
 
 Si la "Condición de Venta" es distinto de 'Contado', entonces se válida que no se informen los tópicos de: 
 
-• CashPayment
-• Payments
+  • CashPayment
+  
+  • Payments
 
 - **General**
 
