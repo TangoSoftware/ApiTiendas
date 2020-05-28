@@ -166,7 +166,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 <a name="djson"></a>
 
-#### Novedades en Json de la orden
+#### Novedades en el Json de la orden
 
 Ahora en los datos del json se puede especificar los siguientes campos:  
 
@@ -1978,6 +1978,7 @@ Ejemplos
 
 | **Para**                      | **GET**                                                                    |
 | ----------------------------- | -------------------------------------------------------------------------- |
+| Obtener el transporte cuyo código es 02 | https://tiendas.axoft.com/api/Aperture/Transport?pageSize=500&pageNumber=1&filter=02 |
 | Obtener todos los transportes | https://tiendas.axoft.com/api/Aperture/Transport?pageSize=500&pageNumber=1 |
 
 Respuesta
@@ -2056,6 +2057,7 @@ Ejemplos
 
 | **Para**                               | **GET**                                                                        |
 | -------------------------------------- | ------------------------------------------------------------------------------ |
+| Obtener la condición de venta cuyo código es 3 | https://tiendas.axoft.com/api/Aperture/SaleCondition?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas las condiciones de venta | https://tiendas.axoft.com/api/Aperture/SaleCondition?pageSize=500&pageNumber=1 |
 
 Respuesta
