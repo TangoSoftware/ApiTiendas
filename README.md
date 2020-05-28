@@ -593,7 +593,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 }
 ```
 
-### Ejemplo de JSON de una órden (Condición de venta - cuenta corriente)
+### Ejemplo de JSON de una órden (Condición de venta - Cuenta Corriente)
 
 [<sub>Volver</sub>](#inicio)
 
