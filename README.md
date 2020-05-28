@@ -179,15 +179,15 @@ Ahora en los datos del json se puede especificar los siguientes campos:
 
 #### Consideraciones al enviar órdenes
 
-- **Condición de venta **
+- **Condición de venta**
 
 Si la condición de venta no es al contado, se podrá generar intereses o recargo por transporte modificando el total del comprobante.
 
-- **Transporte **
+- **Transporte**
 
 No se podrá informar el transporte que posea porcentaje de recargo en una orden de pago contado.
 
-- **Pagos **
+- **Pagos**
 
 No se deberán informar pagos en aquellas órdenes cuya condición de venta no sea al contado
 
