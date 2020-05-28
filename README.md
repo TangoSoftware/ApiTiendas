@@ -166,6 +166,15 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 <a name="djson"></a>
 
+#### Consideraciones al enviar órdenes
+
+- **Condición de venta**
+Si la condición de venta no es al contado, se podrá generar intereses o recargo por transporte modificando el total del comprobante.
+
+- **Transporte**
+No se podrá informar el transporte que posea porcentaje de recargo en una orden de pago contado.
+
+
 ### Datos del JSON
 
 [<sub>Volver</sub>](#inicio)
