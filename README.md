@@ -120,7 +120,6 @@ Tenga en cuenta los siguientes temas:
 
 - [Novedades en el Json de la orden](#novedades)
 
-
 <a name="notificaciones"></a>
 
 #### Notificaciones
@@ -171,14 +170,13 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 #### Novedades en el Json de la orden
 
-Ahora en los datos del json se puede especificar los siguientes campos:  
+Ahora en los datos del json se puede especificar los siguientes campos:
 
-  • SaleConditionCode: Condición de Venta
+• SaleConditionCode: Condición de Venta
 
-  • TranportCode: Código del transporte
+• TranportCode: Código del transporte
 
-  • SellerCode: Código del vendedor
-
+• SellerCode: Código del vendedor
 
 #### Consideraciones al enviar órdenes
 
@@ -192,16 +190,15 @@ Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), enton
 
 - **Pagos**
 
-Si la "Condición de Venta" es distinto de 'Contado', entonces se válida que no se informen los tópicos de: 
+Si la "Condición de Venta" es distinto de 'Contado', entonces se válida que no se informen los tópicos de:
 
-  • CashPayment
-  
-  • Payments
+• CashPayment
+
+• Payments
 
 - **General**
 
 Si ninguno de estos códigos se informan, se mantiene el comportamiento actual.
-
 
 <a name="djson"></a>
 
@@ -219,7 +216,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | ------------------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **OrderID**                    | Si                                                  | Identificador de la orden. Debe ser distinto para cada operación.                                                   | Alfanumérico de hasta 200 caracteres                                                                   | &gt;0                                                                                                                                                                   |
 | **OrderNumber**                | Si                                                  | Número de la orden. Es el número con el cual podrá identificar la orden desde revisión de pedidos de Tango Tiendas  | Alfanumérico de hasta 200 caracteres                                                                   |                                                                                                                                                                         |
-| **Date**                       | Si                                                  | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual.                                                  | Datetime                                                                                               | DD/MM/YYYY hh:mm:ss                                                                                                                                                     |
+| **Date**                       | Si                                                  | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual.                                                  | Datetime                                                                                               | yyyy-MM-ddTHH:mm:ss                                                                                                                                                     |
 | **Total**                      | Si                                                  | Es el importe total de la orden. Sólo válido en pesos argentinos.                                                   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;0 ∑[(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount |
 | **TotalDiscount**              | No                                                  | Importe de descuento total de la operación. Sólo valido en pesos argentinos.                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total                                                                                                                                              |
 | **PaidTotal**                  | Solo si se informa el tópico Payments o CashPayment | Importe total pagado. Sólo válido en pesos argentinos.                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0 ∑(Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal                                                                               |
@@ -227,7 +224,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **WarehouseCode**              | No                                                  | Código del depósito. Si el depósito no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 2 caracteres                                                                     |
 | **SellerCode**                 | No                                                  | Código del vendedor. Si el vendedor no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **TransportCode**              | No                                                  | Código del transporte. Si el transporte no existe o está inhabilitado en Tango, no se podrá generar el pedido.      | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
-| **SaleConditionCode**        | No                                                  | Condición de venta. Si la condición de venta no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                         |
+| **SaleConditionCode**          | No                                                  | Condición de venta. Si la condición de venta no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                         |
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 
@@ -374,7 +371,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 | **Campo**              | **Requerido** | **Descripción**                                                                                                  | **Tipo de Dato**                                                                                       | **Valores Posibles / Ejemplos**                                                                                                                          |
 | ---------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **PaymentsId**         | Si            | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentID si se combina con efectivo. | Numérico de tipo entero hasta 50 posiciones.                                                           | &gt;0                                                                                                                                                    |
-| **TransactionDate**    | Si            | Fecha en que se realizó el pago.                                                                                 | Datetime                                                                                               | &gt;Principal.Date DD/MM/YYYY hh:mm:ss                                                                                                                   |
+| **TransactionDate**    | Si            | Fecha en que se realizó el pago.                                                                                 | Datetime                                                                                               | &gt;Principal.Date yyyy-MM-ddTHH:mm:ss                                                                                                                   |
 | **AuthorizationCode**  | No            | Código de autorización del pago de tarjeta.                                                                      | Alfanumérico de hasta 8 caracteres                                                                     |                                                                                                                                                          |
 | **TransactionNumber**  | No            | Número de transacción de pago.                                                                                   | Alfanumérico de hasta 40 caracteres                                                                    |                                                                                                                                                          |
 | **Installments**       | Si            | Cantidad de cuotas.                                                                                              | Numérico hasta 2 posiciones                                                                            | &gt;0                                                                                                                                                    |
@@ -1981,10 +1978,10 @@ Permite obtener los datos de transportistas.
 
 Ejemplos
 
-| **Para**                      | **GET**                                                                    |
-| ----------------------------- | -------------------------------------------------------------------------- |
+| **Para**                                | **GET**                                                                              |
+| --------------------------------------- | ------------------------------------------------------------------------------------ |
 | Obtener el transporte cuyo código es 02 | https://tiendas.axoft.com/api/Aperture/Transport?pageSize=500&pageNumber=1&filter=02 |
-| Obtener todos los transportes | https://tiendas.axoft.com/api/Aperture/Transport?pageSize=500&pageNumber=1 |
+| Obtener todos los transportes           | https://tiendas.axoft.com/api/Aperture/Transport?pageSize=500&pageNumber=1           |
 
 Respuesta
 
@@ -2060,10 +2057,10 @@ Permite obtener los datos de las condiciones de venta disponibles.
 
 Ejemplos
 
-| **Para**                               | **GET**                                                                        |
-| -------------------------------------- | ------------------------------------------------------------------------------ |
+| **Para**                                       | **GET**                                                                                 |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Obtener la condición de venta cuyo código es 3 | https://tiendas.axoft.com/api/Aperture/SaleCondition?pageSize=500&pageNumber=1&filter=3 |
-| Obtener todas las condiciones de venta | https://tiendas.axoft.com/api/Aperture/SaleCondition?pageSize=500&pageNumber=1 |
+| Obtener todas las condiciones de venta         | https://tiendas.axoft.com/api/Aperture/SaleCondition?pageSize=500&pageNumber=1          |
 
 Respuesta
 
