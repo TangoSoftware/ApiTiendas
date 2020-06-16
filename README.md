@@ -2174,8 +2174,10 @@ Respuesta
 }
 ```
 
+<a name="ClasificadorArticulos"></a>
 
 ### Clasificador de artículos
+
 <a name="CarpetasClasificadorArticulos"></a>
 
 #### Carpetas de artículos
@@ -2326,6 +2328,7 @@ Respuesta
 }
 ```
 
+<a name="ClasificadorClientes"></a>
 
 ### Clasificador de clientes
 
