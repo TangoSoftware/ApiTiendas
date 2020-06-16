@@ -2174,9 +2174,12 @@ Respuesta
 }
 ```
 
+<a name="ClasificadorArticulos"></a>
+
+#### Clasificador de artículos
 <a name="CarpetasClasificadorArticulos"></a>
 
-#### Carpetas clasificador de artículos
+#### Carpetas de artículos
 
 [<sub>Volver</sub>](#iniciorecursos)
 
@@ -2216,7 +2219,7 @@ Respuesta
 
 <a name="ArticulosEnCarpetaClasificador"></a>
 
-#### Artículos en carpeta por clasificador
+#### Artículos en las carpetas
 
 [<sub>Volver</sub>](#iniciorecursos)
 
@@ -2274,7 +2277,7 @@ Respuesta
 
 <a name="ArticulosRelacionadosClasificador"></a>
 
-#### Relaciones de items y carpetas de artículos clasificador
+#### Relaciones
 
 [<sub>Volver</sub>](#iniciorecursos)
 
@@ -2324,9 +2327,13 @@ Respuesta
 }
 ```
 
+<a name="ClasificadorClientes"></a>
+
+#### Clasificador de clientes
+
 <a name="CarpetasClasificadorClientes"></a>
 
-#### Carpetas clasificador de clientes
+#### Carpetas de clientes
 
 [<sub>Volver</sub>](#iniciorecursos)
 
@@ -2365,7 +2372,7 @@ Respuesta
 
 <a name="ClientesEnCarpetaClasificador"></a>
 
-#### Clientes en carpeta por clasificador
+#### Clientes en las carpetas
 
 [<sub>Volver</sub>](#iniciorecursos)
 
@@ -2404,7 +2411,7 @@ Respuesta
 
 <a name="ClientesRelacionadosClasificador"></a>
 
-#### Relaciones de items y carpetas de clientes clasificador
+#### Relaciones
 
 [<sub>Volver</sub>](#iniciorecursos)
 
