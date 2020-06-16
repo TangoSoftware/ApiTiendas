@@ -761,11 +761,11 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Monedas](#monedas)
 - [Transportes](#transportes)
 - [Condiciones de venta](#condicionesventa)
-- [Clasificador de artículos]
+- [Clasificador de artículos](#ClasificadorArticulos)
   - [Carpetas de artículos](#CarpetasClasificadorArticulos)
   - [Artículos en las carpetas](#ArticulosEnCarpetaClasificador)
   - [Relaciones](#ArticulosRelacionadosClasificador)
-- [Clasificador de clientes]
+- [Clasificador de clientes](#ClasificadorClientes)
   - [Carpetas de clientes](#CarpetasClasificadorClientes)
   - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
   - [Relaciones](#ClientesRelacionadosClasificador)
