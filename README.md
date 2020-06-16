@@ -763,10 +763,10 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Condiciones de venta](#condicionesventa)
 - [Carpetas clasificador de artículos](#CarpetasClasificadorArticulos)
 - [Artículos en carpeta por clasificador](#ArticulosEnCarpetaClasificador)
-- [Artículos relacionados por clasificador_](#ArticulosRelacionadosClasificador)
+- [Relaciones de items y carpetas de artículos clasificador](#ArticulosRelacionadosClasificador)
 - [Carpetas clasificador de clientes](#CarpetasClasificadorClientes)
 - [Clientes en carpeta por clasificador](#ClientesEnCarpetaClasificador)
-- [Clientes relacionados por clasificador_](#ClientesRelacionadosClasificador)
+- [Relaciones de items y carpetas de clientes clasificador](#ClientesRelacionadosClasificador)
 
 <a name="sucursales"></a>
 
