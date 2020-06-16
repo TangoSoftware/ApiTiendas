@@ -761,7 +761,12 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Monedas](#monedas)
 - [Transportes](#transportes)
 - [Condiciones de venta](#condicionesventa)
-- [Carpetas Clasificador de Artículos](#CarpetasClasificadorArticulos)
+- [Carpetas clasificador de artículos](#CarpetasClasificadorArticulos)
+- [Artículos en carpeta por clasificador](#ArticulosEnCarpetaClasificador)
+- [Artículos relacionados por clasificador_](#ArticulosRelacionadosClasificador)
+- [Carpetas clasificador de clientes](#CarpetasClasificadorClientes)
+- [Clientes en carpeta por clasificador](#ClientesEnCarpetaClasificador)
+- [Clientes relacionados por clasificador_](#ClientesRelacionadosClasificador)
 
 <a name="sucursales"></a>
 
@@ -2181,4 +2186,231 @@ Respuesta
 
 ```
 
+<a name="ArticulosEnCarpetaClasificador"></a>
 
+#### Artículos en carpeta por clasificador
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de artículos en carpetas por clasificador.
+
+| **Recurso**                                                                   |
+| ----------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/ProductsFolder?{pageSize}&{pageNumber}&[filter] |
+
+Ejemplos
+
+| **Para**                                         | **GET**                                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Obtener los artículos cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1&filter=3 |
+| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "SkuCode": "0100100265",
+            "IdFolder": 3
+        },
+        {
+            "SkuCode": "0100200703",
+            "IdFolder": 3
+        },
+        {
+            "SkuCode": "0100200708",
+            "IdFolder": 3
+        },
+        {
+            "SkuCode": "030010001",
+            "IdFolder": 3
+        },
+        {
+            "SkuCode": "0100100266",
+            "IdFolder": 3
+        },
+        {
+            "SkuCode": "0100100267",
+            "IdFolder": 3
+        }
+    ],
+    "PagingError": null
+}
+```
+
+<a name="ArticulosRelacionadosClasificador"></a>
+
+#### Relaciones de items y carpetas de artículos clasificador
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de artículos relacionados por clasificador.
+
+| **Recurso**                                                                   |
+| ----------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/ProductsRelation?{pageSize}&{pageNumber}&[filter] |
+
+Ejemplos
+
+| **Para**                                         | **GET**                                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Obtener las relaciones de los artículos cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1&filter=3 |
+| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "SkuCode": "0100200708",
+            "IdFolder": 3,
+            "RelationName": "Sustitutos",
+            "ShowRelation": true
+        },
+        {
+            "SkuCode": "0100100265",
+            "IdFolder": 3,
+            "RelationName": "Sustitutos",
+            "ShowRelation": true
+        },
+        {
+            "SkuCode": "0100200703",
+            "IdFolder": 3,
+            "RelationName": "Sustitutos",
+            "ShowRelation": true
+        }
+    ],
+    "PagingError": null
+}
+```
+
+<a name="CarpetasClasificadorClientes"></a>
+
+#### Carpetas clasificador de clientes
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de carpetas clasificador de clientes.
+
+| **Recurso**                                                                   |
+| ----------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?{pageSize}&{pageNumber}&[filter] |
+
+Ejemplos
+
+| **Para**                                         | **GET**                                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Obtener la carpeta cuyo número es 2 | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1&filter=2 |
+| Obtener todas las carpertas                     | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 500,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "IdFolder": 2,
+            "Name": "Segmento de mercado",
+            "IdParent": 1
+        }
+    ],
+    "PagingError": null
+}
+```
+
+<a name="ClientesEnCarpetaClasificador"></a>
+
+#### Clientes en carpeta por clasificador
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de clientes en carpetas por clasificador.
+
+| **Recurso**                                                                   |
+| ----------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/CustomersFolder?{pageSize}&{pageNumber}&[filter] |
+
+Ejemplos
+
+| **Para**                                         | **GET**                                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Obtener los clientes cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1&filter=3 |
+| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "CustomerCode": "010001",
+            "IdFolder": 3
+        }
+    ],
+    "PagingError": null
+}
+
+```
+
+<a name="ClientesRelacionadosClasificador"></a>
+
+#### Relaciones de items y carpetas de clientes clasificador
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de clientes relacionados por clasificador.
+
+| **Recurso**                                                                   |
+| ----------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/CustomersRelation?{pageSize}&{pageNumber}&[filter] |
+
+Ejemplos
+
+| **Para**                                         | **GET**                                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Obtener las relaciones de los clientes cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
+| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "CustomerCode": "010001",
+            "IdFolder": 3,
+            "RelationName": "Alternativos",
+            "ShowRelation": false
+        }
+    ],
+    "PagingError": null
+}
+
+```
