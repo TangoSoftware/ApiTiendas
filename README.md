@@ -2163,7 +2163,7 @@ Ejemplos
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
 | Obtener la carpeta cuyo número es 2 | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1&filter=2 |
-| Obtener todas las carpertas                     | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1          |
+| Obtener todas las carpetas                     | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2202,7 +2202,7 @@ Ejemplos
 
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Obtener los artículos cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1&filter=3 |
+| Obtener los artículos cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1          |
 
 Respuesta
@@ -2260,7 +2260,7 @@ Ejemplos
 
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Obtener las relaciones de los artículos cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1&filter=3 |
+| Obtener las relaciones de los artículos cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1          |
 
 Respuesta
@@ -2313,7 +2313,7 @@ Ejemplos
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
 | Obtener la carpeta cuyo número es 2 | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1&filter=2 |
-| Obtener todas las carpertas                     | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1          |
+| Obtener todas las carpetas                     | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2351,7 +2351,7 @@ Ejemplos
 
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Obtener los clientes cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1&filter=3 |
+| Obtener los clientes cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1          |
 
 Respuesta
@@ -2390,7 +2390,7 @@ Ejemplos
 
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Obtener las relaciones de los clientes cuyo número de caperta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
+| Obtener las relaciones de los clientes cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1          |
 
 Respuesta
