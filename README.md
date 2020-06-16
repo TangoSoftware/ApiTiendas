@@ -2174,9 +2174,8 @@ Respuesta
 }
 ```
 
-<a name="ClasificadorArticulos"></a>
 
-#### Clasificador de artículos
+### Clasificador de artículos
 <a name="CarpetasClasificadorArticulos"></a>
 
 #### Carpetas de artículos
@@ -2281,7 +2280,7 @@ Respuesta
 
 [<sub>Volver</sub>](#iniciorecursos)
 
-Permite obtener datos de artículos relacionados por clasificador.
+Permite obtener las relaciones de las carpertas de artículos clasificador.
 
 | **Recurso**                                                                   |
 | ----------------------------------------------------------------------------- |
@@ -2327,9 +2326,8 @@ Respuesta
 }
 ```
 
-<a name="ClasificadorClientes"></a>
 
-#### Clasificador de clientes
+### Clasificador de clientes
 
 <a name="CarpetasClasificadorClientes"></a>
 
@@ -2415,7 +2413,7 @@ Respuesta
 
 [<sub>Volver</sub>](#iniciorecursos)
 
-Permite obtener datos de clientes relacionados por clasificador.
+Permite obtener las relaciones de las carpertas de clientes clasificador.
 
 | **Recurso**                                                                   |
 | ----------------------------------------------------------------------------- |
@@ -2425,7 +2423,7 @@ Ejemplos
 
 | **Para**                                         | **GET**                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Obtener las relaciones de los clientes cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
+| Obtener las relaciones de las carpetas cuyo número es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1          |
 
 Respuesta
