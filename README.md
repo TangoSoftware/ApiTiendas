@@ -761,12 +761,14 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Monedas](#monedas)
 - [Transportes](#transportes)
 - [Condiciones de venta](#condicionesventa)
-- [Carpetas clasificador de artículos](#CarpetasClasificadorArticulos)
-- [Artículos en carpeta por clasificador](#ArticulosEnCarpetaClasificador)
-- [Relaciones de items y carpetas de artículos clasificador](#ArticulosRelacionadosClasificador)
-- [Carpetas clasificador de clientes](#CarpetasClasificadorClientes)
-- [Clientes en carpeta por clasificador](#ClientesEnCarpetaClasificador)
-- [Relaciones de items y carpetas de clientes clasificador](#ClientesRelacionadosClasificador)
+- [Clasificador de artículos]
+  - [Carpetas de artículos](#CarpetasClasificadorArticulos)
+  - [Artículos en las carpetas](#ArticulosEnCarpetaClasificador)
+  - [Relaciones](#ArticulosRelacionadosClasificador)
+- [Clasificador de clientes]
+  - [Carpetas de clientes](#CarpetasClasificadorClientes)
+  - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
+  - [Relaciones](#ClientesRelacionadosClasificador)
 
 <a name="sucursales"></a>
 
@@ -1236,6 +1238,8 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "Observations": "",
             "DisabledDate": null,
             "SellerCode": "1",
+            "SellerCode": "1",
+            "SellerCode": "1",
             "CreditQuota": 15000.00,
             "LocalAccountBalance": 6500.50,
             "ForeignAccountBalance": 30.00,
@@ -1262,7 +1266,15 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
                     "DeliversSunday": "N"
                 }
             ],
-            "CustomerComments": []
+            "CustomerComments": [],
+            "SellerCode": "4",
+            "CreditQuota": 99999999,
+            "LocalAccountBalance": 27214.99,
+            "ForeignAccountBalance": 6322.45,
+            "ForeignCurrencyClause": false,
+            "CreditQuotaCurrencyCode": "Corriente",
+            "SaleConditionCode": 2,
+            "TransportCode": ""
         },
         {
             "Code": "2255",
@@ -1335,7 +1347,15 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
                     "Line": 1,
                     "Text": "sin comentarios"
                 }
-            ]
+            ],
+            "SellerCode": "2",
+            "CreditQuota": 99999999,
+            "LocalAccountBalance": 33578.56,
+            "ForeignAccountBalance": 7572.51,
+            "ForeignCurrencyClause": false,
+            "CreditQuotaCurrencyCode": "Corriente",
+            "SaleConditionCode": 3,
+            "TransportCode": "02"
         },
         {
             "Code": "9898",
@@ -1384,7 +1404,15 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
                     "DeliversSunday": "N"
                 }
             ],
-            "CustomerComments": []
+            "CustomerComments": [],
+            "SellerCode": "1",
+            "CreditQuota": 99999999,
+            "LocalAccountBalance": 24166.01,
+            "ForeignAccountBalance": 5505.49,
+            "ForeignCurrencyClause": false,
+            "CreditQuotaCurrencyCode": "Corriente",
+            "SaleConditionCode": 2,
+            "TransportCode": "01"
         }
     ]
 }
