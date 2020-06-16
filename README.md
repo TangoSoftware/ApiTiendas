@@ -761,6 +761,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Monedas](#monedas)
 - [Transportes](#transportes)
 - [Condiciones de venta](#condicionesventa)
+- [Carpetas Clasificador de Artículos](#CarpetasClasificadorArticulos)
 
 <a name="sucursales"></a>
 
@@ -2139,3 +2140,45 @@ Respuesta
     "PagingError": null
 }
 ```
+
+<a name="CarpetasClasificadorArticulos"></a>
+
+#### Carpetas clasificador de artículos
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener datos de carpetas clasificador de artículos.
+
+| **Recurso**                                                                   |
+| ----------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?{pageSize}&{pageNumber}&[filter] |
+
+Ejemplos
+
+| **Para**                                         | **GET**                                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Obtener la carpeta cuyo número es 2 | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1&filter=2 |
+| Obtener todas las carpertas                     | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 500,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "IdFolder": 2,
+            "Name": "Rubro",
+            "IdParent": 1
+        }
+    ],
+    "PagingError": null
+}
+
+```
+
+
