@@ -178,6 +178,8 @@ Ahora en los datos del JSON se puede especificar los siguientes campos:
 
 • SellerCode: Código del vendedor
 
+• ShippingCode: Código de la dirección de entrega
+
 #### Consideraciones al enviar órdenes
 
 - **Condición de venta**
@@ -187,6 +189,18 @@ Si la condición de venta es distinto de 'Contado', es posible que al valor de l
 - **Transporte**
 
 Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), entonces se válida que el código de tranporte informado no tenga recargo (SurchargePercentage = 0).
+
+- **Dirección de entrega**
+
+Al informar el código de dirección de entrega de un cliente habitual, el cual se obtiene del recurso "Customer", se deberá tener las siguientes consideraciones:
+
+• Si existe en clientes habituales: será la dirección con la cual se generá el pedido.
+
+• Si NO existe en clientes habituales: se utilizará la dirección de entrega habitual que posea el cliente.
+
+• Si es vacío: se utilizará la dirección de entrega habitual que posea el cliente y además se validará el ingreso de ProvinceCode.
+
+Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual. En el caso
 
 - **Pagos**
 
@@ -677,6 +691,94 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
     "DeliversSaturday": "S",
     "DeliversSunday": "S",
     "DeliveryHours": "8"
+  },
+  "CashPayment": null,
+  "Payments": []
+}
+```
+
+### Ejemplo de JSON de una órden (Código de dirección de entrega)
+
+[<sub>Volver</sub>](#inicio)
+
+```
+{
+  "Date": "2020-05-28T00:00:00",
+  "Total": 8400.0,
+  "TotalDiscount": 0.0,
+  "PaidTotal": 0.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "2",
+  "SellerCode": "2",
+  "TransportCode": "02",
+  "SaleConditionCode": 3,
+  "OrderID": "75906",
+  "OrderNumber": "75906",
+  "ValidateTotalWithPaidTotal": false,
+  "Customer": {
+    "CustomerID": 227060905,
+    "Code": null,
+    "DocumentType": "80",
+    "DocumentNumber": "11111111111",
+    "IVACategoryCode": "CF",
+    "User": "ADMIN",
+    "Email": "api@axoft.com",
+    "FirstName": "Carlos",
+    "LastName": "Perez",
+    "BusinessName": "Empresa",
+    "Street": "Cerrrito",
+    "HouseNumber": "1186",
+    "Floor": "2",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "12459856",
+    "PhoneNumber2": "42563698",
+    "Bonus": 0.0,
+    "MobilePhoneNumber": "165952141",
+    "WebPage": null,
+    "BusinessAddress": "Cerrito 1186",
+    "Comments": "Comentario",
+    "NumberListPrice": 0,
+    "Removed": false,
+    "DateUpdate": "0001-01-01T00:00:00",
+    "Disable": "0001-01-01T00:00:00"
+  },
+  "CancelOrder": false,
+  "OrderItems": [
+    {
+      "ProductCode": "203",
+      "SKUCode": "0100200659",
+      "VariantCode": null,
+      "Description": "LAVARROPAS AUTOM. MOD.BLUE ",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 8000.0,
+      "DiscountPercentage": 0.0
+    }
+  ],
+  "Shipping": {
+    "ShippingID": 71906,
+    "ShippingCode": "PRINCIPAL",
+    "Street": "",
+    "HouseNumber": "",
+    "Floor": "",
+    "Apartment": "",
+    "City": "",
+    "ProvinceCode": null,
+    "PostalCode": "",
+    "PhoneNumber1": "",
+    "PhoneNumber2": "",
+    "ShippingCost": 400.0,
+    "DeliversMonday": "",
+    "DeliversTuesday": "",
+    "DeliversWednesday": "",
+    "DeliversThursday": "",
+    "DeliversFriday": "",
+    "DeliversSaturday": "",
+    "DeliversSunday": "",
+    "DeliveryHours": ""
   },
   "CashPayment": null,
   "Payments": []
