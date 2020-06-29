@@ -118,7 +118,7 @@ Tenga en cuenta los siguientes temas:
 
 - [Preguntas frecuentes](#faqs)
 
-- [Novedades en el Json de la orden](#novedades)
+- [Novedades en el JSON de la orden](#novedades)
 
 <a name="notificaciones"></a>
 
@@ -168,9 +168,9 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 <a name="novedades"></a>
 
-#### Novedades en el Json de la orden
+#### Novedades en el JSON de la orden
 
-Ahora en los datos del json se puede especificar los siguientes campos:
+Ahora en los datos del JSON se puede especificar los siguientes campos:
 
 • SaleConditionCode: Condición de Venta
 
@@ -1186,6 +1186,86 @@ Respuesta
 }
 ```
 
+<a name="articulos-deposito-saldo-stock"></a>
+
+#### Artículos por depósito y saldo de stock
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener por POST datos de artículos, con su composición, comentarios y valores de escala, pero filtrándolos por el stock disponible y su código de depósito. Nota: Si tenia implementado la consulta de API, para visualizar las descripciones de las escalas deberá realizar alguna modificación sobre el maestro de definición de escalas desde Tango.
+
+Solo se mostrarán artículos que en **Tango Gestión** cumplan:
+
+- Perfil de Venta, Compra-Venta o Inhabilitado.
+- Tipo Simple, Fórmula, o Kit fijo.
+- No sean artículos Base.
+- No posean doble unidad de medida.
+
+| **Recurso**                                                                            |
+| -------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock??{pageSize}&{pageNumber} |
+
+A diferencia del resto de recursos, requiere del envío de los parámetros de depósito y stock por body:
+
+```
+{
+    "codigoDeposito": "2",
+    "cantidadStock": 50
+}
+```
+
+Ambos parámetros son obligatorios, y deben tener exactamente esos nombres. El primero es un string de dos caracteres que representa al código del depósito (ver [Depósitos](#depositos)) y busca por igualdad (=), mientras que el segundo es un decimal y busca por mayor estricto (>).
+
+| **Para**                                                  | **POST**                                                                            |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+|
+| Obtener todos los artículos para el depósito 2 y saldo stock mayor a 50                               | https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock?pageSize=500&pageNumber=1    (con el JSON del ejemplo previo enviado en el body del POST)
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 500,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "SKUCode": "0200200298",
+            "Description": "EJE TRANSMISOR LAVARROPAS",
+            "AdditionalDescription": "",
+            "AlternativeCode": "",
+            "BarCode": "",
+            "Commission": 0.0000000,
+            "Discount": 0.0000000,
+            "MeasureUnitCode": "UNI",
+            "MaximumStock": 500.0000000,
+            "MinimumStock": 20.0000000,
+            "RestockPoint": 50.0000000,
+            "Observations": "",
+            "Kit": false,
+            "KitValidityDateSince": null,
+            "KitValidityDateUntil": null,
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
+            "DescriptionScale1": "",
+            "DescriptionScale2": "",
+            "DescriptionValueScale1": "",
+            "DescriptionValueScale2": "",
+            "Disabled": false,
+            "ProductComposition": [],
+            "ProductComments": []
+        }
+    ],
+    "PagingError": null
+}
+```
+
 <a name="clientes"></a>
 
 #### Clientes
@@ -1808,6 +1888,7 @@ Ejemplos
 | Obtener los saldos de stock de los artículos cuyo código contenga la cadena "01", la sucursal sea 1 y el depósito corresponda al código 2. En este caso no es válido agregar la agrupación por producto (groupByProduct=true)                   | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&filter=01&StoreNumber=1&WarehouseCode=2 |
 | Obtener los saldos de stock acumulados por artículo (En este caso la consulta no devolverá datos en los campos "StoreNumber" y "WarehouseCode")                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&groupByProduct=true                     |
 | Obtener los saldos de stock, restando al mismo las órdenes pendientes de revisión (en el caso de no solicitar agrupado por artículo, los registros de la cantidad en órdenes no devolverán datos en los campos "StoreNumber" y "WarehouseCode") | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&discountPendingOrders=true              |
+| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                                                                                             | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00                                         |
 | Obtener todos los saldos de stock                                                                                                                                                                                                               | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1                                         |
 
 Respuesta
