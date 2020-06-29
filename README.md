@@ -200,7 +200,7 @@ Al informar el código de dirección de entrega de un cliente habitual, el cual 
 
 • Si es vacío: se utilizará la dirección de entrega habitual que posea el cliente y además se validará el ingreso de ProvinceCode.
 
-Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual. En el caso
+Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual. 
 
 - **Pagos**
 
