@@ -238,7 +238,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **DocumentType**      | Si            | Código del tipo de documento.                                                                                                               | Numérico con longitud de 2 posiciones       | Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). |
 | **DocumentNumber**    | No            | Número de documento sin símbolos ni puntuaciones.                                                                                           | Alfanumérico de hasta 20 caracteres         |                                                          |
 | **User**              | Si            | Usuario de la tienda.                                                                                                                       | Alfanumérico de hasta 200 caracteres        |                                                          |
-| **BusinessName**     | No            | Razón social del cliente a nombre de quién se emitirá la factura.                                                                           | Alfanumérico de hasta 200 caracteres        |                                                          |
+| **BusinessName**      | No            | Razón social del cliente a nombre de quién se emitirá la factura.                                                                           | Alfanumérico de hasta 200 caracteres        |                                                          |
 | **FirstName**         | No            | Nombre del cliente. Se utilizará para emitir la factura si mediante el C.U.I.L / C.U.I.T. / D.N.I. no se encontraron datos en la A.F.I.P.   | Alfanumérico de hasta 200 caracteres        |                                                          |
 | **LastName**          | No            | Apellido del cliente. Se utilizará para emitir la factura si mediante el C.U.I.L / C.U.I.T. / D.N.I. no se encontraron datos en la A.F.I.P. | Alfanumérico de hasta 200 caracteres        |                                                          |
 | **Street**            | No            | Calle del domicilio del cliente.                                                                                                            | Alfanumérico de hasta 200 caracteres        |                                                          |
@@ -1201,9 +1201,9 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - No sean artículos Base.
 - No posean doble unidad de medida.
 
-| **Recurso**                                                                            |
-| -------------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock??{pageSize}&{pageNumber} |
+| **Recurso**                                                                     |
+| ------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock?{pageSize}&{pageNumber} |
 
 A diferencia del resto de recursos, requiere del envío de los parámetros de depósito y stock por body:
 
@@ -1216,10 +1216,9 @@ A diferencia del resto de recursos, requiere del envío de los parámetros de de
 
 Ambos parámetros son obligatorios, y deben tener exactamente esos nombres. El primero es un string de dos caracteres que representa al código del depósito (ver [Depósitos](#depositos)) y busca por igualdad (=), mientras que el segundo es un decimal y busca por mayor estricto (>).
 
-| **Para**                                                  | **POST**                                                                            |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-|
-| Obtener todos los artículos para el depósito 2 y saldo stock mayor a 50                               | https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock?pageSize=500&pageNumber=1    (con el JSON del ejemplo previo enviado en el body del POST)
+| **Para**                                                                | **POST**                                                                                                                                       |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Obtener todos los artículos para el depósito 2 y saldo stock mayor a 50 | https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock?pageSize=500&pageNumber=1 (con el JSON del ejemplo previo enviado en el body del POST) |
 
 Respuesta
 
@@ -1888,7 +1887,7 @@ Ejemplos
 | Obtener los saldos de stock de los artículos cuyo código contenga la cadena "01", la sucursal sea 1 y el depósito corresponda al código 2. En este caso no es válido agregar la agrupación por producto (groupByProduct=true)                   | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&filter=01&StoreNumber=1&WarehouseCode=2 |
 | Obtener los saldos de stock acumulados por artículo (En este caso la consulta no devolverá datos en los campos "StoreNumber" y "WarehouseCode")                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&groupByProduct=true                     |
 | Obtener los saldos de stock, restando al mismo las órdenes pendientes de revisión (en el caso de no solicitar agrupado por artículo, los registros de la cantidad en órdenes no devolverán datos en los campos "StoreNumber" y "WarehouseCode") | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&discountPendingOrders=true              |
-| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                                                                                             | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00                                         |
+| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los saldos de stock                                                                                                                                                                                                               | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1                                         |
 
 Respuesta
@@ -2267,16 +2266,16 @@ Respuesta
 
 Permite obtener datos de carpetas clasificador de artículos.
 
-| **Recurso**                                                                   |
-| ----------------------------------------------------------------------------- |
+| **Recurso**                                                                                      |
+| ------------------------------------------------------------------------------------------------ |
 | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?{pageSize}&{pageNumber}&[filter] |
 
 Ejemplos
 
-| **Para**                                         | **GET**                                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Para**                            | **GET**                                                                                            |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Obtener la carpeta cuyo número es 2 | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1&filter=2 |
-| Obtener todas las carpetas                     | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1          |
+| Obtener todas las carpetas          | https://tiendas.axoft.com/api/Aperture/ProductsFolderClassifier?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2307,16 +2306,16 @@ Respuesta
 
 Permite obtener datos de artículos en carpetas por clasificador.
 
-| **Recurso**                                                                   |
-| ----------------------------------------------------------------------------- |
+| **Recurso**                                                                            |
+| -------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/ProductsFolder?{pageSize}&{pageNumber}&[filter] |
 
 Ejemplos
 
-| **Para**                                         | **GET**                                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Para**                                          | **GET**                                                                                  |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Obtener los artículos cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1&filter=3 |
-| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1          |
+| Obtener todas los artículos                       | https://tiendas.axoft.com/api/Aperture/ProductsFolder?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2365,16 +2364,16 @@ Respuesta
 
 Permite obtener las relaciones de las carpertas de artículos clasificador.
 
-| **Recurso**                                                                   |
-| ----------------------------------------------------------------------------- |
+| **Recurso**                                                                              |
+| ---------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/ProductsRelation?{pageSize}&{pageNumber}&[filter] |
 
 Ejemplos
 
-| **Para**                                         | **GET**                                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Para**                                                            | **GET**                                                                                    |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Obtener las relaciones de los artículos cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1&filter=3 |
-| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1          |
+| Obtener todas los artículos                                         | https://tiendas.axoft.com/api/Aperture/ProductsRelation?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2421,16 +2420,16 @@ Respuesta
 
 Permite obtener datos de carpetas clasificador de clientes.
 
-| **Recurso**                                                                   |
-| ----------------------------------------------------------------------------- |
+| **Recurso**                                                                                       |
+| ------------------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?{pageSize}&{pageNumber}&[filter] |
 
 Ejemplos
 
-| **Para**                                         | **GET**                                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Para**                            | **GET**                                                                                             |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Obtener la carpeta cuyo número es 2 | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1&filter=2 |
-| Obtener todas las carpetas                     | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1          |
+| Obtener todas las carpetas          | https://tiendas.axoft.com/api/Aperture/CustomersFolderClassifier?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2460,16 +2459,16 @@ Respuesta
 
 Permite obtener datos de clientes en carpetas por clasificador.
 
-| **Recurso**                                                                   |
-| ----------------------------------------------------------------------------- |
+| **Recurso**                                                                             |
+| --------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/CustomersFolder?{pageSize}&{pageNumber}&[filter] |
 
 Ejemplos
 
-| **Para**                                         | **GET**                                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Para**                                         | **GET**                                                                                   |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------- |
 | Obtener los clientes cuyo número de carpeta es 3 | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1&filter=3 |
-| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1          |
+| Obtener todas los artículos                      | https://tiendas.axoft.com/api/Aperture/CustomersFolder?pageSize=500&pageNumber=1          |
 
 Respuesta
 
@@ -2499,16 +2498,16 @@ Respuesta
 
 Permite obtener las relaciones de las carpertas de clientes clasificador.
 
-| **Recurso**                                                                   |
-| ----------------------------------------------------------------------------- |
+| **Recurso**                                                                               |
+| ----------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?{pageSize}&{pageNumber}&[filter] |
 
 Ejemplos
 
-| **Para**                                         | **GET**                                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Para**                                                | **GET**                                                                                     |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Obtener las relaciones de las carpetas cuyo número es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
-| Obtener todas los artículos                     | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1          |
+| Obtener todas los artículos                             | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1          |
 
 Respuesta
 
