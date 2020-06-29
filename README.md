@@ -751,6 +751,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Depósitos](#depositos)
 - [Unidades de medida](#medidas)
 - [Artículos](#articulos)
+- [Artículos por depósito y saldo de stock](#ArticulosDepositoSaldoStock)
 - [Clientes](#clientes)
 - [Listas de precios](#listaprecios)
 - [Precios](#precios)
@@ -1186,7 +1187,7 @@ Respuesta
 }
 ```
 
-<a name="articulos-deposito-saldo-stock"></a>
+<a name="ArticulosDepositoSaldoStock"></a>
 
 #### Artículos por depósito y saldo de stock
 
@@ -1877,7 +1878,7 @@ Solo se mostrarán saldos de stock de:
 
 | **Recurso**                                                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Stock?{pageSize}&{pageNumber}&[filter]&[groupByProduct]&[discountPendingOrders]&[StoreNumber]&[WarehouseCode] |
+| https://tiendas.axoft.com/api/Aperture/Stock?{pageSize}&{pageNumber}&[filter]&[groupByProduct]&[discountPendingOrders]&[storeNumber]&[warehouseCode]&[lastUpdate] |
 
 Ejemplos
 
