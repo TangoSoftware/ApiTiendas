@@ -172,7 +172,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 #### Período - Jul 2020
 
-• ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping])(#topicoshipping)
+• ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
 
 
 Ahora en los datos del JSON se puede especificar los siguientes campos:
