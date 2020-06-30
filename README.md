@@ -122,7 +122,7 @@ Tenga en cuenta los siguientes temas:
 
 <a name="notificaciones"></a>
 
-#### Notificaciones
+### Notificaciones
 
 Si desea recibir notificaciones, en la configuración de la **API** debe marcar el check y configurar una URL donde recibirá las notificaciones.
 
@@ -148,7 +148,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 <a name="faqs"></a>
 
-#### Preguntas Frecuentes
+### Preguntas Frecuentes
 
 - **¿Cómo debo armar el JSON para cargar una orden a través de la API?**
 
@@ -168,14 +168,14 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 <a name="novedades"></a>
 
-#### Novedades en el JSON de la orden
+### Novedades en el JSON de la orden
 
-#### Período - Jul 2020
+### Período - Jul 2020
 
 • ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
 
 
-#### Período - Jun 2020
+### Período - Jun 2020
 
 Ahora en los datos del JSON se puede especificar los siguientes campos:
 
