@@ -346,6 +346,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 ]
 ```
 
+<a name="topicoshipping"></a>
 **Tópico Shipping**
 
 Este tópico se completa siempre que se requiere informar el envío. Se puede completar ya sea que el envío sea con o sin costo para el comprador.
