@@ -175,6 +175,8 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 • ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
 
 
+#### Período - Jun 2020
+
 Ahora en los datos del JSON se puede especificar los siguientes campos:
 
 • SaleConditionCode: Condición de Venta
@@ -193,18 +195,6 @@ Si la condición de venta es distinto de 'Contado', es posible que al valor de l
 - **Transporte**
 
 Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), entonces se válida que el código de tranporte informado no tenga recargo (SurchargePercentage = 0).
-
-- **Dirección de entrega**
-
-Al informar el código de dirección de entrega de un cliente habitual, el cual se obtiene del recurso "Customer", se deberá tener las siguientes consideraciones:
-
-• Si existe en clientes habituales: será la dirección con la cual se generá el pedido.
-
-• Si NO existe en clientes habituales: se utilizará la dirección de entrega habitual que posea el cliente.
-
-• Si es vacío: se utilizará la dirección de entrega habitual que posea el cliente y además se validará el ingreso de ProvinceCode.
-
-Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual. 
 
 - **Pagos**
 
@@ -351,6 +341,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 
 Este tópico se completa siempre que se requiere informar el envío. Se puede completar ya sea que el envío sea con o sin costo para el comprador.
 
+
 | **Campo**             | **Requerido** | **Descripción**                                                     | **Tipo de Dato**                                                                                        | **Valores Posibles / Ejemplos**                                 |
 | --------------------- | ------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | **ShippingID**        | Si            | Identificador del envío. Debe ser distinto para cada operación.     | Numérico de tipo entero hasta 50 posiciones.                                                            | &gt;0                                                           |
@@ -373,6 +364,18 @@ Este tópico se completa siempre que se requiere informar el envío. Se puede co
 | **DeliversSaturday**  | No            | Entrega sábado                                                      | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliversSunday**    | No            | Entrega domingo                                                     | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliveryHours**     | No            | Hora de entrega                                                     | Alfanumérico de hasta 100 caracteres                                                                    |                                                                 |
+**Consideraciones en la dirección de entrega**
+
+Al informar el código de dirección de entrega de un cliente habitual, el cual se obtiene del recurso ["Customer"](#iniciorecursos), se deberá tener las siguientes consideraciones:
+
+• Si existe en clientes habituales: será la dirección con la cual se generá el pedido y no se requiere completar el resto de los campos. 
+
+• Si NO existe en clientes habituales: se utilizará la dirección de entrega habitual que posea el cliente y no se requiere completar el resto de los campos.
+
+• Si es vacío: se comportará como antes, debiendo completar el resto de los campos y validando el ingreso de "ProvinceCode".
+
+Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual. 
+
 
 **Tópico CashPayment**
 
