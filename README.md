@@ -1624,6 +1624,7 @@ Ejemplos
 | **Para**                                              | **GET**                                                                             |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | Obtener la lista de precios cuyo número de lista es 1 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&filter=1 |
+| Obtener todas las listas de precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todas las listas de precios                   | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1          |
 
 Respuesta
@@ -1708,6 +1709,7 @@ Ejemplos
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Obtener los precios de la lista de precios cuyo número de lista es 1                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1            |
 | Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01 |
+| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los precios                                                                                            | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                     |
 
 Respuesta
@@ -1823,6 +1825,7 @@ Ejemplos
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028"                                                                                        | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028                              |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028", el código de artículo contenga la cadena "01" y la lista de precios la lista número 2 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01&PriceListNumber=2 |
+| Obtener todos los precios por cliente con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los precios por cliente                                                                                                                               | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1                                             |
 
 Respuesta
