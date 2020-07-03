@@ -1317,6 +1317,8 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 
 A diferencia del resto de recursos, requiere del envío de los parámetros de depósito y stock por body:
 
+Impotante: El formato del body para los parámetros es JSON.
+
 ```
 {
     "codigoDeposito": "2",
