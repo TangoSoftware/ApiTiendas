@@ -1313,9 +1313,11 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 
 | **Recurso**                                                                     |
 | ------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock?{pageSize}&{pageNumber} |
+| https://tiendas.axoft.com/api/Aperture/DataBy/ArtPorSaldoStock?{pageSize}&{pageNumber} |
 
 A diferencia del resto de recursos, requiere del envío de los parámetros de depósito y stock por body:
+
+Impotante: El formato del body para los parámetros es JSON.
 
 ```
 {
@@ -1328,7 +1330,7 @@ Ambos parámetros son obligatorios, y deben tener exactamente esos nombres. El p
 
 | **Para**                                                                | **POST**                                                                                                                                       |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Obtener todos los artículos para el depósito 2 y saldo stock mayor a 50 | https://tiendas.axoft.com/api/Aperture/ArtPorSaldoStock?pageSize=500&pageNumber=1 (con el JSON del ejemplo previo enviado en el body del POST) |
+| Obtener todos los artículos para el depósito 2 y saldo stock mayor a 50 | https://tiendas.axoft.com/api/Aperture/DataBy/ArtPorSaldoStock?pageSize=500&pageNumber=1 (con el JSON del ejemplo previo enviado en el body del POST) |
 
 Respuesta
 
