@@ -1624,7 +1624,7 @@ Ejemplos
 | **Para**                                              | **GET**                                                                             |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | Obtener la lista de precios cuyo número de lista es 1 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&filter=1 |
-| Obtener todas las listas de precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
+| Obtener todas las listas de precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todas las listas de precios                   | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1          |
 
 Respuesta
@@ -1709,7 +1709,7 @@ Ejemplos
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Obtener los precios de la lista de precios cuyo número de lista es 1                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1            |
 | Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01 |
-| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
+| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los precios                                                                                            | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                     |
 
 Respuesta
@@ -1825,7 +1825,7 @@ Ejemplos
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028"                                                                                        | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028                              |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028", el código de artículo contenga la cadena "01" y la lista de precios la lista número 2 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01&PriceListNumber=2 |
-| Obtener todos los precios por cliente con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
+| Obtener todos los precios por cliente con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los precios por cliente                                                                                                                               | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1                                             |
 
 Respuesta
@@ -2000,7 +2000,7 @@ Ejemplos
 | Obtener los saldos de stock de los artículos cuyo código contenga la cadena "01", la sucursal sea 1 y el depósito corresponda al código 2. En este caso no es válido agregar la agrupación por producto (groupByProduct=true)                   | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&filter=01&StoreNumber=1&WarehouseCode=2 |
 | Obtener los saldos de stock acumulados por artículo (En este caso la consulta no devolverá datos en los campos "StoreNumber" y "WarehouseCode")                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&groupByProduct=true                     |
 | Obtener los saldos de stock, restando al mismo las órdenes pendientes de revisión (en el caso de no solicitar agrupado por artículo, los registros de la cantidad en órdenes no devolverán datos en los campos "StoreNumber" y "WarehouseCode") | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&discountPendingOrders=true              |
-| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
+| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los saldos de stock                                                                                                                                                                                                               | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1                                         |
 
 Respuesta
