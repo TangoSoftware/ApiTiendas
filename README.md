@@ -881,6 +881,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
   - [Carpetas de clientes](#CarpetasClasificadorClientes)
   - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
   - [Relaciones](#ClientesRelacionadosClasificador)
+- [Cotización de moneda extranjera] (#CotizacionMonedaExtranjera)
 
 <a name="sucursales"></a>
 
@@ -2661,3 +2662,22 @@ Respuesta
 }
 
 ```
+
+<a name="CotizacionMonedaExtranjera"></a>
+
+### Cotización moneda extranjera
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener el valor de la cotización de la moneda extranjera contable.
+
+| **Recurso**                                                                               |
+| ----------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?{lastUpdate}                  |
+
+Ejemplo
+
+| **Para**                                                | **GET**                                                                                     |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Obtener el valor de la cotización                       | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate                                 |
+| Valor de la cotización, actualizada después de X fecha  | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?lastUpdate=2020-01-01T00:00:00  |
