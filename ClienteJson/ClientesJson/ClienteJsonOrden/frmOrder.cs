@@ -80,7 +80,7 @@ namespace ClienteJsonOrden
             {
                 MessageBox.Show(exc.Message);
             }
-
+            customerDto.Code = customerCode.Text;
             customerDto.DocumentNumber = customerDocumentNumber.Text;
             customerDto.DocumentType = customerDocumentType.Text;
             customerDto.Email = customerEmail.Text;
@@ -88,6 +88,7 @@ namespace ClienteJsonOrden
             customerDto.Floor = customerFloor.Text;
             customerDto.HouseNumber = customerHouseNumber.Text;
             customerDto.IVACategoryCode = customerIVACategoryCode.Text;
+            customerDto.PayInternalTax = customerPayInternalTax.Checked;
             customerDto.LastName = customerLastName.Text;
             customerDto.MobilePhoneNumber = customerMobilePhoneNumber.Text;
             customerDto.PhoneNumber1 = customerPhoneNumber1.Text;
@@ -109,24 +110,33 @@ namespace ClienteJsonOrden
             {
                 MessageBox.Show(exc.Message);
             }
-
+            
+            orderDto.SellerCode = principalSellerCode.Text;
+            orderDto.TransportCode = principalTransportCode.Text;
+            orderDto.SaleConditionCode = int.TryParse(principalSaleConditionCode.Text,out int saleConditionCode) ? saleConditionCode : 0;
+            orderDto.PriceListNumber = int.TryParse(principalPriceListNumber.Text, out int priceListNumber) ? priceListNumber : 0;
             orderDto.OrderID = principalOrderID.Text;
             orderDto.OrderItems = ListaOrderItems;
             orderDto.OrderNumber = principalOrderNumber.Text;
             orderDto.Payments = ListaPayments;
+            orderDto.IvaIncluded = checkIvaIncluded.Checked;
+            orderDto.InternalTaxIncluded = checkInternalTaxIncluded.Checked;
             orderDto.ValidateTotalWithPaidTotal = checkValidateTotalWithPaidTotal.Checked;
 
             CashPaymentDto cashPayment = new CashPaymentDto();
-            try
+            if (!string.IsNullOrEmpty(cashPaymentTotal.Text)) 
             {
-                cashPayment.PaymentTotal = Convert.ToDecimal(cashPaymentTotal.Text);
-                cashPayment.PaymentID = Convert.ToInt64(cashPaymentId.Text);
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-            cashPayment.PaymentMethod = cashPaymentMethod.Text;
+                try
+                {
+                    cashPayment.PaymentTotal = Convert.ToDecimal(cashPaymentTotal.Text);
+                    cashPayment.PaymentID = Convert.ToInt64(cashPaymentId.Text);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+                cashPayment.PaymentMethod = cashPaymentMethod.Text;
+            };
 
             if (checkGenerarCashPayment.Checked)
             {
@@ -151,6 +161,7 @@ namespace ClienteJsonOrden
             shipping.PostalCode = shippingPostalCode.Text;
             shipping.ProvinceCode = shippingProvinceCode.Text;
             shipping.Street = shippingStreet.Text;
+            shipping.ShippingCode = shippingShippingCode.Text;
 
             shipping.ShippingCost = 0;
             if (!String.IsNullOrWhiteSpace(shippingShippingCost.Text))
@@ -249,7 +260,13 @@ namespace ClienteJsonOrden
                     principalPaidTotal.Text = Convert.ToString(orderDto.PaidTotal);
                     principalFinancialSurcharge.Text = Convert.ToString(orderDto.FinancialSurcharge);
                     principalWarehouseCode.Text = orderDto.WarehouseCode;
+                    principalSellerCode.Text = orderDto.SellerCode;
+                    principalTransportCode.Text = orderDto.TransportCode;
+                    principalSaleConditionCode.Text = Convert.ToString(orderDto.SaleConditionCode);
+                    principalPriceListNumber.Text = Convert.ToString(orderDto.PriceListNumber);
                     customerCustomerID.Text = Convert.ToString(orderDto.Customer.CustomerID);
+                    checkIvaIncluded.Checked = orderDto.IvaIncluded;
+                    checkInternalTaxIncluded.Checked = orderDto.InternalTaxIncluded;
                     checkValidateTotalWithPaidTotal.Checked = orderDto.ValidateTotalWithPaidTotal;
                 }
                 catch (Exception exc)
@@ -261,6 +278,7 @@ namespace ClienteJsonOrden
                 customerBusinessName.Text = orderDto.Customer.BusinessName;
                 customerCity.Text = orderDto.Customer.City;
                 customerComments.Text = orderDto.Customer.Comments;
+                customerCode.Text = orderDto.Customer.Code;
                 customerDocumentNumber.Text = orderDto.Customer.DocumentNumber;
                 customerDocumentType.Text = orderDto.Customer.DocumentType;
                 customerEmail.Text = orderDto.Customer.Email;
@@ -268,6 +286,7 @@ namespace ClienteJsonOrden
                 customerFloor.Text = orderDto.Customer.Floor;
                 customerHouseNumber.Text = orderDto.Customer.HouseNumber;
                 customerIVACategoryCode.Text = orderDto.Customer.IVACategoryCode;
+                customerPayInternalTax.Checked = orderDto.Customer.PayInternalTax;
                 customerLastName.Text = orderDto.Customer.LastName;
                 customerMobilePhoneNumber.Text = orderDto.Customer.MobilePhoneNumber;
                 customerPhoneNumber1.Text = orderDto.Customer.PhoneNumber1;
