@@ -168,6 +168,16 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
+### Período - Sep 2020
+
+• Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el código del cliente en Tango. En el caso de no existir, no se podrá generar el pedido. ([Tópico Customer](#topicocustomer)). Si no se informa, se mantiene el comportamiento actual.
+
+• PriceLisNumber: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para informar el número de lista de precios en Tango. En el caso de no existir, no se podrá generar la orden. (Tópico Principal](#topicoprincipal). Si no se informa, se mantiene el comportamiento actual.
+
+• IvaIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye IVA. (Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual.
+
+• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye impuesto interno. (Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual.
+
 ### Período - Jul 2020
 
 • ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
@@ -214,6 +224,7 @@ Si ninguno de estos códigos se informan, se mantiene el comportamiento actual.
 
 A continuación, se detalla a modo orientativo, el contenido de cada uno de los datos del JSON
 
+<a name="topicoprincipal"></a>
 **Tópico principal**
 
 _Recuerde_: es obligatorio cargar un registro en este tópico para generar una orden.
@@ -231,9 +242,13 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **SellerCode**                 | No                                                  | Código del vendedor. Si el vendedor no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **TransportCode**              | No                                                  | Código del transporte. Si el transporte no existe o está inhabilitado en Tango, no se podrá generar el pedido.      | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **SaleConditionCode**          | No                                                  | Condición de venta. Si la condición de venta no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                         |
+| **PriceListNumber**          | No                                                  | Número de lista de precios. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                         |
+| **IvaIncluded**                | No                                                  | Indica que los importes informados incluyen IVA                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
+| **InternalTaxIncluded**                | No                                                  | Indica que los importes informados incluyen impuestos internos                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 
+<a name="topicocustomer"></a>
 **Tópico Customer**
 
 _Recuerde_: es obligatorio cargar un registro en este tópico para generar una orden.
@@ -241,6 +256,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo**             | **Requerido** | **Descripción**                                                                                                                             | **Tipo de Dato**                            | **Valores Posibles / Ejemplos**                          |
 | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------- |
 | **CustomerId**        | Si            | Identificador del cliente.                                                                                                                  | Numérico de tipo entero hasta 10 posiciones | &gt;0                                                    |
+| **Code**        | No            | Código del cliente. Si el cliente no existe en Tango, no se podrá generar el pedido                                                                                                                        | Alfanumérico de hasta 6 caracteres         |                                                          |
 | **DocumentType**      | Si            | Código del tipo de documento.                                                                                                               | Numérico con longitud de 2 posiciones       | Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). |
 | **DocumentNumber**    | No            | Número de documento sin símbolos ni puntuaciones.                                                                                           | Alfanumérico de hasta 20 caracteres         |                                                          |
 | **User**              | Si            | Usuario de la tienda.                                                                                                                       | Alfanumérico de hasta 200 caracteres        |                                                          |
@@ -261,6 +277,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **PhoneNumber1**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **PhoneNumber2**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **IvaCategoryCode**   | Si            | Código de Categoría de I.V.A. del cliente                                                                                                   | Alfanumérico de hasta 3 caracteres          | Ver Tablas de Referencia, [Condición Fiscal](#cfiscal).  |
+| **PayInternalTax**   | No            | Indica que se le liquida, en caso de existir, impuestos internos al comprador | De tipo lógico                                                                                         | True/False                           |
 
 
 <a name="topicoordenitems"></a>
@@ -505,6 +522,9 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "01",
   "SaleConditionCode": 1,
+  "PriceListNumber": 2,
+  "IvaIncluded": true,
+  "InternalTaxIncluded": false,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": true,
@@ -514,6 +534,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
     "DocumentType": "80",
     "DocumentNumber": "11111111111",
     "IVACategoryCode": "CF",
+    "PayInternalTax": false,
     "User": "ADMIN",
     "Email": "api@axoft.com",
     "FirstName": "Carlos",
