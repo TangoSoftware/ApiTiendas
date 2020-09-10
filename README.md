@@ -8,6 +8,7 @@ Tango Software - API REST de Tango Tiendas
   - [Ambientes](#ambientes)
   - [Asociar aplicación con API](#asociarapi)
 - [Recepción de órdenes API](#ordenes)
+  - [Novedades](#novedades)
   - [Datos del JSON](#djson)
   - [Tablas de Referencia](#tablas)
   - [Ejemplo de JSON de una órden](#ejemplojson)
