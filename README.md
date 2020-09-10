@@ -168,6 +168,18 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
+### Período - Sep 2020
+
+• Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el código del cliente en Tango. En el caso de no existir, no se podrá generar el pedido. ([Tópico Customer](#topicocustomer)). Si no se informa, se mantiene el comportamiento actual.
+
+• PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si liquida impuesto interno en Tango. ([Tópico Customer](#topicocustomer)). En caso de exitir el cliente habitual se verifica que coincidan .Si no se informa, se mantiene el comportamiento actual (defecto false).
+
+• PriceListNumber: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para informar el número de lista de precios en Tango. En el caso de no existir, no se podrá generar el pedido. ([Tópico Principal](#topicoprincipal). Si no se informa, se mantiene el comportamiento actual.
+
+• IvaIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye IVA. ([Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual (defecto false).
+
+• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye impuesto interno. ([Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual (defecto false).
+
 ### Período - Jul 2020
 
 • ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
@@ -214,6 +226,7 @@ Si ninguno de estos códigos se informan, se mantiene el comportamiento actual.
 
 A continuación, se detalla a modo orientativo, el contenido de cada uno de los datos del JSON
 
+<a name="topicoprincipal"></a>
 **Tópico principal**
 
 _Recuerde_: es obligatorio cargar un registro en este tópico para generar una orden.
@@ -231,9 +244,13 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **SellerCode**                 | No                                                  | Código del vendedor. Si el vendedor no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **TransportCode**              | No                                                  | Código del transporte. Si el transporte no existe o está inhabilitado en Tango, no se podrá generar el pedido.      | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **SaleConditionCode**          | No                                                  | Condición de venta. Si la condición de venta no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                         |
+| **PriceListNumber**          | No                                                  | Número de lista de precios. | Numérico de tipo entero hasta 4 posiciones                                                            |                                                                                                                                                                         |
+| **IvaIncluded**                | No                                                  | Indica que los importes informados incluyen IVA                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
+| **InternalTaxIncluded**                | No                                                  | Indica que los importes informados incluyen impuestos internos                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 
+<a name="topicocustomer"></a>
 **Tópico Customer**
 
 _Recuerde_: es obligatorio cargar un registro en este tópico para generar una orden.
@@ -241,6 +258,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo**             | **Requerido** | **Descripción**                                                                                                                             | **Tipo de Dato**                            | **Valores Posibles / Ejemplos**                          |
 | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------- |
 | **CustomerId**        | Si            | Identificador del cliente.                                                                                                                  | Numérico de tipo entero hasta 10 posiciones | &gt;0                                                    |
+| **Code**        | No            | Código del cliente. Si el cliente no existe en Tango, no se podrá generar el pedido                                                                                                                        | Alfanumérico de hasta 6 caracteres         |                                                          |
 | **DocumentType**      | Si            | Código del tipo de documento.                                                                                                               | Numérico con longitud de 2 posiciones       | Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). |
 | **DocumentNumber**    | No            | Número de documento sin símbolos ni puntuaciones.                                                                                           | Alfanumérico de hasta 20 caracteres         |                                                          |
 | **User**              | Si            | Usuario de la tienda.                                                                                                                       | Alfanumérico de hasta 200 caracteres        |                                                          |
@@ -261,6 +279,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **PhoneNumber1**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **PhoneNumber2**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **IvaCategoryCode**   | Si            | Código de Categoría de I.V.A. del cliente                                                                                                   | Alfanumérico de hasta 3 caracteres          | Ver Tablas de Referencia, [Condición Fiscal](#cfiscal).  |
+| **PayInternalTax**   | No            | Indica que se le liquida, en caso de existir, impuestos internos al comprador | De tipo lógico                                                                                         | True/False                           |
 
 
 <a name="topicoordenitems"></a>
@@ -510,7 +529,6 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "ValidateTotalWithPaidTotal": true,
   "Customer": {
     "CustomerID": 227060905,
-    "Code": null,
     "DocumentType": "80",
     "DocumentNumber": "11111111111",
     "IVACategoryCode": "CF",
@@ -790,6 +808,137 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   },
   "CashPayment": null,
   "Payments": []
+}
+```
+### Ejemplo de JSON de una órden (Código de Cliente - Lista de Precio)
+
+[<sub>Volver</sub>](#inicio)
+
+```
+{
+  "Date": "2020-02-14T00:00:00",
+  "Total": 8523.0,
+  "TotalDiscount": 77.0,
+  "PaidTotal": 8523.0,
+  "FinancialSurcharge": 200.0,
+  "WarehouseCode": "2",
+  "SellerCode": "2",
+  "TransportCode": "01",
+  "SaleConditionCode": 1,
+  "PriceListNumber": 2,
+  "IvaIncluded": true,
+  "InternalTaxIncluded": false,
+  "OrderID": "75906",
+  "OrderNumber": "75906",
+  "ValidateTotalWithPaidTotal": true,
+  "Customer": {
+    "CustomerID": 227060905,
+    "Code": "010010",
+    "DocumentType": "80",
+    "DocumentNumber": "11111111111",
+    "IVACategoryCode": "CF",
+    "PayInternalTax": false,
+    "User": "ADMIN",
+    "Email": "api@axoft.com",
+    "FirstName": "Carlos",
+    "LastName": "Perez",
+    "BusinessName": "Empresa",
+    "Street": "Cerrrito",
+    "HouseNumber": "1186",
+    "Floor": "2",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "12459856",
+    "PhoneNumber2": "42563698",
+    "Bonus": 0.0,
+    "MobilePhoneNumber": "165952141",
+    "WebPage": null,
+    "BusinessAddress": "Cerrito 1186",
+    "Comments": "Comentario",
+    "NumberListPrice": 0,
+    "Removed": false,
+    "DateUpdate": "0001-01-01T00:00:00",
+    "Disable": "0001-01-01T00:00:00"
+  },
+  "CancelOrder": false,
+  "OrderItems": [
+    {
+      "ProductCode": "203",
+      "SKUCode": "0100200659",
+      "VariantCode": null,
+      "Description": "LAVARROPAS AUTOM. MOD.BLUE ",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 7700.0,
+      "DiscountPercentage": 0.0
+    },
+    {
+      "ProductCode": "104",
+      "SKUCode": "0100100269",
+      "VariantCode": null,
+      "Description": "CÁMARA DIGITAL 4X MARCA TCL",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 300.0,
+      "DiscountPercentage": 0.0
+    }
+  ],
+  "Shipping": {
+    "ShippingID": 71906,
+    "Street": "9 de Julio",
+    "HouseNumber": "1186",
+    "Floor": "1",
+    "Apartment": "1",
+    "City": "CABA",
+    "ProvinceCode": "0",
+    "PostalCode": "1122",
+    "PhoneNumber1": "125165151",
+    "PhoneNumber2": "12345678",
+    "ShippingCost": 400.0,
+    "DeliversMonday": "S",
+    "DeliversTuesday": "S",
+    "DeliversWednesday": "S",
+    "DeliversThursday": "S",
+    "DeliversFriday": "S",
+    "DeliversSaturday": "S",
+    "DeliversSunday": "S",
+    "DeliveryHours": "8"
+  },
+  "CashPayment": {
+    "PaymentID": 38566912,
+    "PaymentMethod": "A02",
+    "PaymentTotal": 123.0
+  },
+  "Payments": [
+    {
+      "PaymentId": 38566913,
+      "TransactionDate": "2020-02-14T00:00:00",
+      "AuthorizationCode": "52",
+      "TransactionNumber": "998595",
+      "Installments": 1,
+      "InstallmentAmount": 8100.0,
+      "Total": 8100.0,
+      "CardCode": "DI",
+      "CardPlanCode": "1",
+      "VoucherNo": 48,
+      "CardPromotionCode": "2"
+    },
+    {
+      "PaymentId": 38566914,
+      "TransactionDate": "2020-02-14T00:00:00",
+      "AuthorizationCode": "53",
+      "TransactionNumber": "5849849",
+      "Installments": 2,
+      "InstallmentAmount": 150.0,
+      "Total": 300.0,
+      "CardCode": "DI",
+      "CardPlanCode": "2",
+      "VoucherNo": 49,
+      "CardPromotionCode": "1"
+    }
+  ]
 }
 ```
 
