@@ -172,7 +172,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el "código del cliente" en Tango ([Tópico Customer](#topicocustomer)). En el caso que se informe y no exista, la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
 
-• PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si "liquida impuesto interno" en Tango ([Tópico Customer](#topicocustomer)). Solo aplica en caso de existir el cliente habitual, en este caso se verifica que coincidan, si no coinciden la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
+• PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si "liquida impuesto interno" en Tango ([Tópico Customer](#topicocustomer)). Solo aplica en caso de existir el cliente habitual, en este caso se verifica que coincidan, si no coinciden la orden del pedido quedará observada. Si el cliente liquida II se deberá informar, caso contrario por defecto asume el valor 'falso' (False).
 
 • PriceListNumber: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para informar el "número de lista de precios" en Tango ([Tópico Principal](#topicoprincipal)). En el caso que se informe y no exista, la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
 
