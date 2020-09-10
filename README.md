@@ -172,13 +172,13 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el código del cliente en Tango. En el caso de no existir, no se podrá generar el pedido. ([Tópico Customer](#topicocustomer)). Si no se informa, se mantiene el comportamiento actual.
 
-• PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si liquida impuesto interno en Tango. ([Tópico Customer](#topicocustomer)). En caso de exitir el cliente habitual se verifica que coincidan .Si no se informa, se mantiene el comportamiento actual (defecto true).
+• PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si liquida impuesto interno en Tango. ([Tópico Customer](#topicocustomer)). En caso de exitir el cliente habitual se verifica que coincidan .Si no se informa, se mantiene el comportamiento actual (defecto false).
 
 • PriceListNumber: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para informar el número de lista de precios en Tango. En el caso de no existir, no se podrá generar el pedido. ([Tópico Principal](#topicoprincipal). Si no se informa, se mantiene el comportamiento actual.
 
-• IvaIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye IVA. ([Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual (defecto true).
+• IvaIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye IVA. ([Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual (defecto false).
 
-• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye impuesto interno. ([Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual (defecto true).
+• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la lista informada incluye impuesto interno. ([Tópico Principal](#topicoprincipal). Si no se informa PriceListNumber, se mantiene el comportamiento actual (defecto false).
 
 ### Período - Jul 2020
 
