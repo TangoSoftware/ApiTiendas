@@ -178,7 +178,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • IvaIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la "lista de precios informada incluye IVA" ([Tópico Principal](#topicoprincipal)). Este campo solo aplica si se informa un valor del campo "PriceListNumber" (número de lista de precios), de informarse el valor de "PriceListNumber" y no especificar el valor en este campo entonces por defecto asume el valor 'falso' (False).
 
-• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la "lista de precios informada incluye impuesto interno". ([Tópico Principal](#topicoprincipal). Este campo solo aplica si se informa un valor del campo "PriceListNumber" (número de lista de precios), de informarse el valor de "PriceListNumber" y no especificar el valor en este campo entonces por defecto asume el valor 'falso' (False).
+• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la "lista de precios informada incluye impuesto interno". ([Tópico Principal](#topicoprincipal)). Este campo solo aplica si se informa un valor del campo "PriceListNumber" (número de lista de precios), de informarse el valor de "PriceListNumber" y no especificar el valor en este campo entonces por defecto asume el valor 'falso' (False).
 
 ### Período - Jul 2020
 
