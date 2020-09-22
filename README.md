@@ -85,7 +85,7 @@ El Access token obtenido se debe utilizar en el header de la llamada en la key "
 
 **La URL del servicio de API para verificación es (POST):**
 
-[https://tiendas.axoft.com/api/v2/Aperture/dummy](https://tiendas.axoft.com/api/v2/Aperture/dummy)
+[https://tiendas.axoft.com/api/Aperture/dummy](https://tiendas.axoft.com/api/Aperture/dummy)
 
 **Formato de respuestas del metodo POST Dummy:**
 
@@ -109,7 +109,7 @@ En caso de que el acceso sea inválido:
 
 **La URL del servicio de API para órdenes es:**
 
-[https://tiendas.axoft.com/api/v2/Aperture/order](https://tiendas.axoft.com/api/v2/Aperture/order)
+[https://tiendas.axoft.com/api/Aperture/order](https://tiendas.axoft.com/api/Aperture/order)
 
 Tenga en cuenta los siguientes temas:
 
