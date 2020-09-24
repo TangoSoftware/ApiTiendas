@@ -293,7 +293,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 *** Como se relaciona con el cliente habitual ***
 
 Si se informa el campo "Code" se va a utilizar este valor para buscar unívocamente al código de cliente en Tango.
-En caso de no inforamrlo, para obtener la relación con el cliente habitual se realiza la siguiente búsqueda en orden de prioridad:
+En caso de no informarlo, para obtener la relación con el cliente habitual se realiza la siguiente búsqueda en orden de prioridad:
 
 ABM Clientes – Solapa principal
 
