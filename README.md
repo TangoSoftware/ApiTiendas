@@ -177,7 +177,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si "liquida impuesto interno" en Tango ([Tópico Customer](#topicocustomer)). Solo aplica en caso de existir el cliente habitual, en este caso se verifica que coincidan, si no coinciden la orden del pedido quedará observada. Si el cliente liquida II se deberá informar, caso contrario por defecto asume el valor 'falso' (False).
  
-• Búsqueda del cliente habitual ([Búsqueda habitual] (#topicocustomerhabitual)).
+• Búsqueda del cliente habitual ([Búsqueda habitual](#topicocustomerhabitual)).
 
 #### Lista de precios
 
