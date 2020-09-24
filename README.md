@@ -290,7 +290,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 
 
 <a name="topicocustomerhabitual"></a>
-*** Como se relaciona con el cliente habitual ***
+***Como se relaciona con el cliente habitual***
 
 Si se informa el campo "Code" se va a utilizar este valor para buscar unívocamente al código de cliente en Tango.
 En caso de no informarlo, para obtener la relación con el cliente habitual se realiza la siguiente búsqueda en orden de prioridad:
@@ -298,15 +298,12 @@ En caso de no informarlo, para obtener la relación con el cliente habitual se r
 ABM Clientes – Solapa principal
 
 • Tipo y número de documento
-
 • Correo electrónico 
 
 ABM Clientes – Solapa contactos
 
 • Tipo y número de documento
-
 • Correo electrónico
-
 • Usuario tienda
 
 
