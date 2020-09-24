@@ -297,14 +297,17 @@ En caso de no informarlo, para obtener la relación con el cliente habitual se r
 
 ABM Clientes – Solapa principal
 
-•	Tipo y número de documento
-•	Correo electrónico 
+• Tipo y número de documento
+
+• Correo electrónico 
 
 ABM Clientes – Solapa contactos
 
-•	Tipo y número de documento
-•	Correo electrónico
-•	Usuario tienda
+• Tipo y número de documento
+
+• Correo electrónico
+
+• Usuario tienda
 
 
 <a name="topicoordenitems"></a>
