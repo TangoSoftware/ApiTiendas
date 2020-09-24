@@ -176,6 +176,8 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 • Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el "código del cliente" en Tango ([Tópico Customer](#topicocustomer)). En el caso que se informe y no exista, la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
 
 • PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si "liquida impuesto interno" en Tango ([Tópico Customer](#topicocustomer)). Solo aplica en caso de existir el cliente habitual, en este caso se verifica que coincidan, si no coinciden la orden del pedido quedará observada. Si el cliente liquida II se deberá informar, caso contrario por defecto asume el valor 'falso' (False).
+ 
+• Búsqueda del cliente habitual ([Búsqueda habitual] (#topicocustomerhabitual)).
 
 #### Lista de precios
 
@@ -285,6 +287,24 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **PhoneNumber2**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **IvaCategoryCode**   | Si            | Código de Categoría de I.V.A. del cliente                                                                                                   | Alfanumérico de hasta 3 caracteres          | Ver Tablas de Referencia, [Condición Fiscal](#cfiscal).  |
 | **PayInternalTax**    | No            | Indica si se liquida impuestos internos (en caso de existir) al comprador | De tipo lógico                                                                                         | True/False                           |
+
+
+<a name="topicocustomerhabitual"></a>
+*** Como se relaciona con el cliente habitual ***
+
+Si se informa el campo "Code" se va a utilizar este valor para buscar unívocamente al código de cliente en Tango.
+En caso de no inforamrlo, para obtener la relación con el cliente habitual se realiza la siguiente búsqueda en orden de prioridad:
+
+ABM Clientes – Solapa principal
+
+•	Tipo y número de documento
+•	Correo electrónico 
+
+ABM Clientes – Solapa contactos
+
+•	Tipo y número de documento
+•	Correo electrónico
+•	Usuario tienda
 
 
 <a name="topicoordenitems"></a>
