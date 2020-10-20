@@ -329,8 +329,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 <a name="VerNota"></a>
 #### Nota: Código de artículo de Tango Gestión
 
-• SKUCode: A través del dato informado, en caso de exitir en Tango, se establecerá la relación entre el artículo de la tienda y el artículo de Tango Gestión. Para el caso que se desee modificar una relación establecida con otro código de artículo, la misma, se podrá realizar simplemente informando el nuevo dato.
-
+• SKUCode: A través del dato informado, en caso de existir en Tango, se establecerá o actualizará la relación entre el artículo de la tienda (ProductCode) y el artículo de Tango Gestión (SKUCode). 
 
 
 <a name="Ejemplo"></a>
