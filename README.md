@@ -169,12 +169,6 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
-### Período - Oct 2020
-
-#### Código de artículo de Tango Gestión
-
-• SKUCode: A través del dato informado, en caso de exitir en Tango, se establecerá la relación entre el artículo de la tienda y el artículo de Tango Gestión. Para el caso que se desee modificar una relación establecida con otro código de artículo, la misma, se podrá realizar simplemente informando el nuevo dato.
-
 ### Período - Sep 2020
 
 #### Código de cliente
@@ -336,6 +330,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 #### Nota: Código de artículo de Tango Gestión
 
 • SKUCode: A través del dato informado, en caso de exitir en Tango, se establecerá la relación entre el artículo de la tienda y el artículo de Tango Gestión. Para el caso que se desee modificar una relación establecida con otro código de artículo, la misma, se podrá realizar simplemente informando el nuevo dato.
+
 
 
 <a name="Ejemplo"></a>
