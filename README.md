@@ -1055,6 +1055,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Vendedores](#vendedores)
 - [Monedas](#monedas)
 - [Transportes](#transportes)
+- [Publicaciones](#Publicaciones)
 - [Condiciones de venta](#condicionesventa)
 - [Clasificador de artículos](#ClasificadorArticulos)
   - [Carpetas de artículos](#CarpetasClasificadorArticulos)
@@ -1065,7 +1066,6 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
   - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
   - [Relaciones](#ClientesRelacionadosClasificador)
   - [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
-  - [Publicaciones](#Publicaciones)
 
 <a name="sucursales"></a>
 
@@ -2887,9 +2887,9 @@ Ejemplos
 
 | **Para**                                                | **GET**                                                                                     |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Obtener, partiendo del identificador de la publicación 1,  el artículo de Tango asociado  | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&filter&productCode=1 |
-| Obtener, partiendo del identificador de la publicación 1 y el código de variación 2, el artículo de Tango asociado | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&filter&productCode=1&variantCode=2 |
-| Obtener, partiendo del código del artículo en Tango 1, el identificador de la publicación asociada | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&filter&skuCode=1 |
+| Obtener, partiendo del identificador de la publicación 1,  el artículo de Tango asociado  | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&productCode=1 |
+| Obtener, partiendo del identificador de la publicación 1 y el código de variación 2, el artículo de Tango asociado | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&productCode=1&variantCode=2 |
+| Obtener, partiendo del código del artículo en Tango 1, el identificador de la publicación asociada | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&skuCode=1 |
 | Obtener todas las relaciones entre identificador de publicación y artículo de Tango asociado | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1          |
 
 Respuesta
