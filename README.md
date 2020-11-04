@@ -1064,7 +1064,8 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
   - [Carpetas de clientes](#CarpetasClasificadorClientes)
   - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
   - [Relaciones](#ClientesRelacionadosClasificador)
-- [Cotización de moneda extranjera] (#CotizacionMonedaExtranjera)
+  - [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
+  - [Publicaciones](#Publicaciones)
 
 <a name="sucursales"></a>
 
@@ -2824,6 +2825,7 @@ Ejemplos
 | Obtener las relaciones de las carpetas cuyo número es 3 | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1&filter=3 |
 | Obtener todas los artículos                             | https://tiendas.axoft.com/api/Aperture/CustomersRelation?pageSize=500&pageNumber=1          |
 
+
 Respuesta
 
 ```
@@ -2864,3 +2866,56 @@ Ejemplo
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Obtener el valor de la cotización                       | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate                                 |
 | Valor de la cotización, actualizada después de X fecha  | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?lastUpdate=2020-01-01T00:00:00  |
+
+
+<a name="Publicaciones"></a>
+
+#### Publicaciones
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener las relaciones entre las publicaciones del eCommerce y el código de artículo en Tango asociado. 
+ 
+
+Aclaración: Sólo se mostrarán relaciones que se hayan sincronizado previamente al procesar órdenes que contengan el identificador de la publicación. 
+
+| **Recurso**                                                                               |
+| ----------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Publications?{pageSize}&{pageNumber}&[filter]&{lastUpdate}&{productCode}&{skuCode}&{variantCode} |
+
+Ejemplos
+
+| **Para**                                                | **GET**                                                                                     |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Obtener, partiendo del identificador de la publicación 1,  el artículo de Tango asociado  | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&filter&productCode=1 |
+| Obtener, partiendo del identificador de la publicación 1 y el código de variación 2, el artículo de Tango asociado | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&filter&productCode=1&variantCode=2 |
+| Obtener, partiendo del código del artículo en Tango 1, el identificador de la publicación asociada | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&filter&skuCode=1 |
+| Obtener todas las relaciones entre identificador de publicación y artículo de Tango asociado | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1          |
+
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "ProductCode": "6000",
+            "Description": "TV API",
+            "VariantCode": null,
+            "VariantDescription": null,
+            "SkuCode": "0100100150"
+        },
+        {
+            "ProductCode": "6002",
+            "Description": "TV API",
+            "VariantCode": null,
+            "VariantDescription": null,
+            "SkuCode": "0100100150"
+        }
+    ],
+    "PagingError": null
+}
