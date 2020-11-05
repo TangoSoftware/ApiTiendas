@@ -27,7 +27,7 @@ Tango Software - API REST de Tango Tiendas
 
 ##### Recepción de órdenes por API
 
-La versión mínima de ventas requerida para implementar la API de Tango Tiendas es la 18.01.000.3567, 
+La versión mínima de ventas requerida para implementar la API de Tango Tiendas es la 18.01.000.3567,
 correspondiente al hotfix ftp://ftp.axoft.com/version_interna/HotfixPublicados/HotFix_18_01_000_0983.exe. Es necesario contar con el producto Tango Gestión y Tango Punto de Venta Argentina, el módulo de tesorería activado y la aplicación **Tango Tiendas** activada.
 
 ##### Consulta de datos
@@ -176,7 +176,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 • Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el "código del cliente" en Tango ([Tópico Customer](#topicocustomer)). En el caso que se informe y no exista, la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
 
 • PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si "liquida impuesto interno" en Tango ([Tópico Customer](#topicocustomer)). Solo aplica en caso de existir el cliente habitual, en este caso se verifica que coincidan, si no coinciden la orden del pedido quedará observada. Si el cliente liquida II se deberá informar, caso contrario por defecto asume el valor 'falso' (False).
- 
+
 • Búsqueda del cliente habitual ([Búsqueda habitual](#topicocustomerhabitual)).
 
 #### Lista de precios
@@ -191,7 +191,6 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
 
-
 ### Período - Jun 2020
 
 Ahora en los datos del JSON se puede especificar los siguientes campos:
@@ -201,7 +200,6 @@ Ahora en los datos del JSON se puede especificar los siguientes campos:
 • TranportCode: Código del transporte
 
 • SellerCode: Código del vendedor
-
 
 #### Consideraciones al enviar órdenes
 
@@ -251,7 +249,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **SellerCode**                 | No                                                  | Código del vendedor. Si el vendedor no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **TransportCode**              | No                                                  | Código del transporte. Si el transporte no existe o está inhabilitado en Tango, no se podrá generar el pedido.      | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                         |
 | **SaleConditionCode**          | No                                                  | Condición de venta. Si la condición de venta no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                         |
-| **PriceListNumber**            | No                                                  | Número de lista de precios. | Numérico de tipo entero hasta 4 posiciones                                            |                                                                                                                                                                         |
+| **PriceListNumber**            | No                                                  | Número de lista de precios.                                                                                         | Numérico de tipo entero hasta 4 posiciones                                                             |                                                                                                                                                                         |
 | **IvaIncluded**                | No (Requerido solo si se informa PriceListNumber)   | Indica que los importes informados incluyen IVA                                                                     | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **InternalTaxIncluded**        | No (Requerido solo si se informa PriceListNumber)   | Indica que los importes informados incluyen impuestos internos                                                      | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                              |
@@ -265,7 +263,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo**             | **Requerido** | **Descripción**                                                                                                                             | **Tipo de Dato**                            | **Valores Posibles / Ejemplos**                          |
 | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------- |
 | **CustomerId**        | Si            | Identificador del cliente.                                                                                                                  | Numérico de tipo entero hasta 10 posiciones | &gt;0                                                    |
-| **Code**              | No            | Código del cliente. Si el cliente no existe en Tango, no se podrá generar el pedido                                                                                                                        | Alfanumérico de hasta 6 caracteres         |                                                          |
+| **Code**              | No            | Código del cliente. Si el cliente no existe en Tango, no se podrá generar el pedido                                                         | Alfanumérico de hasta 6 caracteres          |                                                          |
 | **DocumentType**      | Si            | Código del tipo de documento.                                                                                                               | Numérico con longitud de 2 posiciones       | Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). |
 | **DocumentNumber**    | No            | Número de documento sin símbolos ni puntuaciones.                                                                                           | Alfanumérico de hasta 20 caracteres         |                                                          |
 | **User**              | Si            | Usuario de la tienda.                                                                                                                       | Alfanumérico de hasta 200 caracteres        |                                                          |
@@ -286,11 +284,10 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **PhoneNumber1**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **PhoneNumber2**      | No            | Número de teléfono del cliente.                                                                                                             | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **IvaCategoryCode**   | Si            | Código de Categoría de I.V.A. del cliente                                                                                                   | Alfanumérico de hasta 3 caracteres          | Ver Tablas de Referencia, [Condición Fiscal](#cfiscal).  |
-| **PayInternalTax**    | No            | Indica si se liquida impuestos internos (en caso de existir) al comprador | De tipo lógico                                                                                         | True/False                           |
-
+| **PayInternalTax**    | No            | Indica si se liquida impuestos internos (en caso de existir) al comprador                                                                   | De tipo lógico                              | True/False                                               |
 
 <a name="topicocustomerhabitual"></a>
-***Como se relaciona con el cliente habitual***
+**_Como se relaciona con el cliente habitual_**
 
 Si se informa el campo "Code" se va a utilizar este valor para buscar unívocamente al código de cliente en Tango.
 En caso de no informarlo, para obtener la relación con el cliente habitual se realiza la siguiente búsqueda en orden de prioridad:
@@ -299,7 +296,7 @@ ABM Clientes – Solapa principal
 
 • Tipo y número de documento
 
-• Correo electrónico 
+• Correo electrónico
 
 ABM Clientes – Solapa contactos
 
@@ -309,7 +306,6 @@ ABM Clientes – Solapa contactos
 
 • Usuario tienda
 
-
 <a name="topicoordenitems"></a>
 **Tópico OrderItems**
 
@@ -318,19 +314,19 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Campo**              | **Requerido** | **Descripción**                                                                                                               | **Tipo de Dato**                                                                                       | **Valores Posibles / Ejemplos**                                                                           |
 | ---------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
 | **ProductCode**        | Si            | Código del artículo de la publicación.                                                                                        | Alfanumérico de hasta 200 caracteres                                                                   | &lt;&gt;Vacío. Debe ser único si la publicación no se trata de un artículo con escala.[Ejemplo](#Ejemplo) |
-| **SKUCode**            | No            | Código del artículo de Tango Gestión (se refiere al que se guarda en el campo STA11.Cod_Sta11 de las tablas de Tango Gestión) | Alfanumérico de hasta 17 caracteres                                                                    |  [Ver nota](#VerNota)                                                                                                         |
+| **SKUCode**            | No            | Código del artículo de Tango Gestión (se refiere al que se guarda en el campo STA11.Cod_Sta11 de las tablas de Tango Gestión) | Alfanumérico de hasta 17 caracteres                                                                    | [Ver nota](#VerNota)                                                                                      |
 | **VariantCode**        | No            | Código del artículo que representa una combinación.                                                                           | Alfanumérico de hasta 200 caracteres                                                                   |                                                                                                           |
 | **Description**        | Sí            | Descripción del artículo.                                                                                                     | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **VariantDescription** | No            | Descripción del artículo que representa una variación.                                                                        | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **Quantity**           | Si            | Cantidad del artículo.                                                                                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;0                                                                                                     |
-| **UnitPrice**          | Si            | Precio unitario.                                                                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0                                                                                                     |
+| **UnitPrice**          | Si            | Precio unitario.                                                                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0                                                                                                    |
 | **DiscountPercentage** | No            | Porcentaje de descuento aplicado al artículo.                                                                                 | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0                                                                                                    |
 
 <a name="VerNota"></a>
+
 #### Nota: Código de artículo de Tango Gestión
 
-• SKUCode: A través del dato informado, en caso de existir en Tango, se establecerá o actualizará la relación entre el artículo de la tienda (ProductCode) y el artículo de Tango Gestión (SKUCode). 
-
+• SKUCode: A través del dato informado, en caso de existir en Tango, se establecerá o actualizará la relación entre el artículo de la tienda (ProductCode) y el artículo de Tango Gestión (SKUCode).
 
 <a name="Ejemplo"></a>
 **Ejemplo de una publicación de artículos con escalas:**
@@ -394,7 +390,6 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 
 Este tópico se completa siempre que se requiere informar el envío. Se puede completar ya sea que el envío sea con o sin costo para el comprador.
 
-
 | **Campo**             | **Requerido** | **Descripción**                                                     | **Tipo de Dato**                                                                                        | **Valores Posibles / Ejemplos**                                 |
 | --------------------- | ------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | **ShippingID**        | Si            | Identificador del envío. Debe ser distinto para cada operación.     | Numérico de tipo entero hasta 50 posiciones.                                                            | &gt;0                                                           |
@@ -417,18 +412,18 @@ Este tópico se completa siempre que se requiere informar el envío. Se puede co
 | **DeliversSaturday**  | No            | Entrega sábado                                                      | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliversSunday**    | No            | Entrega domingo                                                     | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliveryHours**     | No            | Hora de entrega                                                     | Alfanumérico de hasta 100 caracteres                                                                    |                                                                 |
+
 **Consideraciones en la dirección de entrega**
 
 Al informar el código de dirección de entrega de un cliente habitual, el cual se obtiene del recurso ["Customer"](#iniciorecursos), se deberá tener las siguientes consideraciones:
 
-• Si existe en clientes habituales: será la dirección con la cual se generá el pedido y no se requiere completar el resto de los campos. 
+• Si existe en clientes habituales: será la dirección con la cual se generá el pedido y no se requiere completar el resto de los campos.
 
 • Si NO existe en clientes habituales: se utilizará la dirección de entrega habitual que posea el cliente y no se requiere completar el resto de los campos.
 
 • Si es vacío: se comportará como antes, debiendo completar el resto de los campos y validando el ingreso de "ProvinceCode".
 
-Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual. 
-
+Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual.
 
 **Tópico CashPayment**
 
@@ -844,6 +839,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "Payments": []
 }
 ```
+
 ### Ejemplo de JSON de una órden (Código de Cliente - Lista de Precio)
 
 [<sub>Volver</sub>](#inicio)
@@ -1064,7 +1060,8 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
   - [Carpetas de clientes](#CarpetasClasificadorClientes)
   - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
   - [Relaciones](#ClientesRelacionadosClasificador)
-- [Cotización de moneda extranjera] (#CotizacionMonedaExtranjera)
+- [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
+- [Publicaciones](#Publicaciones)
 
 <a name="sucursales"></a>
 
@@ -1509,8 +1506,8 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - No sean artículos Base.
 - No posean doble unidad de medida.
 
-| **Recurso**                                                                     |
-| ------------------------------------------------------------------------------- |
+| **Recurso**                                                                            |
+| -------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/DataBy/ArtPorSaldoStock?{pageSize}&{pageNumber} |
 
 A diferencia del resto de recursos, requiere del envío de los parámetros de depósito y stock por body:
@@ -1526,8 +1523,8 @@ Impotante: El formato del body para los parámetros es JSON.
 
 Ambos parámetros son obligatorios, y deben tener exactamente esos nombres. El primero es un string de dos caracteres que representa al código del depósito (ver [Depósitos](#depositos)) y busca por igualdad (=), mientras que el segundo es un decimal y busca por mayor estricto (>).
 
-| **Para**                                                                | **POST**                                                                                                                                       |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Para**                                                                | **POST**                                                                                                                                              |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Obtener todos los artículos para el depósito 2 y saldo stock mayor a 50 | https://tiendas.axoft.com/api/Aperture/DataBy/ArtPorSaldoStock?pageSize=500&pageNumber=1 (con el JSON del ejemplo previo enviado en el body del POST) |
 
 Respuesta
@@ -1823,11 +1820,11 @@ Permite obtener datos de listas de precios.
 
 Ejemplos
 
-| **Para**                                              | **GET**                                                                             |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Obtener la lista de precios cuyo número de lista es 1 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&filter=1 |
-| Obtener todas las listas de precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
-| Obtener todas las listas de precios                   | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1          |
+| **Para**                                                                                                                | **GET**                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Obtener la lista de precios cuyo número de lista es 1                                                                   | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&filter=1                       |
+| Obtener todas las listas de precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC) | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
+| Obtener todas las listas de precios                                                                                     | https://tiendas.axoft.com/api/Aperture/PriceList?pageSize=500&pageNumber=1                                |
 
 Respuesta
 
@@ -1907,12 +1904,12 @@ Solo se mostrarán precios de:
 
 Ejemplos
 
-| **Para**                                                                                                             | **GET**                                                                                    |
-| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Obtener los precios de la lista de precios cuyo número de lista es 1                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1            |
-| Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01 |
-| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
-| Obtener todos los precios                                                                                            | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                     |
+| **Para**                                                                                                             | **GET**                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Obtener los precios de la lista de precios cuyo número de lista es 1                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1                       |
+| Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01            |
+| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)        | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
+| Obtener todos los precios                                                                                            | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                                |
 
 Respuesta
 
@@ -2027,7 +2024,7 @@ Ejemplos
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028"                                                                                        | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028                              |
 | Obtener los precios de los clientes cuyo código contenga la cadena "CL00028", el código de artículo contenga la cadena "01" y la lista de precios la lista número 2 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01&PriceListNumber=2 |
-| Obtener todos los precios por cliente con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
+| Obtener todos los precios por cliente con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                           | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00              |
 | Obtener todos los precios por cliente                                                                                                                               | https://tiendas.axoft.com/api/Aperture/PriceByCustomer?pageSize=500&pageNumber=1                                             |
 
 Respuesta
@@ -2190,8 +2187,8 @@ Solo se mostrarán saldos de stock de:
   - No estén inhabilitados.
 - Depósitos que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
-| **Recurso**                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Recurso**                                                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | https://tiendas.axoft.com/api/Aperture/Stock?{pageSize}&{pageNumber}&[filter]&[groupByProduct]&[discountPendingOrders]&[storeNumber]&[warehouseCode]&[lastUpdate] |
 
 Ejemplos
@@ -2202,7 +2199,7 @@ Ejemplos
 | Obtener los saldos de stock de los artículos cuyo código contenga la cadena "01", la sucursal sea 1 y el depósito corresponda al código 2. En este caso no es válido agregar la agrupación por producto (groupByProduct=true)                   | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&filter=01&StoreNumber=1&WarehouseCode=2 |
 | Obtener los saldos de stock acumulados por artículo (En este caso la consulta no devolverá datos en los campos "StoreNumber" y "WarehouseCode")                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&groupByProduct=true                     |
 | Obtener los saldos de stock, restando al mismo las órdenes pendientes de revisión (en el caso de no solicitar agrupado por artículo, los registros de la cantidad en órdenes no devolverán datos en los campos "StoreNumber" y "WarehouseCode") | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&discountPendingOrders=true              |
-| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
+| Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                           | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | Obtener todos los saldos de stock                                                                                                                                                                                                               | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1                                         |
 
 Respuesta
@@ -2854,13 +2851,72 @@ Respuesta
 
 Permite obtener el valor de la cotización de la moneda extranjera contable.
 
-| **Recurso**                                                                               |
-| ----------------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?{lastUpdate}                  |
+| **Recurso**                                                              |
+| ------------------------------------------------------------------------ |
+| https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?{lastUpdate} |
 
 Ejemplo
 
-| **Para**                                                | **GET**                                                                                     |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Obtener el valor de la cotización                       | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate                                 |
-| Valor de la cotización, actualizada después de X fecha  | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?lastUpdate=2020-01-01T00:00:00  |
+| **Para**                                               | **GET**                                                                                    |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| Obtener el valor de la cotización                      | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate                                |
+| Valor de la cotización, actualizada después de X fecha | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?lastUpdate=2020-01-01T00:00:00 |
+
+<a name="Publicaciones"></a>
+
+### Publicaciones
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener las relaciones entre las publicaciones del eCommerce y el código de artículo en Tango asociado.
+
+Aclaración: Sólo se mostrarán relaciones que se hayan sincronizado previamente al procesar órdenes que contengan el identificador de la publicación.
+
+| **Recurso**                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Publications?{pageSize}&{pageNumber}&[filter]&{lastUpdate}&{productCode}&{skuCode}&{variantCode} |
+
+Ejemplos
+
+| **Para**                                                                                                           | **GET**                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Obtener, partiendo del identificador de la publicación 1, el artículo de Tango asociado                            | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&productCode=1               |
+| Obtener, partiendo del identificador de la publicación 1 y el código de variación 2, el artículo de Tango asociado | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&productCode=1&variantCode=2 |
+| Obtener, partiendo del código del artículo en Tango 1, el identificador de la publicación asociada                 | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1&skuCode=1                   |
+| Obtener todas las relaciones entre identificador de publicación y artículo de Tango asociado                       | https://tiendas.axoft.com/api/Aperture/Publications?pageSize=500&pageNumber=1                             |
+
+Respuesta
+
+```
+{
+  "Paging": {
+    "PageNumber": 1,
+    "PageSize": 50,
+    "MoreData": false
+  },
+  "Data": [
+    {
+      "ProductCode": "040000000040",
+      "Description": "CEMENTO AVELLANEDA",
+      "VariantCode": null,
+      "VariantDescription": null,
+      "SkuCode": "0200100124"
+    },
+    {
+      "ProductCode": "010040",
+      "Description": "TV",
+      "VariantCode": "BL",
+      "VariantDescription": "TV BLANCO",
+      "SkuCode": "010040001RBL"
+    },
+    {
+      "ProductCode": "010040",
+      "Description": "TV",
+      "VariantCode": "NG",
+      "VariantDescription": "TV NEGRO",
+      "SkuCode": "010040002NG"
+    }
+  ],
+  "PagingError": null
+}
+```
