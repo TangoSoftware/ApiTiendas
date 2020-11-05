@@ -1051,7 +1051,6 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Vendedores](#vendedores)
 - [Monedas](#monedas)
 - [Transportes](#transportes)
-- [Publicaciones](#Publicaciones)
 - [Condiciones de venta](#condicionesventa)
 - [Clasificador de artículos](#ClasificadorArticulos)
   - [Carpetas de artículos](#CarpetasClasificadorArticulos)
@@ -1062,6 +1061,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
   - [Clientes en las carpetas](#ClientesEnCarpetaClasificador)
   - [Relaciones](#ClientesRelacionadosClasificador)
 - [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
+- [Publicaciones](#Publicaciones)
 
 <a name="sucursales"></a>
 
@@ -2864,7 +2864,7 @@ Ejemplo
 
 <a name="Publicaciones"></a>
 
-#### Publicaciones
+### Publicaciones
 
 [<sub>Volver</sub>](#iniciorecursos)
 
