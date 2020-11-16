@@ -2928,9 +2928,9 @@ Respuesta
 
 [<sub>Volver</sub>](#iniciorecursos)
 
-Permite obtener las relaciones entre las ordenes del eCommerce y el tipo y número de factura asociado al pedido facturado de esa orden.
+Permite obtener las relaciones entre las órdenes del eCommerce y el tipo y número de comprobante asociado al pedido facturado de esa orden.
 
-Aclaración: solo se mostrarán relaciones para el caso de facturas electrónicas.
+Aclaración: solo se mostrarán relaciones para el caso de comprobantes electrónicos.
 
 | **Recurso**                                                                                                                             |
 | --------------------------------------------------------------------------------------------------------------------------------------- |
