@@ -2940,10 +2940,10 @@ Ejemplos
 
 | **Para**                                                                                                           | **GET**                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| Obtener, partiendo del identificador de la orden 1, el tipo y número de factura asociada | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&orderId=1 |
-| Obtener, partiendo del número de la orden 1, el tipo y número de factura asociada | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&orderNumber=1 |
-| Obtener todas las relaciones entre orden y factura, cuya fecha de la orden se encuentre entre <1/1/2020> y <31/12/2020> (no son obligatorias ambas fechas) | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&fromDate=2020-01-01&toDate=2020-12-31 |
-| Obtener todas las relaciones entre orden y factura, para ordenes del día de hoy. | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1                             |
+| Obtener, partiendo del identificador de la orden 1, el tipo y número de comprobante asociado | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&orderId=1 |
+| Obtener, partiendo del número de la orden 1, el tipo y número de comprobante asociado | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&orderNumber=1 |
+| Obtener todas las relaciones entre orden y comprobantes de facturación, cuya fecha de la orden se encuentre entre 1/1/2020 y 31/12/2020 (no son obligatorias ambas fechas) | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&fromDate=2020-01-01&toDate=2020-12-31 |
+| Obtener todas las relaciones entre orden y comprobantes, para órdenes del día de hoy | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1                             |
 
 Respuesta
 
