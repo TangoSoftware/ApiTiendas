@@ -1062,6 +1062,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
   - [Relaciones](#ClientesRelacionadosClasificador)
 - [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
 - [Publicaciones](#Publicaciones)
+- [Comprobantes de facturación](#ComprobantesDeFacturacion)
 
 <a name="sucursales"></a>
 
@@ -2874,7 +2875,7 @@ Aclaración: Sólo se mostrarán relaciones que se hayan sincronizado previament
 
 | **Recurso**                                                                                                                             |
 | --------------------------------------------------------------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Publications?{pageSize}&{pageNumber}&[filter]&{lastUpdate}&{productCode}&{skuCode}&{variantCode} |
+| https://tiendas.axoft.com/api/Aperture/Publications?{pageSize}&{pageNumber}&{productCode}&{skuCode}&{variantCode} |
 
 Ejemplos
 
@@ -2915,6 +2916,58 @@ Respuesta
       "VariantCode": "NG",
       "VariantDescription": "TV NEGRO",
       "SkuCode": "010040002NG"
+    }
+  ],
+  "PagingError": null
+}
+```
+
+<a name="ComprobantesDeFacturacion"></a>
+
+### Comprobantes de facturación
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener las relaciones entre las órdenes del eCommerce y el tipo y número de comprobante asociado al pedido facturado de esa orden.
+
+Aclaración: solo se mostrarán relaciones para el caso de comprobantes electrónicos.
+
+| **Recurso**                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Invoices?{pageSize}&{pageNumber}&{orderId}&{orderNumber}&{fromDate}&{toDate} |
+
+Ejemplos
+
+| **Para**                                                                                                           | **GET**                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Obtener, partiendo del identificador de la orden 1, el tipo y número de comprobante asociado | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&orderId=1 |
+| Obtener, partiendo del número de la orden 1, el tipo y número de comprobante asociado | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&orderNumber=1 |
+| Obtener todas las relaciones entre orden y comprobantes de facturación, cuya fecha de la orden se encuentre entre 1/1/2020 y 31/12/2020 (no son obligatorias ambas fechas) | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1&fromDate=2020-01-01&toDate=2020-12-31 |
+| Obtener todas las relaciones entre orden y comprobantes, para órdenes del día de hoy | https://tiendas.axoft.com/api/Aperture/Invoices?pageSize=500&pageNumber=1                             |
+
+Respuesta
+
+```
+{
+  "Paging": {
+    "PageNumber": 1,
+    "PageSize": 50,
+    "MoreData": false
+  },
+  "Data": [
+    {
+      "OrderId": "25",
+      "OrderNumber": "12345678",
+      "OrderDate": "2020-11-05T00:00:00",
+      "InvoiceType": "FAC",
+      "InvoiceNumber": "A0000100000245"
+    },
+    {
+      "OrderId": "34",
+      "OrderNumber": "56781234",
+      "OrderDate": "2020-11-05T00:00:00",
+      "InvoiceType": "FAC",
+      "InvoiceNumber": "A0000100000200"
     }
   ],
   "PagingError": null
