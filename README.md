@@ -171,7 +171,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Período - Nov 2020
 
-• AgreedWithSeller: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que el pago de la orden se acuerda con el vendedor. ([Tópico Principal](#topicoprincipal)). Por defecto asume el valor 'falso' (False).
+• AgreedWithSeller: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que el pago de la orden se acuerda con el vendedor. ([Tópico Principal](#topicoprincipal)). Esto permite enviar ordenes de contado sin pagos asociados. Si no se informa asume el valor 'falso' (False).
 
 ### Período - Sep 2020
 
