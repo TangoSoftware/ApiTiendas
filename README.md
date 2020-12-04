@@ -512,13 +512,14 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 
 #### Condición Fiscal
 
-| **Código** | **Descripción**            |
-| ---------- | -------------------------- |
-| CF         | CONSUMIDOR FINAL           |
-| EX         | EXENTO                     |
-| INR        | NO RESPONSABLE             |
-| RI         | RESPONSABLE INSCRIPTO      |
-| RS         | RESPONSABLE MONOTRIBUTISTA |
+| **Código** | **Descripción**              |
+| ---------- | ---------------------------- |
+| CF         | CONSUMIDOR FINAL             |
+| EX         | EXENTO                       |
+| EXE        | EXENTO OPERACIÓN EXPORTACIÓN |
+| INR        | NO RESPONSABLE               |
+| RI         | RESPONSABLE INSCRIPTO        |
+| RS         | RESPONSABLE MONOTRIBUTISTA   |
 
 <a name="fpago"></a>
 
@@ -1247,16 +1248,17 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - No sean artículos Base.
 - No posean doble unidad de medida.
 
-| **Recurso**                                                                     |
-| ------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Product?{pageSize}&{pageNumber}&[filter] |
+| **Recurso**                                                                                  |
+| -------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Product?{pageSize}&{pageNumber}&{onlyEnabled}[filter] |
 
 Ejemplos
 
-| **Para**                                                  | **GET**                                                                            |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Obtener los artículos cuyo código contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&filter=01 |
-| Obtener todos los artículos                               | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1           |
+| **Para**                                                  | **GET**                                                                                   |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Obtener los artículos cuyo código contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&filter=01        |
+| Obtener sólo los artículos habilitados                    | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&onlyEnabled=true |
+| Obtener todos los artículos                               | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1                  |
 
 Respuesta
 
