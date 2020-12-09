@@ -259,6 +259,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
+| **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 5 posiciones                                                                  | &gt;= 0 , <= 32767                                                                                                                                                       |
 
 <a name="topicocustomer"></a>
 **Tópico Customer**
@@ -559,6 +560,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "01",
   "SaleConditionCode": 1,
+  "InvoiceCounterfoil": 1,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": true,
@@ -686,6 +688,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "02",
   "SaleConditionCode": 3,
+  "InvoiceCounterfoil": 2,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": false,
@@ -773,6 +776,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "02",
   "SaleConditionCode": 3,
+  "InvoiceCounterfoil": 3,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": false,
@@ -861,6 +865,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "01",
   "SaleConditionCode": 1,
+  "InvoiceCounterfoil": 2,
   "PriceListNumber": 2,
   "IvaIncluded": true,
   "InternalTaxIncluded": false,
