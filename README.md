@@ -169,6 +169,10 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
+### Período - Dic 2020
+
+• InvoiceCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que código de talonario de facturación a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
+
 ### Período - Nov 2020
 
 • AgreedWithSeller: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que el pago de la orden se acuerda con el vendedor. ([Tópico Principal](#topicoprincipal)). Esto permite enviar ordenes de contado sin pagos asociados. Si no se informa asume el valor 'falso' (False).
@@ -259,6 +263,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
+| **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 
 <a name="topicocustomer"></a>
 **Tópico Customer**
@@ -512,13 +517,14 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 
 #### Condición Fiscal
 
-| **Código** | **Descripción**            |
-| ---------- | -------------------------- |
-| CF         | CONSUMIDOR FINAL           |
-| EX         | EXENTO                     |
-| INR        | NO RESPONSABLE             |
-| RI         | RESPONSABLE INSCRIPTO      |
-| RS         | RESPONSABLE MONOTRIBUTISTA |
+| **Código** | **Descripción**              |
+| ---------- | ---------------------------- |
+| CF         | CONSUMIDOR FINAL             |
+| EX         | EXENTO                       |
+| EXE        | EXENTO OPERACIÓN EXPORTACIÓN |
+| INR        | NO RESPONSABLE               |
+| RI         | RESPONSABLE INSCRIPTO        |
+| RS         | RESPONSABLE MONOTRIBUTISTA   |
 
 <a name="fpago"></a>
 
@@ -558,6 +564,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "01",
   "SaleConditionCode": 1,
+  "InvoiceCounterfoil": 1,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": true,
@@ -685,6 +692,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "02",
   "SaleConditionCode": 3,
+  "InvoiceCounterfoil": 2,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": false,
@@ -772,6 +780,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "02",
   "SaleConditionCode": 3,
+  "InvoiceCounterfoil": 3,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": false,
@@ -860,6 +869,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
   "SellerCode": "2",
   "TransportCode": "01",
   "SaleConditionCode": 1,
+  "InvoiceCounterfoil": 2,
   "PriceListNumber": 2,
   "IvaIncluded": true,
   "InternalTaxIncluded": false,
@@ -1247,16 +1257,17 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - No sean artículos Base.
 - No posean doble unidad de medida.
 
-| **Recurso**                                                                     |
-| ------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Product?{pageSize}&{pageNumber}&[filter] |
+| **Recurso**                                                                                  |
+| -------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Product?{pageSize}&{pageNumber}&{onlyEnabled}[filter] |
 
 Ejemplos
 
-| **Para**                                                  | **GET**                                                                            |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Obtener los artículos cuyo código contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&filter=01 |
-| Obtener todos los artículos                               | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1           |
+| **Para**                                                  | **GET**                                                                                   |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Obtener los artículos cuyo código contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&filter=01        |
+| Obtener sólo los artículos habilitados                    | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&onlyEnabled=true |
+| Obtener todos los artículos                               | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1                  |
 
 Respuesta
 
