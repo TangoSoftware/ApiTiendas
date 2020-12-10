@@ -169,6 +169,10 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
+### Período - Dic 2020
+
+• InvoiceCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que código de talonario de facturación a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
+
 ### Período - Nov 2020
 
 • AgreedWithSeller: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que el pago de la orden se acuerda con el vendedor. ([Tópico Principal](#topicoprincipal)). Esto permite enviar ordenes de contado sin pagos asociados. Si no se informa asume el valor 'falso' (False).
@@ -259,7 +263,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **CancelOrden**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
-| **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                       |
+| **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 
 <a name="topicocustomer"></a>
 **Tópico Customer**
