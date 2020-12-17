@@ -2976,14 +2976,18 @@ Respuesta
       "OrderNumber": "12345678",
       "OrderDate": "2020-11-05T00:00:00",
       "InvoiceType": "FAC",
-      "InvoiceNumber": "A0000100000245"
+      "InvoiceNumber": "A0000100000245",
+      "InvoiceFileUrl": "https://",
+      "InvoiceFileExpiration": "“2020-12-17T00:00:00" 
     },
     {
       "OrderId": "34",
       "OrderNumber": "56781234",
       "OrderDate": "2020-11-05T00:00:00",
       "InvoiceType": "FAC",
-      "InvoiceNumber": "A0000100000200"
+      "InvoiceNumber": "A0000100000200",
+      "InvoiceFileUrl": "https://",
+      "InvoiceFileExpiration": "“2020-12-18T00:00:00" 
     }
   ],
   "PagingError": null
