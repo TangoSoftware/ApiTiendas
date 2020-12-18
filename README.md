@@ -2977,7 +2977,7 @@ Respuesta
       "OrderDate": "2020-11-05T00:00:00",
       "InvoiceType": "FAC",
       "InvoiceNumber": "A0000100000245",
-      "InvoiceFileUrl": "https://",
+      "InvoiceFileUrl": "https://ax-tiendas-ue1-data.s3.amazonaws.com/PDF/30506/142403/FACA0000500000071.pdf?AWSAccessKeyId=AKIA6AQ4YDSLGJLAFLWT&Expires=1608486419&Signature=XzXjx6kDpzYO1ncbBu3KTQfe1u0%3D",
       "InvoiceFileExpiration": "“2020-12-17T00:00:00" 
     },
     {
@@ -2986,7 +2986,7 @@ Respuesta
       "OrderDate": "2020-11-05T00:00:00",
       "InvoiceType": "FAC",
       "InvoiceNumber": "A0000100000200",
-      "InvoiceFileUrl": "https://",
+      "InvoiceFileUrl": "https://ax-tiendas-ue1-data.s3.amazonaws.com/PDF/30506/141664/FACA0000100000001.pdf?AWSAccessKeyId=AKIA6AQ4YDSLGJLAFLWT&Expires=1608486419&Signature=e0tKihgn44HWgu5TlkkqVJN7XBA%3D",
       "InvoiceFileExpiration": "“2020-12-18T00:00:00" 
     }
   ],
