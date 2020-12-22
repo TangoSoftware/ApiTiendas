@@ -133,6 +133,8 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 • Al facturar el pedido generado. (Se enviará el Tópico: OrderBilled)
 
+• Al disponer de un comprobante electrónico de facturación en PDF. (Se enviará el Tópico: InvoiceFile)
+
 **Formato de JSON de notificación:**
 
 ```
@@ -2944,7 +2946,9 @@ Respuesta
 
 [<sub>Volver</sub>](#iniciorecursos)
 
-Permite obtener las relaciones entre las órdenes del eCommerce y el tipo y número de comprobante asociado al pedido facturado de esa orden.
+Permite obtener las relaciones entre las órdenes del eCommerce y los comprobantes electrónicos asociados al pedido facturado de esas órdenes.
+ 
+Se incorpora en la respuesta la URL al archivo PDF del comprobante.
 
 Aclaración: solo se mostrarán relaciones para el caso de comprobantes electrónicos.
 
