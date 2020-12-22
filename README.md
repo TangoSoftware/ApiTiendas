@@ -133,6 +133,8 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 • Al facturar el pedido generado. (Se enviará el Tópico: OrderBilled)
 
+• Al disponer de un comprobante electrónico de facturación en PDF. (Se enviará el Tópico: InvoiceFile)
+
 **Formato de JSON de notificación:**
 
 ```
@@ -2944,7 +2946,9 @@ Respuesta
 
 [<sub>Volver</sub>](#iniciorecursos)
 
-Permite obtener las relaciones entre las órdenes del eCommerce y el tipo y número de comprobante asociado al pedido facturado de esa orden.
+Permite obtener las relaciones entre las órdenes del eCommerce y los comprobantes electrónicos asociados al pedido facturado de esas órdenes.
+ 
+Se incorpora en la respuesta la URL al archivo PDF del comprobante.
 
 Aclaración: solo se mostrarán relaciones para el caso de comprobantes electrónicos.
 
@@ -2976,14 +2980,18 @@ Respuesta
       "OrderNumber": "12345678",
       "OrderDate": "2020-11-05T00:00:00",
       "InvoiceType": "FAC",
-      "InvoiceNumber": "A0000100000245"
+      "InvoiceNumber": "A0000100000245",
+      "InvoiceFileUrl": "https://nexo-tiendas-cloud-ue1-data.s3.amazonaws.com/PDF,
+      "InvoiceFileExpiration": "“2020-12-17T00:00:00" 
     },
     {
       "OrderId": "34",
       "OrderNumber": "56781234",
       "OrderDate": "2020-11-05T00:00:00",
       "InvoiceType": "FAC",
-      "InvoiceNumber": "A0000100000200"
+      "InvoiceNumber": "A0000100000200",
+      "InvoiceFileUrl": "https://nexo-tiendas-cloud-ue1-data.s3.amazonaws.com/PDF",
+      "InvoiceFileExpiration": "“2020-12-18T00:00:00" 
     }
   ],
   "PagingError": null
