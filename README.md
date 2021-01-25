@@ -123,7 +123,9 @@ Tenga en cuenta los siguientes temas:
 
 ### Notificaciones
 
-Si desea recibir notificaciones, en la configuración de la **API** debe marcar el check y configurar una URL donde recibirá las notificaciones.
+Si desea recibir notificaciones, en la configuración de la **API** debe marcar el check y configurar una URL donde recibirá las notificaciones. Dicha URL debe corresponder a un recurso POST de una web API cliente que actúe como webhook de notificaciones.
+
+**Importante**: el servidor del webhook de notificaciones debe tener soporte de TLS 1.2. Tango Tiendas no da soporte a TLS 1.0 ni TLS 1.1.
 
 Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
@@ -146,6 +148,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 }
 ```
+**Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
 
 <a name="faqs"></a>
 
