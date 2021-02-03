@@ -1606,13 +1606,17 @@ Permite obtener datos de clientes, con sus direcciones de entrega y comentarios.
 
 | **Recurso**                                                                      |
 | -------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Customer?{pageSize}&{pageNumber}&[filter] |
+| https://tiendas.axoft.com/api/Aperture/Customer?{pageSize}&{pageNumber}&{updatedDate}&{documentType}&{documentNumber}&{ivaCategoryCode}&[filter] |
 
 Ejemplos
 
 | **Para**                                                 | **GET**                                                                             |
 | -------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | Obtener los clientes cuyo código contenga la cadena "CL" | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&filter=CL |
+| Obtener los clientes con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)  | https://tiendas.axoft.com/api/Aperture/Customer?updatedDate=1900-01-01T00:00:00&pageSize=500&pageNumber=1 |
+| Obtener el cliente con el tipo de documento “80” (CUIT) y el número de documento “11-11.111.111-1”. Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). | https://tiendas.axoft.com/api/Aperture/Customer?documentType=80&documentNumber=11-11111111-1&pageSize=500&pageNumber=1           |
+| Obtener el cliente con el tipo de documento “96” (DNI) y el número de documento “11.111.111”. Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). | https://tiendas.axoft.com/api/Aperture/Customer?documentType=80&documentNumber=11-11111111-1&pageSize=500&pageNumber=1           |
+| Obtener los clientes con el tipo de categoría de IVA “RI” (Responsable inscripto). Ver Tablas de Referencia, [Condición Fiscal](#cfiscal). | https://tiendas.axoft.com/api/Aperture/Customer?ivaCategoryCode=RI&pageSize=500&pageNumber=1           |
 | Obtener todos los clientes                               | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1           |
 
 Respuesta
@@ -1641,8 +1645,8 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "MobilePhoneNumber": "",
             "WebPage": "",
             "IvaCategoryCode": "RI",
-            "DocumentType": "4",
-            "DocumentNumber": "",
+            "DocumentType": "96",
+            "DocumentNumber": "11.111.111",
             "PriceListNumber": 1,
             "Discount": 15,
             "Observations": "",
@@ -1655,6 +1659,8 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "ForeignAccountBalance": 30.00,
             "ForeignCurrencyClause": false,
             "CreditQuotaCurrencyCode": "1",
+            "UpdateDatetime": null,
+            "LastUpdateUtc": "1900-01-01T00:00:00",
             "ShippingAddresses": [
                 {
                     "Code": "PRINCIPAL",
