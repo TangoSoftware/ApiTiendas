@@ -148,6 +148,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 }
 ```
+
 **Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
 
 <a name="faqs"></a>
@@ -1262,17 +1263,21 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - No sean artículos Base.
 - No posean doble unidad de medida.
 
-| **Recurso**                                                                                  |
-| -------------------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Product?{pageSize}&{pageNumber}&{onlyEnabled}[filter] |
+| **Recurso**                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Product?&{pageSize}&{pageNumber}&{onlyEnabled}&{updatedDate}&{onlyKit}&{alternativeCode}&{barCode}&[filter] |
 
 Ejemplos
 
-| **Para**                                                  | **GET**                                                                                   |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Obtener los artículos cuyo código contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&filter=01        |
-| Obtener sólo los artículos habilitados                    | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&onlyEnabled=true |
-| Obtener todos los artículos                               | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1                  |
+| **Para**                                                                                                       | **GET**                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Obtener los artículos cuyo código contenga la cadena "01"                                                      | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&filter=01                       |
+| Obtener sólo los artículos habilitados                                                                         | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&onlyEnabled=true                |
+| Obtener sólo los artículos Kit                                                                                 | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&onlyKit=true                    |
+| Obtener sólo los artículos con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC) | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&updatedDate=1900-01-01T00:00:00 |
+| Obtener el artículo cuyo sinónimo sea “EAZAP”                                                                  | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&alternativeCode=EAZAP           |
+| Obtener el artículo cuyo código de barras sea “01010101”                                                       | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1&barCode=01010101                |
+| Obtener todos los artículos                                                                                    | https://tiendas.axoft.com/api/Aperture/Product?pageSize=500&pageNumber=1                                 |
 
 Respuesta
 
@@ -1604,16 +1609,20 @@ Respuesta
 
 Permite obtener datos de clientes, con sus direcciones de entrega y comentarios.
 
-| **Recurso**                                                                      |
-| -------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Customer?{pageSize}&{pageNumber}&[filter] |
+| **Recurso**                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| https://tiendas.axoft.com/api/Aperture/Customer?{pageSize}&{pageNumber}&{updatedDate}&{documentType}&{documentNumber}&{ivaCategoryCode}&[filter] |
 
 Ejemplos
 
-| **Para**                                                 | **GET**                                                                             |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Obtener los clientes cuyo código contenga la cadena "CL" | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&filter=CL |
-| Obtener todos los clientes                               | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1           |
+| **Para**                                                                                                                                                     | **GET**                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Obtener los clientes cuyo código contenga la cadena "CL"                                                                                                     | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&filter=CL                                    |
+| Obtener los clientes con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                     | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&updatedDate=1900-01-01T00:00:00              |
+| Obtener el cliente con el tipo de documento “80” (CUIT) y el número de documento “11-11.111.111-1”. Ver Tablas de Referencia, [Tipo de Documento](#tipodoc). | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&documentType=80&documentNumber=11-11111111-1 |
+| Obtener el cliente con el tipo de documento “96” (DNI) y el número de documento “11.111.111”. Ver Tablas de Referencia, [Tipo de Documento](#tipodoc).       | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&documentType=96&documentNumber=11111111      |
+| Obtener los clientes con el tipo de categoría de IVA “RI” (Responsable inscripto). Ver Tablas de Referencia, [Condición Fiscal](#cfiscal).                   | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1&ivaCategoryCode=RI                           |
+| Obtener todos los clientes                                                                                                                                   | https://tiendas.axoft.com/api/Aperture/Customer?pageSize=500&pageNumber=1                                              |
 
 Respuesta
 
@@ -1641,8 +1650,8 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "MobilePhoneNumber": "",
             "WebPage": "",
             "IvaCategoryCode": "RI",
-            "DocumentType": "4",
-            "DocumentNumber": "",
+            "DocumentType": "96",
+            "DocumentNumber": "11.111.111",
             "PriceListNumber": 1,
             "Discount": 15,
             "Observations": "",
@@ -1655,6 +1664,8 @@ _Recuerde_:El código de provincia informado corresponde con la tabla de provinc
             "ForeignAccountBalance": 30.00,
             "ForeignCurrencyClause": false,
             "CreditQuotaCurrencyCode": "1",
+            "UpdateDatetime": null,
+            "LastUpdateUtc": "1900-01-01T00:00:00",
             "ShippingAddresses": [
                 {
                     "Code": "PRINCIPAL",
@@ -2950,7 +2961,7 @@ Respuesta
 [<sub>Volver</sub>](#iniciorecursos)
 
 Permite obtener las relaciones entre las órdenes del eCommerce y los comprobantes electrónicos asociados al pedido facturado de esas órdenes.
- 
+
 Se incorpora en la respuesta la URL al archivo PDF del comprobante.
 
 Aclaración: solo se mostrarán relaciones para el caso de comprobantes electrónicos.
@@ -2985,7 +2996,7 @@ Respuesta
       "InvoiceType": "FAC",
       "InvoiceNumber": "A0000100000245",
       "InvoiceFileUrl": "https://nexo-tiendas-cloud-ue1-data.s3.amazonaws.com/PDF,
-      "InvoiceFileExpiration": "“2020-12-17T00:00:00" 
+      "InvoiceFileExpiration": "“2020-12-17T00:00:00"
     },
     {
       "OrderId": "34",
@@ -2994,7 +3005,7 @@ Respuesta
       "InvoiceType": "FAC",
       "InvoiceNumber": "A0000100000200",
       "InvoiceFileUrl": "https://nexo-tiendas-cloud-ue1-data.s3.amazonaws.com/PDF",
-      "InvoiceFileExpiration": "“2020-12-18T00:00:00" 
+      "InvoiceFileExpiration": "“2020-12-18T00:00:00"
     }
   ],
   "PagingError": null
