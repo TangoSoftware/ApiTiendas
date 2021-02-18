@@ -85,12 +85,12 @@
             this.tabOrderItems = new System.Windows.Forms.TabPage();
             this.dataGridOrderItems = new System.Windows.Forms.DataGridView();
             this.tabCustomer = new System.Windows.Forms.TabPage();
+            this.customerCode = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.customerPayInternalTax = new System.Windows.Forms.CheckBox();
             this.customerIVACategoryCode = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.customerComments = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.customerBusinessName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.customerApartment = new System.Windows.Forms.TextBox();
@@ -130,6 +130,8 @@
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.tabPrincipal = new System.Windows.Forms.TabPage();
+            this.PrincipalComment = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.checkIvaIncluded = new System.Windows.Forms.CheckBox();
             this.label58 = new System.Windows.Forms.Label();
@@ -171,8 +173,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.customerCode = new System.Windows.Forms.TextBox();
-            this.label62 = new System.Windows.Forms.Label();
             this.tabResultado.SuspendLayout();
             this.tabPayments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPayments)).BeginInit();
@@ -753,8 +753,6 @@
             this.tabCustomer.Controls.Add(this.customerPayInternalTax);
             this.tabCustomer.Controls.Add(this.customerIVACategoryCode);
             this.tabCustomer.Controls.Add(this.label15);
-            this.tabCustomer.Controls.Add(this.customerComments);
-            this.tabCustomer.Controls.Add(this.label14);
             this.tabCustomer.Controls.Add(this.customerBusinessName);
             this.tabCustomer.Controls.Add(this.label8);
             this.tabCustomer.Controls.Add(this.customerApartment);
@@ -802,6 +800,24 @@
             this.tabCustomer.Text = "Customer";
             this.tabCustomer.UseVisualStyleBackColor = true;
             // 
+            // customerCode
+            // 
+            this.customerCode.Location = new System.Drawing.Point(243, 51);
+            this.customerCode.Margin = new System.Windows.Forms.Padding(4);
+            this.customerCode.Name = "customerCode";
+            this.customerCode.Size = new System.Drawing.Size(199, 22);
+            this.customerCode.TabIndex = 4;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(27, 55);
+            this.label62.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(41, 17);
+            this.label62.TabIndex = 3;
+            this.label62.Text = "Code";
+            // 
             // label61
             // 
             this.label61.AutoSize = true;
@@ -809,7 +825,7 @@
             this.label61.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(110, 17);
-            this.label61.TabIndex = 24;
+            this.label61.TabIndex = 44;
             this.label61.Text = "Pay Internal Tax";
             // 
             // customerPayInternalTax
@@ -818,7 +834,7 @@
             this.customerPayInternalTax.Margin = new System.Windows.Forms.Padding(4);
             this.customerPayInternalTax.Name = "customerPayInternalTax";
             this.customerPayInternalTax.Size = new System.Drawing.Size(23, 30);
-            this.customerPayInternalTax.TabIndex = 23;
+            this.customerPayInternalTax.TabIndex = 43;
             // 
             // customerIVACategoryCode
             // 
@@ -826,7 +842,7 @@
             this.customerIVACategoryCode.Margin = new System.Windows.Forms.Padding(4);
             this.customerIVACategoryCode.Name = "customerIVACategoryCode";
             this.customerIVACategoryCode.Size = new System.Drawing.Size(199, 22);
-            this.customerIVACategoryCode.TabIndex = 22;
+            this.customerIVACategoryCode.TabIndex = 42;
             // 
             // label15
             // 
@@ -835,26 +851,8 @@
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(124, 17);
-            this.label15.TabIndex = 75;
+            this.label15.TabIndex = 41;
             this.label15.Text = "IVACategoryCode*";
-            // 
-            // customerComments
-            // 
-            this.customerComments.Location = new System.Drawing.Point(243, 435);
-            this.customerComments.Margin = new System.Windows.Forms.Padding(4);
-            this.customerComments.Name = "customerComments";
-            this.customerComments.Size = new System.Drawing.Size(199, 22);
-            this.customerComments.TabIndex = 14;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 439);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 17);
-            this.label14.TabIndex = 73;
-            this.label14.Text = "Comments";
             // 
             // customerBusinessName
             // 
@@ -862,7 +860,7 @@
             this.customerBusinessName.Margin = new System.Windows.Forms.Padding(4);
             this.customerBusinessName.Name = "customerBusinessName";
             this.customerBusinessName.Size = new System.Drawing.Size(199, 22);
-            this.customerBusinessName.TabIndex = 6;
+            this.customerBusinessName.TabIndex = 12;
             // 
             // label8
             // 
@@ -871,7 +869,7 @@
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 17);
-            this.label8.TabIndex = 71;
+            this.label8.TabIndex = 11;
             this.label8.Text = "BusinessName";
             // 
             // customerApartment
@@ -880,7 +878,7 @@
             this.customerApartment.Margin = new System.Windows.Forms.Padding(4);
             this.customerApartment.Name = "customerApartment";
             this.customerApartment.Size = new System.Drawing.Size(199, 22);
-            this.customerApartment.TabIndex = 13;
+            this.customerApartment.TabIndex = 26;
             // 
             // label7
             // 
@@ -889,7 +887,7 @@
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 17);
-            this.label7.TabIndex = 69;
+            this.label7.TabIndex = 25;
             this.label7.Text = "Apartment";
             // 
             // customerFloor
@@ -898,7 +896,7 @@
             this.customerFloor.Margin = new System.Windows.Forms.Padding(4);
             this.customerFloor.Name = "customerFloor";
             this.customerFloor.Size = new System.Drawing.Size(199, 22);
-            this.customerFloor.TabIndex = 12;
+            this.customerFloor.TabIndex = 24;
             // 
             // label4
             // 
@@ -907,7 +905,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 17);
-            this.label4.TabIndex = 67;
+            this.label4.TabIndex = 23;
             this.label4.Text = "Floor";
             // 
             // customerHouseNumber
@@ -916,7 +914,7 @@
             this.customerHouseNumber.Margin = new System.Windows.Forms.Padding(4);
             this.customerHouseNumber.Name = "customerHouseNumber";
             this.customerHouseNumber.Size = new System.Drawing.Size(199, 22);
-            this.customerHouseNumber.TabIndex = 11;
+            this.customerHouseNumber.TabIndex = 22;
             // 
             // label1
             // 
@@ -925,7 +923,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 17);
-            this.label1.TabIndex = 65;
+            this.label1.TabIndex = 21;
             this.label1.Text = "HouseNumber";
             // 
             // label17
@@ -935,7 +933,7 @@
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(117, 17);
-            this.label17.TabIndex = 63;
+            this.label17.TabIndex = 29;
             this.label17.Text = "BusinessAddress";
             // 
             // customerBusinessAddress
@@ -944,7 +942,7 @@
             this.customerBusinessAddress.Margin = new System.Windows.Forms.Padding(4);
             this.customerBusinessAddress.Name = "customerBusinessAddress";
             this.customerBusinessAddress.Size = new System.Drawing.Size(199, 22);
-            this.customerBusinessAddress.TabIndex = 16;
+            this.customerBusinessAddress.TabIndex = 30;
             // 
             // customerPhoneNumber2
             // 
@@ -952,15 +950,15 @@
             this.customerPhoneNumber2.Margin = new System.Windows.Forms.Padding(4);
             this.customerPhoneNumber2.Name = "customerPhoneNumber2";
             this.customerPhoneNumber2.Size = new System.Drawing.Size(199, 22);
-            this.customerPhoneNumber2.TabIndex = 21;
+            this.customerPhoneNumber2.TabIndex = 40;
             // 
             // customerMobilePhoneNumber
             // 
-            this.customerMobilePhoneNumber.Location = new System.Drawing.Point(243, 467);
+            this.customerMobilePhoneNumber.Location = new System.Drawing.Point(243, 437);
             this.customerMobilePhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.customerMobilePhoneNumber.Name = "customerMobilePhoneNumber";
             this.customerMobilePhoneNumber.Size = new System.Drawing.Size(199, 22);
-            this.customerMobilePhoneNumber.TabIndex = 15;
+            this.customerMobilePhoneNumber.TabIndex = 28;
             // 
             // customerPhoneNumber1
             // 
@@ -968,7 +966,7 @@
             this.customerPhoneNumber1.Margin = new System.Windows.Forms.Padding(4);
             this.customerPhoneNumber1.Name = "customerPhoneNumber1";
             this.customerPhoneNumber1.Size = new System.Drawing.Size(199, 22);
-            this.customerPhoneNumber1.TabIndex = 20;
+            this.customerPhoneNumber1.TabIndex = 38;
             // 
             // customerPostalCode
             // 
@@ -976,7 +974,7 @@
             this.customerPostalCode.Margin = new System.Windows.Forms.Padding(4);
             this.customerPostalCode.Name = "customerPostalCode";
             this.customerPostalCode.Size = new System.Drawing.Size(199, 22);
-            this.customerPostalCode.TabIndex = 19;
+            this.customerPostalCode.TabIndex = 36;
             // 
             // customerProvinceCode
             // 
@@ -984,7 +982,7 @@
             this.customerProvinceCode.Margin = new System.Windows.Forms.Padding(4);
             this.customerProvinceCode.Name = "customerProvinceCode";
             this.customerProvinceCode.Size = new System.Drawing.Size(199, 22);
-            this.customerProvinceCode.TabIndex = 18;
+            this.customerProvinceCode.TabIndex = 34;
             // 
             // customerCity
             // 
@@ -992,7 +990,7 @@
             this.customerCity.Margin = new System.Windows.Forms.Padding(4);
             this.customerCity.Name = "customerCity";
             this.customerCity.Size = new System.Drawing.Size(199, 22);
-            this.customerCity.TabIndex = 17;
+            this.customerCity.TabIndex = 32;
             // 
             // customerEmail
             // 
@@ -1000,7 +998,7 @@
             this.customerEmail.Margin = new System.Windows.Forms.Padding(4);
             this.customerEmail.Name = "customerEmail";
             this.customerEmail.Size = new System.Drawing.Size(199, 22);
-            this.customerEmail.TabIndex = 9;
+            this.customerEmail.TabIndex = 18;
             // 
             // customerStreet
             // 
@@ -1008,7 +1006,7 @@
             this.customerStreet.Margin = new System.Windows.Forms.Padding(4);
             this.customerStreet.Name = "customerStreet";
             this.customerStreet.Size = new System.Drawing.Size(199, 22);
-            this.customerStreet.TabIndex = 10;
+            this.customerStreet.TabIndex = 20;
             // 
             // customerLastName
             // 
@@ -1016,7 +1014,7 @@
             this.customerLastName.Margin = new System.Windows.Forms.Padding(4);
             this.customerLastName.Name = "customerLastName";
             this.customerLastName.Size = new System.Drawing.Size(199, 22);
-            this.customerLastName.TabIndex = 8;
+            this.customerLastName.TabIndex = 16;
             // 
             // customerUser
             // 
@@ -1024,7 +1022,7 @@
             this.customerUser.Margin = new System.Windows.Forms.Padding(4);
             this.customerUser.Name = "customerUser";
             this.customerUser.Size = new System.Drawing.Size(199, 22);
-            this.customerUser.TabIndex = 5;
+            this.customerUser.TabIndex = 10;
             // 
             // customerFirstName
             // 
@@ -1032,7 +1030,7 @@
             this.customerFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.customerFirstName.Name = "customerFirstName";
             this.customerFirstName.Size = new System.Drawing.Size(199, 22);
-            this.customerFirstName.TabIndex = 7;
+            this.customerFirstName.TabIndex = 14;
             // 
             // customerDocumentNumber
             // 
@@ -1040,7 +1038,7 @@
             this.customerDocumentNumber.Margin = new System.Windows.Forms.Padding(4);
             this.customerDocumentNumber.Name = "customerDocumentNumber";
             this.customerDocumentNumber.Size = new System.Drawing.Size(199, 22);
-            this.customerDocumentNumber.TabIndex = 4;
+            this.customerDocumentNumber.TabIndex = 8;
             // 
             // customerCustomerID
             // 
@@ -1048,7 +1046,7 @@
             this.customerCustomerID.Margin = new System.Windows.Forms.Padding(4);
             this.customerCustomerID.Name = "customerCustomerID";
             this.customerCustomerID.Size = new System.Drawing.Size(199, 22);
-            this.customerCustomerID.TabIndex = 1;
+            this.customerCustomerID.TabIndex = 2;
             // 
             // customerDocumentType
             // 
@@ -1056,16 +1054,16 @@
             this.customerDocumentType.Margin = new System.Windows.Forms.Padding(4);
             this.customerDocumentType.Name = "customerDocumentType";
             this.customerDocumentType.Size = new System.Drawing.Size(199, 22);
-            this.customerDocumentType.TabIndex = 3;
+            this.customerDocumentType.TabIndex = 6;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(27, 471);
+            this.label18.Location = new System.Drawing.Point(27, 437);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(140, 17);
-            this.label18.TabIndex = 60;
+            this.label18.TabIndex = 27;
             this.label18.Text = "MobilePhoneNumber";
             // 
             // label33
@@ -1075,7 +1073,7 @@
             this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(107, 17);
-            this.label33.TabIndex = 59;
+            this.label33.TabIndex = 39;
             this.label33.Text = "PhoneNumber2";
             // 
             // label34
@@ -1085,7 +1083,7 @@
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(107, 17);
-            this.label34.TabIndex = 57;
+            this.label34.TabIndex = 37;
             this.label34.Text = "PhoneNumber1";
             // 
             // label35
@@ -1095,7 +1093,7 @@
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(80, 17);
-            this.label35.TabIndex = 54;
+            this.label35.TabIndex = 35;
             this.label35.Text = "PostalCode";
             // 
             // label37
@@ -1105,7 +1103,7 @@
             this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(101, 17);
-            this.label37.TabIndex = 51;
+            this.label37.TabIndex = 33;
             this.label37.Text = "ProvinceCode*";
             // 
             // label38
@@ -1115,7 +1113,7 @@
             this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(31, 17);
-            this.label38.TabIndex = 49;
+            this.label38.TabIndex = 31;
             this.label38.Text = "City";
             // 
             // label39
@@ -1125,7 +1123,7 @@
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(46, 17);
-            this.label39.TabIndex = 46;
+            this.label39.TabIndex = 19;
             this.label39.Text = "Street";
             // 
             // label40
@@ -1135,7 +1133,7 @@
             this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(47, 17);
-            this.label40.TabIndex = 45;
+            this.label40.TabIndex = 17;
             this.label40.Text = "Email*";
             // 
             // label41
@@ -1145,7 +1143,7 @@
             this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(72, 17);
-            this.label41.TabIndex = 43;
+            this.label41.TabIndex = 15;
             this.label41.Text = "LastName";
             // 
             // label42
@@ -1155,7 +1153,7 @@
             this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(72, 17);
-            this.label42.TabIndex = 40;
+            this.label42.TabIndex = 13;
             this.label42.Text = "FirstName";
             // 
             // label43
@@ -1165,7 +1163,7 @@
             this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(43, 17);
-            this.label43.TabIndex = 39;
+            this.label43.TabIndex = 9;
             this.label43.Text = "User*";
             // 
             // label44
@@ -1175,7 +1173,7 @@
             this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(122, 17);
-            this.label44.TabIndex = 37;
+            this.label44.TabIndex = 7;
             this.label44.Text = "DocumentNumber";
             // 
             // label45
@@ -1185,7 +1183,7 @@
             this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(104, 17);
-            this.label45.TabIndex = 34;
+            this.label45.TabIndex = 5;
             this.label45.Text = "DocumentType";
             // 
             // label46
@@ -1195,11 +1193,13 @@
             this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(86, 17);
-            this.label46.TabIndex = 33;
+            this.label46.TabIndex = 1;
             this.label46.Text = "CustomerID*";
             // 
             // tabPrincipal
             // 
+            this.tabPrincipal.Controls.Add(this.PrincipalComment);
+            this.tabPrincipal.Controls.Add(this.label14);
             this.tabPrincipal.Controls.Add(this.label59);
             this.tabPrincipal.Controls.Add(this.checkIvaIncluded);
             this.tabPrincipal.Controls.Add(this.label58);
@@ -1241,41 +1241,59 @@
             this.tabPrincipal.Text = "Principal";
             this.tabPrincipal.UseVisualStyleBackColor = true;
             // 
+            // PrincipalComment
+            // 
+            this.PrincipalComment.Location = new System.Drawing.Point(243, 427);
+            this.PrincipalComment.Margin = new System.Windows.Forms.Padding(4);
+            this.PrincipalComment.Name = "PrincipalComment";
+            this.PrincipalComment.Size = new System.Drawing.Size(199, 22);
+            this.PrincipalComment.TabIndex = 15;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(27, 427);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 17);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Comments";
+            // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(53, 430);
+            this.label59.Location = new System.Drawing.Point(619, 24);
             this.label59.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(83, 17);
-            this.label59.TabIndex = 15;
+            this.label59.TabIndex = 17;
             this.label59.Text = "Iva Included";
             // 
             // checkIvaIncluded
             // 
-            this.checkIvaIncluded.Location = new System.Drawing.Point(30, 424);
+            this.checkIvaIncluded.Location = new System.Drawing.Point(597, 18);
             this.checkIvaIncluded.Margin = new System.Windows.Forms.Padding(4);
             this.checkIvaIncluded.Name = "checkIvaIncluded";
             this.checkIvaIncluded.Size = new System.Drawing.Size(23, 30);
-            this.checkIvaIncluded.TabIndex = 14;
+            this.checkIvaIncluded.TabIndex = 16;
             // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(53, 462);
+            this.label58.Location = new System.Drawing.Point(619, 56);
             this.label58.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(139, 17);
-            this.label58.TabIndex = 17;
+            this.label58.TabIndex = 19;
             this.label58.Text = "Internal Tax Included";
             // 
             // checkInternalTaxIncluded
             // 
-            this.checkInternalTaxIncluded.Location = new System.Drawing.Point(30, 456);
+            this.checkInternalTaxIncluded.Location = new System.Drawing.Point(597, 50);
             this.checkInternalTaxIncluded.Margin = new System.Windows.Forms.Padding(4);
             this.checkInternalTaxIncluded.Name = "checkInternalTaxIncluded";
             this.checkInternalTaxIncluded.Size = new System.Drawing.Size(23, 30);
-            this.checkInternalTaxIncluded.TabIndex = 16;
+            this.checkInternalTaxIncluded.TabIndex = 18;
             // 
             // principalPriceListNumber
             // 
@@ -1392,20 +1410,20 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(53, 493);
+            this.label60.Location = new System.Drawing.Point(619, 87);
             this.label60.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(179, 17);
-            this.label60.TabIndex = 19;
+            this.label60.TabIndex = 21;
             this.label60.Text = "ValidateTotalWithPaidTotal";
             // 
             // checkValidateTotalWithPaidTotal
             // 
-            this.checkValidateTotalWithPaidTotal.Location = new System.Drawing.Point(30, 487);
+            this.checkValidateTotalWithPaidTotal.Location = new System.Drawing.Point(597, 81);
             this.checkValidateTotalWithPaidTotal.Margin = new System.Windows.Forms.Padding(4);
             this.checkValidateTotalWithPaidTotal.Name = "checkValidateTotalWithPaidTotal";
             this.checkValidateTotalWithPaidTotal.Size = new System.Drawing.Size(23, 30);
-            this.checkValidateTotalWithPaidTotal.TabIndex = 18;
+            this.checkValidateTotalWithPaidTotal.TabIndex = 20;
             // 
             // principalCancelOrder
             // 
@@ -1636,24 +1654,6 @@
             this.label54.TabIndex = 11;
             this.label54.Text = "PaymentId*";
             // 
-            // customerCode
-            // 
-            this.customerCode.Location = new System.Drawing.Point(243, 51);
-            this.customerCode.Margin = new System.Windows.Forms.Padding(4);
-            this.customerCode.Name = "customerCode";
-            this.customerCode.Size = new System.Drawing.Size(199, 22);
-            this.customerCode.TabIndex = 2;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(27, 55);
-            this.label62.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(41, 17);
-            this.label62.TabIndex = 77;
-            this.label62.Text = "Code";
-            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1767,8 +1767,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox customerBusinessName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox customerComments;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox customerIVACategoryCode;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox shippingShippingCost;
@@ -1842,6 +1840,8 @@
         private System.Windows.Forms.CheckBox customerPayInternalTax;
         private System.Windows.Forms.TextBox customerCode;
         private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TextBox PrincipalComment;
+        private System.Windows.Forms.Label label14;
     }
 }
 

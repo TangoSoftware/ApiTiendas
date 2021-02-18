@@ -71,7 +71,7 @@ namespace ClienteJsonOrden
             customerDto.BusinessAddress = customerBusinessAddress.Text;
             customerDto.BusinessName = customerBusinessName.Text;
             customerDto.City = customerCity.Text;
-            customerDto.Comments = customerComments.Text;
+            customerDto.Comments = PrincipalComment.Text;
             try
             {
                 customerDto.CustomerID = Convert.ToInt64(customerCustomerID.Text);
@@ -119,6 +119,7 @@ namespace ClienteJsonOrden
             orderDto.OrderItems = ListaOrderItems;
             orderDto.OrderNumber = principalOrderNumber.Text;
             orderDto.Payments = ListaPayments;
+            orderDto.Comment = PrincipalComment.Text;
             orderDto.IvaIncluded = checkIvaIncluded.Checked;
             orderDto.InternalTaxIncluded = checkInternalTaxIncluded.Checked;
             orderDto.ValidateTotalWithPaidTotal = checkValidateTotalWithPaidTotal.Checked;
@@ -264,6 +265,7 @@ namespace ClienteJsonOrden
                     principalTransportCode.Text = orderDto.TransportCode;
                     principalSaleConditionCode.Text = Convert.ToString(orderDto.SaleConditionCode);
                     principalPriceListNumber.Text = Convert.ToString(orderDto.PriceListNumber);
+                    PrincipalComment.Text = orderDto.Comment;
                     customerCustomerID.Text = Convert.ToString(orderDto.Customer.CustomerID);
                     checkIvaIncluded.Checked = orderDto.IvaIncluded;
                     checkInternalTaxIncluded.Checked = orderDto.InternalTaxIncluded;
@@ -277,7 +279,6 @@ namespace ClienteJsonOrden
                 customerBusinessAddress.Text = orderDto.Customer.BusinessAddress;
                 customerBusinessName.Text = orderDto.Customer.BusinessName;
                 customerCity.Text = orderDto.Customer.City;
-                customerComments.Text = orderDto.Customer.Comments;
                 customerCode.Text = orderDto.Customer.Code;
                 customerDocumentNumber.Text = orderDto.Customer.DocumentNumber;
                 customerDocumentType.Text = orderDto.Customer.DocumentType;
