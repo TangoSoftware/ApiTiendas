@@ -174,15 +174,19 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
-### Período - Dic 2020
+### Período - Mayo 2021
+
+• CashPayments: se agrega un nuevo tópico para dar soporte a lista del elemento CashPayment ([Tópico Principal](#topicoprincipal)). Considere que el actual tópico CashPayment quedará obsoleto y será reemplazado por este nuevo tópico.
+
+### Período - Diciembre 2020
 
 • InvoiceCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que código de talonario de facturación a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
 
-### Período - Nov 2020
+### Período - Noviembre 2020
 
 • AgreedWithSeller: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que el pago de la orden se acuerda con el vendedor. ([Tópico Principal](#topicoprincipal)). Esto permite enviar ordenes de contado sin pagos asociados. Si no se informa asume el valor 'falso' (False).
 
-### Período - Sep 2020
+### Período - Septiembre 2020
 
 #### Código de cliente
 
@@ -258,7 +262,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Date**                       | Si                                                  | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual.                                                  | Datetime                                                                                               | yyyy-MM-ddTHH:mm:ss                                                                                                                                                      |
 | **Total**                      | Si                                                  | Es el importe total de la orden. Sólo válido en pesos argentinos.                                                   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0 ∑[(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount |
 | **TotalDiscount**              | No                                                  | Importe de descuento total de la operación. Sólo valido en pesos argentinos.                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total                                                                                                                                               |
-| **PaidTotal**                  | Solo si se informa el tópico Payments o CashPayment/s | Importe total pagado. Sólo válido en pesos argentinos.                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0 ∑(Payments.Installments \* Payments.InstallmentsAmount) + CashPayment.PaymentTotal                                                                                |
+| **PaidTotal**                  | Solo si se informa el tópico Payments o CashPayments (en reemplazo de CashPayment) | Importe total pagado. Sólo válido en pesos argentinos.                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0 ∑(Payments.Installments \* Payments.InstallmentsAmount) + ∑(CashPayments.PaymentTotal)                                                                                |
 | **FinancialSurcharge**         | No                                                  | Importe del recargo financiero. Sólo válido en pesos argentinos.                                                    | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;= 0                                                                                                                                                                  |
 | **WarehouseCode**              | No                                                  | Código del depósito. Si el depósito no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 2 caracteres                                                                     |
 | **SellerCode**                 | No                                                  | Código del vendedor. Si el vendedor no existe o está inhabilitado en Tango, no se podrá generar el pedido.          | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                          |
@@ -446,7 +450,7 @@ Estas consideraciones sólo se aplican para aquellos casos donde se informan los
 
 **IMPORTANTE**: este tópico da soporte a una lista de CashPayment y reemplazará al tópico CashPayment. No se permite el uso simultáneo de ambos tópicos. Si utiliza actualmente el tópico CashPayment, se sugiere incluir dicha información en un ítem de esta nueva lista.
 
-_Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía el tópico CashPayment y ahora no, se procederá a cancelar el pago anterior.
+_Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de CashPayment) o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden, la cual antes contenía el tópico CashPayment y ahora no, se procederá a cancelar el pago anterior.
 
 | **Campo**         | **Requerido** | **Descripción**                                                                                                   | **Tipo de Dato**                                                                                        | **Valores Posibles / Ejemplos**                     |
 | ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
@@ -456,9 +460,9 @@ _Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá 
 
 **Tópico CashPayment**
 
-**IMPORTANTE**: este tópico será reemplazado por el tópico CashPayment. No se permite el uso simultáneo de ambos tópicos. Si utiliza actualmente este tópico, se sugiere incluir su información en un ítem del nuevo tópico CashPayments.
+**IMPORTANTE**: este tópico será reemplazado por el tópico CashPayments (en reemplazo de CashPayment). No se permite el uso simultáneo de ambos tópicos. Si utiliza actualmente este tópico, se sugiere incluir su información en un ítem del nuevo tópico CashPayments.
 
-_Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía el tópico CashPayment/s y ahora no, se procederá a cancelar el pago anterior.
+_Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía el tópico CashPayments y ahora no, se procederá a cancelar el pago anterior.
 
 | **Campo**         | **Requerido** | **Descripción**                                                                                                   | **Tipo de Dato**                                                                                        | **Valores Posibles / Ejemplos**                     |
 | ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
@@ -468,7 +472,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá 
 
 **Tópico Payments**
 
-_Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía un pago que ahora no, se procederá a cancelar el pago anterior no enviado en la modificación.
+_Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de CashPayment) o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía un pago que ahora no, se procederá a cancelar el pago anterior no enviado en la modificación.
 
 | **Campo**              | **Requerido** | **Descripción**                                                                                                  | **Tipo de Dato**                                                                                       | **Valores Posibles / Ejemplos**                                                                                                                          |
 | ---------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -668,7 +672,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá 
 	"PaymentMethod": "A02",
 	"PaymentTotal": 123.0
 	}
-  ]
+  ],
   "Payments": [
     {
       "PaymentId": 38566913,
@@ -980,7 +984,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment/s o ambos, deberá 
 	"PaymentMethod": "A02",
 	"PaymentTotal": 123.0
 	}
-  ]
+  ],
   "Payments": [
     {
       "PaymentId": 38566913,
