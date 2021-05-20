@@ -176,7 +176,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Período - Mayo 2021
 
-• CashPayments: se agrega un nuevo tópico para dar soporte a lista del elemento CashPayment ([Tópico Principal](#topicoprincipal)). Considere que el actual tópico CashPayment quedará obsoleto y será reemplazado por este nuevo tópico.
+• CashPayments: se agrega un nuevo tópico para dar soporte a lista del elemento CashPayment ([Tópico CashPayments](#topicocashpayments)). Considere que el actual tópico CashPayment quedará obsoleto y será reemplazado por este nuevo tópico.
 
 ### Período - Diciembre 2020
 
@@ -446,6 +446,7 @@ Al informar el código de dirección de entrega de un cliente habitual, el cual 
 
 Estas consideraciones sólo se aplican para aquellos casos donde se informan los datos de un cliente habitual.
 
+<a name="topicocashpayments"></a>
 **Tópico CashPayments**
 
 **IMPORTANTE**: este tópico da soporte a una lista de CashPayment y reemplazará al tópico CashPayment. No se permite el uso simultáneo de ambos tópicos. Si utiliza actualmente el tópico CashPayment, se sugiere incluir dicha información en un ítem de esta nueva lista.
@@ -457,7 +458,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 | **PaymentID**     | Si            | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones.                                                            | &gt;0                                               |
 | **PaymentMethod** | Si            | Código de Forma de Pago.                                                                                          | Alfanumérico de hasta 3 caracteres.                                                                     | Ver Tablas de Referencia, [Formas de Pago](#fpago). |
 | **PaymentTotal**  | Si            | Total, del pago.                                                                                                  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales. | &gt;0                                               |
-
+<a name="topicocashpayment"></a>
 **Tópico CashPayment**
 
 **IMPORTANTE**: este tópico será reemplazado por el tópico CashPayments (en reemplazo de CashPayment). No se permite el uso simultáneo de ambos tópicos. Si utiliza actualmente este tópico, se sugiere incluir su información en un ítem del nuevo tópico CashPayments.
@@ -469,7 +470,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 | **PaymentID**     | Si            | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones.                                                            | &gt;0                                               |
 | **PaymentMethod** | Si            | Código de Forma de Pago.                                                                                          | Alfanumérico de hasta 3 caracteres.                                                                     | Ver Tablas de Referencia, [Formas de Pago](#fpago). |
 | **PaymentTotal**  | Si            | Total, del pago.                                                                                                  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales. | &gt;0                                               |
-
+<a name="topicopayments"></a>
 **Tópico Payments**
 
 _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de CashPayment) o ambos, deberá completar la forma de cobro al momento de emitir la factura. Por otro lado, si lo que se envia es una modificación de una órden la cual antes contenía un pago que ahora no, se procederá a cancelar el pago anterior no enviado en la modificación.
