@@ -27,8 +27,8 @@ Tango Software - API REST de Tango Tiendas
 
 ##### Recepción de órdenes por API
 
-La versión mínima de ventas requerida para implementar la API de Tango Tiendas es la 18.01.000.3567,
-correspondiente al hotfix ftp://ftp.axoft.com/version_interna/HotfixPublicados/HotFix_18_01_000_0983.exe. Es necesario contar con el producto Tango Gestión y Tango Punto de Venta Argentina, el módulo de tesorería activado y la aplicación **Tango Tiendas** activada.
+La versión mínima de ventas requerida para implementar la API de Tango Tiendas es la 19.01.000.605 (o superior),
+correspondiente al hotfix ftp://ftp.axoft.com/version_interna/HotfixPublicados/HotFix_19_01_000_0437.exe (o posterior). Es necesario contar con el producto Tango Gestión y Tango Punto de Venta Argentina, el módulo de tesorería activado y la aplicación **Tango Tiendas** activada.
 
 ##### Consulta de datos
 
@@ -129,7 +129,9 @@ Si desea recibir notificaciones, en la configuración de la **API** debe marcar 
 
 Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
-• Al generar el pedido de una orden de pedido Tango Tiendas. (Se enviará el Tópico: OrderProcessed)
+• Al intentar generar el pedido de una orden de Tango Tiendas y la misma sea observada. Por ejemplo que se informe una lista de precios inexistente. (Se enviará el Tópico: OrderObserved)
+
+• Al generar el pedido de una orden de Tango Tiendas. (Se enviará el Tópico: OrderProcessed)
 
 • Al rechazar una orden de pedido. (Se enviará el Tópico: OrderRejected)
 
@@ -141,12 +143,22 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 ```
 {
+  "Topic": "OrderObserved",
+  
+  "Resource": "1",
+  
+  "Message": "Lista de precios inexistente"
+}
+
+{
 
   "Topic": "OrderProcessed",
 
-  "Resource": "1"
-
+  "Resource": "1",
+  
+  "Message": ""
 }
+
 ```
 
 **Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
