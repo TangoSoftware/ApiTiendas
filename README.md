@@ -187,6 +187,10 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
+### Período - Noviembre 2021
+
+• Comments (Customer): se quita el campo al tópico "Customer" ya que no tiene injerencia en el circuito de órdenes.
+
 ### Período - Mayo 2021
 
 • CashPayments: se agrega un nuevo tópico para dar soporte a lista del elemento CashPayment ([Tópico CashPayments](#topicocashpayments)). Considere que el actual tópico CashPayment quedará obsoleto y será reemplazado por este nuevo tópico.
@@ -311,7 +315,6 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Apartment**         | No            | Departamento del domicilio del cliente.                                                                                                     | Alfanumérico de hasta 200 caracteres        |                                                          |
 | **City**              | No            | Localidad del domicilio del cliente.                                                                                                        | Alfanumérico de hasta 200 caracteres        |                                                          |
 | **Email**             | Si            | Correo electrónico del cliente.                                                                                                             | Alfanumérico de hasta 255 caracteres        | cliente@mail.com                                         |
-| **Comments**          | No            | Comentarios realizados por el cliente.                                                                                                      | Alfanumérico de hasta 280 caracteres        |                                                          |
 | **MobilePhoneNumber** | No            | Número de celular del cliente.                                                                                                              | Alfanumérico de hasta 30 caracteres         |                                                          |
 | **BusinessAdress**    | No            | Dirección comercial del cliente.                                                                                                            | Alfanumérico de hasta 255 caracteres        |                                                          |
 | **ProvinceCode**      | Si            | Código A.F.I.P. con la cual se identifica la provincia del cliente.                                                                         | Alfanumérico de hasta 4 caracteres          | Ver Tablas de Referencia, [Provincias](#provincias).     |
