@@ -189,7 +189,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Período - Noviembre 2021
 
-• Comments (Customer): se quita el campo al tópico "Customer" ya que no tiene ingerencia en el circuito de órdenes.
+• Comments (Customer): se quita el campo al tópico "Customer" ya que no tiene injerencia en el circuito de órdenes.
 
 ### Período - Mayo 2021
 
