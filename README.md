@@ -191,11 +191,11 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • OrderCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar el código de talonario de pedidos a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
 
-• ValidateTotalWithItems: Indica si al momento de enviar la orden se valida el total de la orden contra la sumatoria de los renglones, el mismo, se aplica para el caso de doble unidad de medida con equivalencia distinta de 1 y se elige Ventas (V) como unidad de medida seleccionada ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor True.
+• ValidateTotalWithItems: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar si al momento de enviar la orden se valida el total de la orden contra la sumatoria de los renglones, el mismo, se aplica para el caso de doble unidad de medida con equivalencia distinta de 1 y se elige Ventas (V) como unidad de medida seleccionada ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor True.
 
-• SelectMeasureUnit: Indica la unidad de medida seleccionada de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valur V (Ventas).
+• SelectMeasureUnit: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar la unidad de medida seleccionada de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor V (Ventas).
 
-• MeasureCode: Indica el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
+• MeasureCode: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
 
 ### Período - Noviembre 2021
 
