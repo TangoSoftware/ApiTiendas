@@ -215,7 +215,7 @@ La unidad de medida definida en este parámetro, es la que se tomará para contr
 ```
 Ejemplo…
 
-Se desea vender hormas de queso, tenemos que la siguiente configuración:
+Se desea vender hormas de queso, tenemos la siguiente configuración:
 
 Unidad de stock 1 = Kilos
 Unidad de stock 2 = Horma
@@ -224,11 +224,150 @@ Equivalencia = 2 Kilos (Una horma equivale a 2 kilos)
 
 - **Ventas**
 
+• Código de presentación de ventas: indica a cuantas unidades de stock equivale una unidad de ventas.
+Si el artículo lleva doble unidad de medida, la equivalencia de ventas es hacia la unidad de medida de stock 2, caso contrario la equivalencia de ventas es hacia la unidad de stock 1.
 
-- **Talonario de Pedido**
+• Equivalencia: indica la equivalencia con la unidad de medida de stock seleccionada.
 
-Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), entonces se válida que el código de tranporte informado no tenga recargo (SurchargePercentage = 0).
 
+- **Ejemplos**
+
+```
+{
+  "Date": "2022-02-10T00:00:00",
+  "Total": 30.0,
+  "PaidTotal": 30.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "1",
+  "SellerCode": "1",
+  "TransportCode": "01",
+  "SaleCondition": "1",
+  "OrderID": "1000",    
+  "OrderNumber": "1000",
+  "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
+  "ValidateTotalWithPaidTotal": false,
+  "ValidateTotalWithItems": false,  //Para el caso de DUM donde se informe unidad de Ventas y la equivalencia sea distinto de 1 
+  "Customer": {
+    "CustomerID": 1000,
+    "Code": "",      
+    "DocumentType": "96",
+    "DocumentNumber": "99999999",
+    "IVACategoryCode": "CF",
+    "User": "Test",
+    "Email": "test@axoft.com",
+    "FirstName": "Test",
+    "LastName": "Test",
+    "BusinessName": "",        
+    "Street": "Cerrito",
+    "HouseNumber": "1000",
+    "Floor": "",
+    "Apartment": "",
+    "City": "CABA",
+    "ProvinceCode": "01",
+    "PostalCode": "1000",
+    "PhoneNumber1": "9999-9999",
+    "PhoneNumber2": "99-9999-9999",
+    "BusinessAddress": "Dirección negocio",
+    "NumberListPrice": 10
+  },
+  "OrderItems": [
+    {
+      "ProductCode": "1000",
+      "SKUCode": "ART_DOBLEUNIDAD",    
+      "VariantCode": null,        
+      "Description": "Artículo de doble unidad de medida",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 10.0,
+      "DiscountPercentage": 0.0,
+      "MeasureCode":"UNI",  //Código de medida con el cual se generará el pedido
+      "SelectMeasureUnit": "V" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
+    }
+  ],
+ "CashPayment": {
+    "PaymentID": 1000,
+    "PaymentMethod": "MPA",
+    "PaymentTotal": 30.0
+  }
+}
+```
+Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
+
+• Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+• Unidad de stock 2 = UNI (Unidades)
+• Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
+
+Y se informa en el JSON de la orden lo siguiente:
+
+• SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas)
+• MeasureCode (Código de medida): UNI (Unidades)
+
+Al expresar el precio unitario en unidad de stock 1 (Precios y costos) el total de la orden se calcula de la siguiente manera:
+
+```
+	Total orden: Cantidad * Equivalencia * Precio unitario  
+	               1      *     3        *    10             
+```
+
+
+```
+{
+  "Date": "2022-02-10T00:00:00",
+  "Total": 10.0,
+  "PaidTotal": 10.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "1",
+  "SellerCode": "1",
+  "TransportCode": "01",
+  "SaleCondition": "1",
+  "OrderID": "1000",    
+  "OrderNumber": "1000",
+  "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
+  "ValidateTotalWithPaidTotal": false,
+  "Customer": {
+    "CustomerID": 1000,
+    "Code": "",      
+    "DocumentType": "96",
+    "DocumentNumber": "99999999",
+    "IVACategoryCode": "CF",
+    "User": "Test",
+    "Email": "test@axoft.com",
+    "FirstName": "Test",
+    "LastName": "Test",
+    "BusinessName": "",        
+    "Street": "Cerrito",
+    "HouseNumber": "1000",
+    "Floor": "",
+    "Apartment": "",
+    "City": "CABA",
+    "ProvinceCode": "01",
+    "PostalCode": "1000",
+    "PhoneNumber1": "9999-9999",
+    "PhoneNumber2": "99-9999-9999",
+    "BusinessAddress": "Dirección negocio",
+    "NumberListPrice": 10
+  },
+  "OrderItems": [
+    {
+      "ProductCode": "1000",
+      "SKUCode": "ART_DOBLEUNIDAD",    
+      "VariantCode": null,        
+      "Description": "Artículo de doble unidad de medida",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 10.0,
+      "DiscountPercentage": 0.0,
+      "MeasureCode":"KILOGRAMOS",  //Código de medida con el cual se generará el pedido
+      "SelectMeasureUnit": "P" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
+    }
+  ],
+ "CashPayment": {
+    "PaymentID": 1000,
+    "PaymentMethod": "MPA",
+    "PaymentTotal": 10.0
+  }
+}
+```
 
 
 ### Período - Noviembre 2021
