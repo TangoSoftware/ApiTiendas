@@ -203,14 +203,14 @@ Las características que posee un artículo con doble unidad de medida son las s
 
 - **Stock**
 
-**Código de UM de stock 1 (Precios y costos)**: indica la unidad de medida del artículo. Tenga en cuenta que esta unidad es la que se utiliza para expresar los precios del artículo, calcular los costos y expresar los saldos.
+• Código de UM de stock 1 (Precios y costos): indica la unidad de medida del artículo. Tenga en cuenta que esta unidad es la que se utiliza para expresar los precios del artículo, calcular los costos y expresar los saldos.
 
-**Código de UM de stock 2**: indica la segunda unidad de medida del artículo. Es otra unidad de stock en la que se expresa el saldo.
+• Código de UM de stock 2: indica la segunda unidad de medida del artículo. Es otra unidad de stock en la que se expresa el saldo.
 
-**UM de control de stock**: determina entre la unidad de stock 1 (unidad de precios y costos) o la de stock 2 cual realiza el control de stock.
+• UM de control de stock: determina entre la unidad de stock 1 (unidad de precios y costos) o la de stock 2 cual realiza el control de stock.
 La unidad de medida definida en este parámetro, es la que se tomará para controlar la disponibilidad del stock al momento de realizar una descarga de stock, de igual manera es la unidad que usará el sistema para comprometer el stock.
 
-**Equivalencia**: indica la equivalencia que existe entre la unidad de stock 2 respecto a la unidad de stock 1.
+• Equivalencia: indica la equivalencia que existe entre la unidad de stock 2 respecto a la unidad de stock 1.
 
 ```
 Ejemplo…
