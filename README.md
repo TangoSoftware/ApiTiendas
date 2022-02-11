@@ -294,12 +294,15 @@ Si el artículo lleva doble unidad de medida, la equivalencia de ventas es hacia
 Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
 
 • Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+
 • Unidad de stock 2 = UNI (Unidades)
+
 • Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
 
 Y se informa en el JSON de la orden lo siguiente:
 
 • SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas)
+
 • MeasureCode (Código de medida): UNI (Unidades)
 
 Al expresar el precio unitario en unidad de stock 1 (Precios y costos) el total de la orden se calcula de la siguiente manera:
