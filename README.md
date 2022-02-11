@@ -197,6 +197,15 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • MeasureCode: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
 
+#### Consideraciones al enviar órdenes para Doble Unidad de Medida
+
+Las características que posee
+- **Talonario de Pedido**
+
+Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), entonces se válida que el código de tranporte informado no tenga recargo (SurchargePercentage = 0).
+
+
+
 ### Período - Noviembre 2021
 
 • Comments (Customer): se quita el campo al tópico "Customer" ya que no tiene injerencia en el circuito de órdenes.
