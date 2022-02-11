@@ -199,7 +199,39 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 #### Consideraciones al enviar órdenes para Doble Unidad de Medida
 
-Las características que posee
+Las características que posee un artículo con doble unidad de medida son las siguientes:
+
+- **Código de UM de stock 1 (Precios y costos)
+
+Indica la unidad de medida del artículo. Tenga en cuenta que esta unidad es la que se utiliza para expresar los precios del artículo, calcular los costos y expresar los saldos.
+
+
+- **Código de UM de stock 2
+
+Indica la segunda unidad de medida del artículo. Es otra unidad de stock en la que se expresa el saldo.
+
+- **UM de control de stock
+
+Determina entre la unidad de stock 1 (unidad de precios y costos) o la de stock 2 cual realiza el control de stock.
+La unidad de medida definida en este parámetro, es la que se tomará para controlar la disponibilidad del stock al momento de realizar una descarga de stock, de igual manera es la unidad que usará el sistema para comprometer el stock.
+
+- **Equivalencia 
+
+Indica la equivalencia que existe entre la unidad de stock 2 respecto a la unidad de stock 1.
+
+```
+Ejemplo…
+
+Se desea vender hormas de queso, tenemos que la siguiente configuración:
+
+Unidad de stock 1 = Kilos
+Unidad de stock 2 = Horma
+Equivalencia = 2 Kilos (Una horma equivale a 2 kilos)
+```
+
+
+
+
 - **Talonario de Pedido**
 
 Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), entonces se válida que el código de tranporte informado no tenga recargo (SurchargePercentage = 0).
