@@ -278,7 +278,7 @@ Si el artículo lleva doble unidad de medida, la equivalencia de ventas es hacia
       "Description": "Artículo de doble unidad de medida",
       "VariantDescription": null,
       "Quantity": 1.0,
-      "UnitPrice": 10.0,
+      "UnitPrice": 30.0,  
       "DiscountPercentage": 0.0,
       "MeasureCode":"UNI",  //Código de medida con el cual se generará el pedido
       "SelectMeasureUnit": "V" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
@@ -299,14 +299,18 @@ Para este caso se utiliza un artículo con doble unidad de medida cuya caracter�
 
 • Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
 
+
 Y se informa en el JSON de la orden lo siguiente:
 
-• SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas)
+• SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas) 
 
 • MeasureCode (Código de medida): UNI (Unidades)
 
+• UnitPrice: 30 (El precio informado es el correspondiente a la venta, ya que al momento de generar el pedido se expresará  
+
 Al expresar el precio unitario en unidad de stock 1 (Precios y costos) el total de la orden se calcula de la siguiente manera:
 
+- **CALCULO DEL TOTAL ORDEN**
 ```
 	Total orden: Cantidad * Equivalencia * Precio unitario  
 	               1      *     3        *    10             
