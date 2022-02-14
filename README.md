@@ -191,8 +191,6 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • OrderCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar el código de talonario de pedidos a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
 
-• ValidateTotalWithItems: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar si al momento de enviar la orden se valida el total de la orden contra la sumatoria de los renglones, el mismo, se aplica para el caso de doble unidad de medida con equivalencia distinta de 1 y se elige Ventas (V) como unidad de medida seleccionada ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor True.
-
 • SelectMeasureUnit: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar la unidad de medida seleccionada de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor V (Ventas).
 
 • MeasureCode: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
@@ -491,6 +489,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 | **Comment**          | No            | Representa los comentarios realizados por el comprador en la orden| Alfanumérico de hasta 280 caracteres        | El pedido será recibido por |
+| **OrderCounterfoil**         | No                                                  | Número de talonario a utilizar al generar el pedido                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 
 <a name="topicocustomer"></a>
 **Tópico Customer**
@@ -556,7 +555,8 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **VariantDescription** | No            | Descripción del artículo que representa una variación.                                                                        | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **Quantity**           | Si            | Cantidad del artículo.                                                                                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;0                                                                                                     |
 | **UnitPrice**          | Si            | Precio unitario.                                                                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales |                                                                                                           |
-| **DiscountPercentage** | No            | Porcentaje de descuento aplicado al artículo.                                                                                 | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0                                                                                                    |
+| **SelectMeasureUnit** | No            | Unidad de medida seleccionada| Alfanumérico de 1 caracter. |   |
+| **MeasureCode** | No            | Código de medida correspondiente del artículo.                                                                                 | Alfanumérico de 10 caracteres. |                                                                                                     |
 
 <a name="VerNota"></a>
 
