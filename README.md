@@ -1344,6 +1344,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
 - [Publicaciones](#Publicaciones)
 - [Comprobantes de facturación](#ComprobantesDeFacturacion)
+- [Talonarios](#Talonarios)
 
 <a name="sucursales"></a>
 
@@ -3149,6 +3150,24 @@ Ejemplo
 | Obtener el valor de la cotización                      | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate                                |
 | Valor de la cotización, actualizada después de X fecha | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?lastUpdate=2020-01-01T00:00:00 |
 
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "Value": 38.0000000
+        }
+    ],
+    "PagingError": null
+}
+```
+
 <a name="Publicaciones"></a>
 
 ### Publicaciones
@@ -3263,5 +3282,43 @@ Respuesta
     }
   ],
   "PagingError": null
+}
+```
+
+### Talonarios
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener los talonarios definidos en Tango Gestión.
+
+| **Recurso**                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Counterfoil?{pageSize}&{pageNumber}&{orderId}&{orderNumber}&{fromDate}&{toDate} |
+
+Ejemplos
+
+| **Para**                                                                                                                                                                   | **GET**                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Obtener, partiendo del identificador del talonario de pedidos                                                                               | https://tiendas.axoft.com/api/Aperture/Counterfoil?pageSize=500&pageNumber=1&voucher=PED                             |
+| 
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "CounterfoilCode": 6,
+            "Description": "PEDIDOS",
+            "CounterfoilType": "",
+            "Voucher": "PED",
+            "CounterfoilExpiration": "2024-11-30T00:00:00"
+        }
+    ],
+    "PagingError": null
 }
 ```
