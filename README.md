@@ -3293,7 +3293,7 @@ Permite obtener los talonarios definidos en Tango Gestión.
 
 | **Recurso**                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------- |
-| https://tiendas.axoft.com/api/Aperture/Counterfoil?{pageSize}&{pageNumber}&{orderId}&{orderNumber}&{fromDate}&{toDate} |
+| https://tiendas.axoft.com/api/Aperture/Counterfoil?{pageSize}&{pageNumber}&{voucher} |
 
 Ejemplos
 
