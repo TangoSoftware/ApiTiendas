@@ -306,16 +306,7 @@ Y se informa en el JSON de la orden lo siguiente:
 
 • MeasureCode (Código de medida): UNI (Unidades)
 
-• UnitPrice: 30 (El precio informado es el correspondiente a la venta, ya que al momento de generar el pedido se expresará  
-
-Al expresar el precio unitario en unidad de stock 1 (Precios y costos) el total de la orden se calcula de la siguiente manera:
-
-- **CALCULO DEL TOTAL ORDEN**
-```
-	Total orden: Cantidad * Equivalencia * Precio unitario  
-	               1      *     3        *    10             
-```
-
+• UnitPrice: 30 (El precio informado es el correspondiente a la venta, ya que al momento de generar el pedido se expresará en unidad de medida de Stock1) 
 
 ```
 {
@@ -375,6 +366,23 @@ Al expresar el precio unitario en unidad de stock 1 (Precios y costos) el total 
   }
 }
 ```
+
+Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
+
+• Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+
+• Unidad de stock 2 = UNI (Unidades)
+
+• Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
+
+
+Y se informa en el JSON de la orden lo siguiente:
+
+• SelectMeasureUnit (Unidad de medida seleccionada): P (Stock1) 
+
+• MeasureCode (Código de medida): KILOGRAMOS (Kilogramos)
+
+• UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1) 
 
 
 ### Período - Noviembre 2021
