@@ -163,6 +163,8 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 **Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
 
+**Aclaración**: la propiedad "Resource" corresponde al identificador de la orden informado en el JSON (OrderId). 
+
 <a name="faqs"></a>
 
 ### Preguntas Frecuentes
@@ -226,6 +228,15 @@ Equivalencia = 2 Kilos (Una horma equivale a 2 kilos)
 Si el artículo lleva doble unidad de medida, la equivalencia de ventas es hacia la unidad de medida de stock 2, caso contrario la equivalencia de ventas es hacia la unidad de stock 1.
 
 • Equivalencia: indica la equivalencia con la unidad de medida de stock seleccionada.
+
+
+- **Unidad de Medida Seleccionada (SelectMeasureUnit)**
+
+Corresponde al dato de la unidad de medida que fue considerada en la orden con los siguientes formatos: 
+• V: ventas
+• P: stock 1
+• S: stock 2
+**Nota**: si el articulo informado en la orden no tiene parametrizado la DUM se podrá considerar la UM de ventas (V) o la de stock (P), según lo indicado en la orden. 
 
 
 - **Ejemplos**
@@ -555,8 +566,8 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **VariantDescription** | No            | Descripción del artículo que representa una variación.                                                                        | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **Quantity**           | Si            | Cantidad del artículo.                                                                                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;0                                                                                                     |
 | **UnitPrice**          | Si            | Precio unitario.                                                                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales |                                                                                                           |
-| **SelectMeasureUnit** | No            | Unidad de medida seleccionada| Alfanumérico de 1 caracter. |   |
-| **MeasureCode** | No            | Código de medida correspondiente del artículo.                                                                                 | Alfanumérico de 10 caracteres. |                                                                                                     |
+| **SelectMeasureUnit** | No            | Unidad de medida seleccionada| Alfanumérico de 1 caracter. | En caso de no informarla se tomará Ventas (V) por defecto. |
+| **MeasureCode** | No            | Código de medida correspondiente del artículo. | Alfanumérico de 10 caracteres. | En caso de no informarlo se tomará vacío por defecto. |
 
 <a name="VerNota"></a>
 
