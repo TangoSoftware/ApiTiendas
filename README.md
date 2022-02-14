@@ -233,9 +233,13 @@ Si el artículo lleva doble unidad de medida, la equivalencia de ventas es hacia
 - **Unidad de Medida Seleccionada (SelectMeasureUnit)**
 
 Corresponde al dato de la unidad de medida que fue considerada en la orden con los siguientes formatos: 
+
 • V: ventas
+
 • P: stock 1
+
 • S: stock 2
+
 **Nota**: si el articulo informado en la orden no tiene parametrizado la DUM se podrá considerar la UM de ventas (V) o la de stock (P), según lo indicado en la orden. 
 
 
