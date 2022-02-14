@@ -163,7 +163,13 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 **Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
 
-**Aclaración**: la propiedad "Resource" corresponde al identificador de la orden informado en el JSON (OrderId). 
+**Aclaración**: 
+
+• La propiedad "Resource" corresponde al identificador de la orden informado en el JSON (OrderId).
+
+• Para el caso de los artículos parametrizados para que generan movimientos de stock, al notificar el tópico OrderProcessed corresponden a cantidades comprometidas.
+
+• Para el caso de los artículos parametrizados para que generan movimientos de stock, al notificar el tópico OrderBilled corresponden a cantidades de stock.
 
 <a name="faqs"></a>
 
@@ -1515,7 +1521,6 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - Perfil de Venta, Compra-Venta o Inhabilitado.
 - Tipo Simple, Fórmula, o Kit fijo.
 - No sean artículos Base.
-- No posean doble unidad de medida.
 
 | **Recurso**                                                                                                                                        |
 | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1785,7 +1790,6 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - Perfil de Venta, Compra-Venta o Inhabilitado.
 - Tipo Simple, Fórmula, o Kit fijo.
 - No sean artículos Base.
-- No posean doble unidad de medida.
 
 | **Recurso**                                                                            |
 | -------------------------------------------------------------------------------------- |
@@ -2181,7 +2185,6 @@ Solo se mostrarán precios de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Listas de precios que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitadas.
 
@@ -2296,7 +2299,6 @@ Solo se mostrarán precios por cliente de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Listas de precios que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitadas.
 - Clientes que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
@@ -2373,7 +2375,6 @@ Solo se mostrarán descuentos por cliente de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Clientes que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
@@ -2470,7 +2471,6 @@ Solo se mostrarán saldos de stock de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Depósitos que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
