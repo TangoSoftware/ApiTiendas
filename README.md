@@ -1558,6 +1558,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 1000,
@@ -1590,6 +1593,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 150,
@@ -1627,6 +1633,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 0,
@@ -1664,6 +1673,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 0,
@@ -1705,6 +1717,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 0,
@@ -1743,33 +1758,37 @@ Respuesta
             ]
         },
         {
-            "SKUCode": "010030001BLA",
-            "Description": "VENT.DE TECHO MADERA 3 PALAS",
-            "AdditionalDescription": "MADERA PINT.BLAN.",
-            "AlternativeCode": "",
+            "SKUCode": "ART_DOBLEUNIDAD",
+            "Description": "ART.CON DOBLE UNIDAD DE MEDIDA",
+            "AdditionalDescription": "",
+            "AlternativeCode": "DBLEUNI",
             "BarCode": "",
-            "Commission": 0,
-            "Discount": 0,
-            "MeasureUnitCode": "C/U",
+            "Commission": 0.0000000,
+            "Discount": 0.0000000,
+            "MeasureUnitCode": "KILOGRAMOS",
+            "SecondMeasureUnitCode": "UNI",
+            "StockEquivalence": 3.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
-            "SalesEquivalence": 1,
-            "MaximumStock": 32,
-            "MinimumStock": 4,
-            "RestockPoint": 6,
+            "SalesEquivalence": 1.0000000,
+            "MaximumStock": 0.0000000,
+            "MinimumStock": 0.0000000,
+            "RestockPoint": 0.0000000,
             "Observations": "",
             "Kit": false,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
-            "UseScale": "S",
-            "Scale1": "TI",
-            "Scale2": "CO",
-            "BaseArticle": "010030",
-            "ScaleValue1": "001",
-            "ScaleValue2": "BLA",
-            "DescriptionScale1": "TIPO DE VENTILADORES",
-            "DescriptionScale2": "COLORES",
-            "DescriptionValueScale1": "MADERA",
-            "DescriptionValueScale2": "BLANCO",
+            "LastUpdateUtc": "2022-02-14T20:16:30.043",
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
+            "DescriptionScale1": null,
+            "DescriptionScale2": null,
+            "DescriptionValueScale1": null,
+            "DescriptionValueScale2": null,
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": []
@@ -2462,9 +2481,12 @@ Respuesta
 [<sub>Volver</sub>](#iniciorecursos)
 
 Permite obtener datos de saldos de stock detallados por sucursal, depósito y artículo; o acumulado por artículo.
-En el campo **Quantity** se muestra la cantidad física en stock.
-En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock.
-En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock.
+En el campo **Quantity** se muestra la cantidad física en stock 1.
+En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock 1.
+En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock 1.
+En el campo **SecondQuantity** se muestra la cantidad física en stock 2.
+En el campo **SecondEngagedQuantity** se muestra la cantidad comprometida del stock 2.
+En el campo **SecondPendingQuantity** se muestra la cantidad pendiente de ingresar al stock 2.
 
 Solo se mostrarán saldos de stock de:
 
