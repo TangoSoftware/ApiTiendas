@@ -163,6 +163,14 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 **Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
 
+**Aclaración**: 
+
+• La propiedad "Resource" corresponde al identificador de la orden informado en el JSON (OrderId).
+
+• Para el caso de los artículos parametrizados para que generan movimientos de stock, al notificar el tópico OrderProcessed corresponden a cantidades comprometidas.
+
+• Para el caso de los artículos parametrizados para que generan movimientos de stock, al notificar el tópico OrderBilled corresponden a cantidades de stock.
+
 <a name="faqs"></a>
 
 ### Preguntas Frecuentes
@@ -186,6 +194,215 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 <a name="novedades"></a>
 
 ### Novedades en el JSON de la orden
+
+### Período - Febrero 2022
+
+• OrderCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar el código de talonario de pedidos a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
+
+• SelectMeasureUnit: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar la unidad de medida seleccionada de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor V (Ventas).
+
+• MeasureCode: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
+
+#### Consideraciones al enviar órdenes para Doble Unidad de Medida
+
+Las características que posee un artículo con doble unidad de medida son las siguientes:
+
+- **Stock**
+
+• Código de UM de stock 1 (Precios y costos): indica la unidad de medida del artículo. Tenga en cuenta que esta unidad es la que se utiliza para expresar los precios del artículo, calcular los costos y expresar los saldos.
+
+• Código de UM de stock 2: indica la segunda unidad de medida del artículo. Es otra unidad de stock en la que se expresa el saldo.
+
+• UM de control de stock: determina entre la unidad de stock 1 (unidad de precios y costos) o la de stock 2 cual realiza el control de stock.
+La unidad de medida definida en este parámetro, es la que se tomará para controlar la disponibilidad del stock al momento de realizar una descarga de stock, de igual manera es la unidad que usará el sistema para comprometer el stock.
+
+• Equivalencia: indica la equivalencia que existe entre la unidad de stock 2 respecto a la unidad de stock 1.
+
+```
+Ejemplo…
+
+Se desea vender hormas de queso, tenemos la siguiente configuración:
+
+Unidad de stock 1 = Kilos
+Unidad de stock 2 = Horma
+Equivalencia = 2 Kilos (Una horma equivale a 2 kilos)
+```
+
+- **Ventas**
+
+• Código de presentación de ventas: indica a cuantas unidades de stock equivale una unidad de ventas.
+Si el artículo lleva doble unidad de medida, la equivalencia de ventas es hacia la unidad de medida de stock 2, caso contrario la equivalencia de ventas es hacia la unidad de stock 1.
+
+• Equivalencia: indica la equivalencia con la unidad de medida de stock seleccionada.
+
+
+- **Unidad de Medida Seleccionada (SelectMeasureUnit)**
+
+Según la parametrización que posea el artículo (Simple o Doble Unidad de Medida) se podrá indicar los siguientes valores:
+
+• V: Ventas
+
+• P: Stock 1
+
+• S: Stock 2
+
+**Nota**: Para el caso de un artículo simple se podrá indicar con P (Stock 1) la unidad elegida al momento de generar el pedido. 
+
+
+- **Ejemplos**
+
+```
+{
+  "Date": "2022-02-10T00:00:00",
+  "Total": 30.0,
+  "PaidTotal": 30.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "1",
+  "SellerCode": "1",
+  "TransportCode": "01",
+  "SaleCondition": "1",
+  "OrderID": "1000",    
+  "OrderNumber": "1000",
+  "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
+  "ValidateTotalWithPaidTotal": false,
+  "ValidateTotalWithItems": false,  //Para el caso de DUM donde se informe unidad de Ventas y la equivalencia sea distinto de 1 
+  "Customer": {
+    "CustomerID": 1000,
+    "Code": "",      
+    "DocumentType": "96",
+    "DocumentNumber": "99999999",
+    "IVACategoryCode": "CF",
+    "User": "Test",
+    "Email": "test@axoft.com",
+    "FirstName": "Test",
+    "LastName": "Test",
+    "BusinessName": "",        
+    "Street": "Cerrito",
+    "HouseNumber": "1000",
+    "Floor": "",
+    "Apartment": "",
+    "City": "CABA",
+    "ProvinceCode": "01",
+    "PostalCode": "1000",
+    "PhoneNumber1": "9999-9999",
+    "PhoneNumber2": "99-9999-9999",
+    "BusinessAddress": "Dirección negocio",
+    "NumberListPrice": 10
+  },
+  "OrderItems": [
+    {
+      "ProductCode": "1000",
+      "SKUCode": "ART_DOBLEUNIDAD",    
+      "VariantCode": null,        
+      "Description": "Artículo de doble unidad de medida",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 30.0,  
+      "DiscountPercentage": 0.0,
+      "MeasureCode":"UNI",  //Código de medida con el cual se generará el pedido
+      "SelectMeasureUnit": "V" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
+    }
+  ],
+ "CashPayment": {
+    "PaymentID": 1000,
+    "PaymentMethod": "MPA",
+    "PaymentTotal": 30.0
+  }
+}
+```
+Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
+
+• Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+
+• Unidad de stock 2 = UNI (Unidades)
+
+• Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
+
+
+Y se informa en el JSON de la orden lo siguiente:
+
+• SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas) 
+
+• MeasureCode (Código de medida): UNI (Unidades)
+
+• UnitPrice: 30 (El precio informado es el correspondiente a la venta, ya que al momento de generar el pedido se expresará en unidad de medida de Stock1) 
+
+```
+{
+  "Date": "2022-02-10T00:00:00",
+  "Total": 10.0,
+  "PaidTotal": 10.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "1",
+  "SellerCode": "1",
+  "TransportCode": "01",
+  "SaleCondition": "1",
+  "OrderID": "1000",    
+  "OrderNumber": "1000",
+  "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
+  "ValidateTotalWithPaidTotal": false,
+  "Customer": {
+    "CustomerID": 1000,
+    "Code": "",      
+    "DocumentType": "96",
+    "DocumentNumber": "99999999",
+    "IVACategoryCode": "CF",
+    "User": "Test",
+    "Email": "test@axoft.com",
+    "FirstName": "Test",
+    "LastName": "Test",
+    "BusinessName": "",        
+    "Street": "Cerrito",
+    "HouseNumber": "1000",
+    "Floor": "",
+    "Apartment": "",
+    "City": "CABA",
+    "ProvinceCode": "01",
+    "PostalCode": "1000",
+    "PhoneNumber1": "9999-9999",
+    "PhoneNumber2": "99-9999-9999",
+    "BusinessAddress": "Dirección negocio",
+    "NumberListPrice": 10
+  },
+  "OrderItems": [
+    {
+      "ProductCode": "1000",
+      "SKUCode": "ART_DOBLEUNIDAD",    
+      "VariantCode": null,        
+      "Description": "Artículo de doble unidad de medida",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 10.0,
+      "DiscountPercentage": 0.0,
+      "MeasureCode":"KILOGRAMOS",  //Código de medida con el cual se generará el pedido
+      "SelectMeasureUnit": "P" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
+    }
+  ],
+ "CashPayment": {
+    "PaymentID": 1000,
+    "PaymentMethod": "MPA",
+    "PaymentTotal": 10.0
+  }
+}
+```
+
+Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
+
+• Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+
+• Unidad de stock 2 = UNI (Unidades)
+
+• Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
+
+
+Y se informa en el JSON de la orden lo siguiente:
+
+• SelectMeasureUnit (Unidad de medida seleccionada): P (Stock1) 
+
+• MeasureCode (Código de medida): KILOGRAMOS (Kilogramos)
+
+• UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1) 
+
 
 ### Período - Noviembre 2021
 
@@ -276,7 +493,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | ------------------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **OrderID**                    | Si                                                  | Identificador de la orden. Debe ser distinto para cada operación.                                                   | Alfanumérico de hasta 200 caracteres                                                                   | &gt;0                                                                                                                                                                    |
 | **OrderNumber**                | Si                                                  | Número de la orden. Es el número con el cual podrá identificar la orden desde revisión de pedidos de Tango Tiendas  | Alfanumérico de hasta 200 caracteres                                                                   |                                                                                                                                                                          |
-| **Date**                       | Si                                                  | Fecha de la orden. Puede ser anterior a 7 días de la fecha actual.                                                  | Datetime                                                                                               | yyyy-MM-ddTHH:mm:ss                                                                                                                                                      |
+| **Date**                       | Si                                                  | Fecha de la orden. Puede ser anterior a 30 días de la fecha actual.                                                  | Datetime                                                                                               | yyyy-MM-ddTHH:mm:ss                                                                                                                                                      |
 | **Total**                      | Si                                                  | Es el importe total de la orden. Sólo válido en pesos argentinos.                                                   | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0 ∑[(OrderItems.Quantity x OrderItems.UnitPrice) – OrderItems.DiscountPorcentage)] + Shipping.ShippingCost + Principal.FinancialSurcharge – Principal.TotalDiscount |
 | **TotalDiscount**              | No                                                  | Importe de descuento total de la operación. Sólo valido en pesos argentinos.                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0&lt; Principal.Total                                                                                                                                               |
 | **PaidTotal**                  | Solo si se informa el tópico Payments o CashPayments (en reemplazo de CashPayment) | Importe total pagado. Sólo válido en pesos argentinos.                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0 ∑(Payments.Installments \* Payments.InstallmentsAmount) + ∑(CashPayments.PaymentTotal)                                                                                |
@@ -293,6 +510,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 | **Comment**          | No            | Representa los comentarios realizados por el comprador en la orden| Alfanumérico de hasta 280 caracteres        | El pedido será recibido por |
+| **OrderCounterfoil**         | No                                                  | Número de talonario a utilizar al generar el pedido                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 
 <a name="topicocustomer"></a>
 **Tópico Customer**
@@ -358,7 +576,8 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **VariantDescription** | No            | Descripción del artículo que representa una variación.                                                                        | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **Quantity**           | Si            | Cantidad del artículo.                                                                                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;0                                                                                                     |
 | **UnitPrice**          | Si            | Precio unitario.                                                                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales |                                                                                                           |
-| **DiscountPercentage** | No            | Porcentaje de descuento aplicado al artículo.                                                                                 | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;=0                                                                                                    |
+| **SelectMeasureUnit** | No            | Unidad de medida seleccionada| Alfanumérico de 1 caracter. | Los valores posibles de informar son V (Ventas), P (Stock 1) y S (Stock 2), en caso de no informarla se tomará Ventas por defecto. |
+| **MeasureCode** | No            | Código de medida correspondiente del artículo. | Alfanumérico de 10 caracteres. | En caso de no informarlo se tomará vacío por defecto. |
 
 <a name="VerNota"></a>
 
@@ -1125,6 +1344,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Cotización de moneda extranjera](#CotizacionMonedaExtranjera)
 - [Publicaciones](#Publicaciones)
 - [Comprobantes de facturación](#ComprobantesDeFacturacion)
+- [Talonarios](#Talonarios)
 
 <a name="sucursales"></a>
 
@@ -1302,7 +1522,6 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - Perfil de Venta, Compra-Venta o Inhabilitado.
 - Tipo Simple, Fórmula, o Kit fijo.
 - No sean artículos Base.
-- No posean doble unidad de medida.
 
 | **Recurso**                                                                                                                                        |
 | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1339,6 +1558,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 1000,
@@ -1371,6 +1593,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 150,
@@ -1408,6 +1633,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 0,
@@ -1445,6 +1673,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 0,
@@ -1486,6 +1717,9 @@ Respuesta
             "Commission": 6,
             "Discount": 0,
             "MeasureUnitCode": "UNI",
+            "SecondMeasureUnitCode": "",
+            "StockEquivalence": 0.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
             "SalesEquivalence": 1,
             "MaximumStock": 0,
@@ -1524,33 +1758,37 @@ Respuesta
             ]
         },
         {
-            "SKUCode": "010030001BLA",
-            "Description": "VENT.DE TECHO MADERA 3 PALAS",
-            "AdditionalDescription": "MADERA PINT.BLAN.",
-            "AlternativeCode": "",
+            "SKUCode": "ART_DOBLEUNIDAD",
+            "Description": "ART.CON DOBLE UNIDAD DE MEDIDA",
+            "AdditionalDescription": "",
+            "AlternativeCode": "DBLEUNI",
             "BarCode": "",
-            "Commission": 0,
-            "Discount": 0,
-            "MeasureUnitCode": "C/U",
+            "Commission": 0.0000000,
+            "Discount": 0.0000000,
+            "MeasureUnitCode": "KILOGRAMOS",
+            "SecondMeasureUnitCode": "UNI",
+            "StockEquivalence": 3.0000000,
+            "StockControlUnit": "P",
             "SalesMeasureUnitCode": "UNI",
-            "SalesEquivalence": 1,
-            "MaximumStock": 32,
-            "MinimumStock": 4,
-            "RestockPoint": 6,
+            "SalesEquivalence": 1.0000000,
+            "MaximumStock": 0.0000000,
+            "MinimumStock": 0.0000000,
+            "RestockPoint": 0.0000000,
             "Observations": "",
             "Kit": false,
             "KitValidityDateSince": null,
             "KitValidityDateUntil": null,
-            "UseScale": "S",
-            "Scale1": "TI",
-            "Scale2": "CO",
-            "BaseArticle": "010030",
-            "ScaleValue1": "001",
-            "ScaleValue2": "BLA",
-            "DescriptionScale1": "TIPO DE VENTILADORES",
-            "DescriptionScale2": "COLORES",
-            "DescriptionValueScale1": "MADERA",
-            "DescriptionValueScale2": "BLANCO",
+            "LastUpdateUtc": "2022-02-14T20:16:30.043",
+            "UseScale": "N",
+            "Scale1": "",
+            "Scale2": "",
+            "BaseArticle": "",
+            "ScaleValue1": "",
+            "ScaleValue2": "",
+            "DescriptionScale1": null,
+            "DescriptionScale2": null,
+            "DescriptionValueScale1": null,
+            "DescriptionValueScale2": null,
             "Disabled": false,
             "ProductComposition": [],
             "ProductComments": []
@@ -1572,7 +1810,6 @@ Solo se mostrarán artículos que en **Tango Gestión** cumplan:
 - Perfil de Venta, Compra-Venta o Inhabilitado.
 - Tipo Simple, Fórmula, o Kit fijo.
 - No sean artículos Base.
-- No posean doble unidad de medida.
 
 | **Recurso**                                                                            |
 | -------------------------------------------------------------------------------------- |
@@ -1968,7 +2205,6 @@ Solo se mostrarán precios de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Listas de precios que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitadas.
 
@@ -2083,7 +2319,6 @@ Solo se mostrarán precios por cliente de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Listas de precios que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitadas.
 - Clientes que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
@@ -2160,7 +2395,6 @@ Solo se mostrarán descuentos por cliente de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Clientes que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
@@ -2247,9 +2481,12 @@ Respuesta
 [<sub>Volver</sub>](#iniciorecursos)
 
 Permite obtener datos de saldos de stock detallados por sucursal, depósito y artículo; o acumulado por artículo.
-En el campo **Quantity** se muestra la cantidad física en stock.
-En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock.
-En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock.
+En el campo **Quantity** se muestra la cantidad física en stock 1.
+En el campo **EngagedQuantity** se muestra la cantidad comprometida del stock 1.
+En el campo **PendingQuantity** se muestra la cantidad pendiente de ingresar al stock 1.
+En el campo **SecondQuantity** se muestra la cantidad física en stock 2.
+En el campo **SecondEngagedQuantity** se muestra la cantidad comprometida del stock 2.
+En el campo **SecondPendingQuantity** se muestra la cantidad pendiente de ingresar al stock 2.
 
 Solo se mostrarán saldos de stock de:
 
@@ -2257,7 +2494,6 @@ Solo se mostrarán saldos de stock de:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
   - Tipo Simple, Fórmula, o Kit fijo.
   - No sean artículos Base.
-  - No posean doble unidad de medida.
   - No estén inhabilitados.
 - Depósitos que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
 
@@ -2936,6 +3172,24 @@ Ejemplo
 | Obtener el valor de la cotización                      | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate                                |
 | Valor de la cotización, actualizada después de X fecha | https://tiendas.axoft.com/api/Aperture/CurrencyExchangeRate?lastUpdate=2020-01-01T00:00:00 |
 
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "Value": 38.0000000
+        }
+    ],
+    "PagingError": null
+}
+```
+
 <a name="Publicaciones"></a>
 
 ### Publicaciones
@@ -3050,5 +3304,43 @@ Respuesta
     }
   ],
   "PagingError": null
+}
+```
+
+### Talonarios
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener los talonarios definidos en Tango Gestión.
+
+| **Recurso**                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- |
+| https://tiendas.axoft.com/api/Aperture/Counterfoil?{pageSize}&{pageNumber}&{voucher} |
+
+Ejemplos
+
+| **Para**                                                                                                                                                                   | **GET**                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Obtener, partiendo del identificador del talonario de pedidos                                                                               | https://tiendas.axoft.com/api/Aperture/Counterfoil?pageSize=500&pageNumber=1&voucher=PED                             |
+| 
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "CounterfoilCode": 6,
+            "Description": "PEDIDOS",
+            "CounterfoilType": "",
+            "Voucher": "PED",
+            "CounterfoilExpiration": "2024-11-30T00:00:00"
+        }
+    ],
+    "PagingError": null
 }
 ```
