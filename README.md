@@ -666,7 +666,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 • Cálculo del **Precio por renglón** : al asignar un porcentaje de descuento, el mismo, se aplica de la siguiente manera:
 
 ```
-|	Precio por renglón = (Precio Unitario - (Precio Unitario / 100 * Porcentaje de descuento)) * Cantidad |
+	PRECIO POR RENGLON = (PRECIO UNITARIO - (PRECIO UNITARIO / 100 * PORCENTAJE DE DESCUENTO)) * CANTIDAD 
 ```
 
 <a name="topicoshipping"></a>
