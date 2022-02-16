@@ -643,6 +643,32 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 ]
 ```
 
+**Ejemplo de una publicación de artículos aplicando "Porcentaje de Descuentos:**
+
+```
+"OrderItems":
+[
+   {
+      "ProductCode": "1000",
+      "SKUCode": "0100100150",
+      "VariantCode": " ",
+      "Description": "TV",
+      "VariantDescription": " ",
+      "Quantity": 1.0,
+      "UnitPrice": 500.0,
+      "DiscountPercentage": 15.0
+   }
+]
+```
+
+#### Nota: Porcentaje de descuento
+
+• Cálculo del **Precio por renglón** : al asignar un porcentaje de descuento, el mismo, se aplica de la siguiente manera:
+
+```
+	Precio final por renglón = (Precio Unitario - (Precio Unitario / 100 * Porcentaje de descuento)) * Cantidad
+```
+
 <a name="topicoshipping"></a>
 **Tópico Shipping**
 
