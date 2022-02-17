@@ -575,6 +575,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **Description**        | Sí            | Descripción del artículo.                                                                                                     | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **VariantDescription** | No            | Descripción del artículo que representa una variación.                                                                        | Alfanumérico de hasta 400 caracteres                                                                   |                                                                                                           |
 | **Quantity**           | Si            | Cantidad del artículo.                                                                                                        | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales | &gt;0                                                                                                     |
+| **DiscountPercentage**          | No            | Porcentaje de descuento.                                                                                                              | Numérico con 5 dígitos con hasta 2 decimales 99.99[.CC]. Usando el punto como separador de decimales | &gt;= 0 , <= 99.99                                                                                                          |
 | **UnitPrice**          | Si            | Precio unitario.                                                                                                              | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales |                                                                                                           |
 | **SelectMeasureUnit** | No            | Unidad de medida seleccionada| Alfanumérico de 1 caracter. | Los valores posibles de informar son V (Ventas), P (Stock 1) y S (Stock 2), en caso de no informarla se tomará Ventas por defecto. |
 | **MeasureCode** | No            | Código de medida correspondiente del artículo. | Alfanumérico de 10 caracteres. | En caso de no informarlo se tomará vacío por defecto. |
@@ -640,6 +641,32 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
       "DiscountPercentage": 0.0
    }
 ]
+```
+
+**Ejemplo de una publicación de artículos aplicando "Porcentaje de Descuentos:**
+
+```
+"OrderItems":
+[
+   {
+      "ProductCode": "1000",
+      "SKUCode": "0100100150",
+      "VariantCode": " ",
+      "Description": "TV",
+      "VariantDescription": " ",
+      "Quantity": 1.0,
+      "UnitPrice": 500.0,
+      "DiscountPercentage": 15.0
+   }
+]
+```
+
+#### Nota: Porcentaje de descuento
+
+• Cálculo del **Precio por renglón** : al asignar un porcentaje de descuento, el mismo, se aplica de la siguiente manera:
+
+```
+	PRECIO POR RENGLON = (PRECIO UNITARIO - (PRECIO UNITARIO / 100 * PORCENTAJE DE DESCUENTO)) * CANTIDAD 
 ```
 
 <a name="topicoshipping"></a>
