@@ -721,6 +721,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 | **PaymentID**     | Si            | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones.                                                            | &gt;0                                               |
 | **PaymentMethod** | Si            | Código de Forma de Pago.                                                                                          | Alfanumérico de hasta 3 caracteres.                                                                     | Ver Tablas de Referencia, [Formas de Pago](#fpago). |
 | **PaymentTotal**  | Si            | Total, del pago.                                                                                                  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales. | &gt;0                                               |
+
 <a name="topicocashpayment"></a>
 **Tópico CashPayment**
 
@@ -733,6 +734,7 @@ _Recuerde_: si no carga un registro en Payments, CashPayment o ambos, deberá co
 | **PaymentID**     | Si            | Identificador del pago. Debe ser distinto para cada operación. Incluso con PaymentsID si se combina con tarjetas. | Numérico de tipo entero hasta 50 posiciones.                                                            | &gt;0                                               |
 | **PaymentMethod** | Si            | Código de Forma de Pago.                                                                                          | Alfanumérico de hasta 3 caracteres.                                                                     | Ver Tablas de Referencia, [Formas de Pago](#fpago). |
 | **PaymentTotal**  | Si            | Total, del pago.                                                                                                  | Numérico con 13 dígitos con hasta 2 decimales 999999[.CC]. Usando el punto como separador de decimales. | &gt;0                                               |
+
 <a name="topicopayments"></a>
 **Tópico Payments**
 
