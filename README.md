@@ -2437,6 +2437,7 @@ Ejemplos
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | Obtener los descuentos por cliente de los clientes cuyo código contenga la cadena "CL00028"                                                 | https://tiendas.axoft.com/api/Aperture/DiscountByCustomer?pageSize=500&pageNumber=1&filter=CL00028            |
 | Obtener los descuentos por cliente de los clientes cuyo código contenga la cadena "CL00028" y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/DiscountByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01 |
+| En el caso que se desee realizar una búsqueda exacta del dato indicado a través de las parámetros mencionados se deberá agregar "UseEqual=TRUE"| https://tiendas.axoft.com/api/Aperture/DiscountByCustomer?pageSize=500&pageNumber=1&filter=CL00028&SKUCode=01&UseEqual=True                            |
 | Obtener todos los descuentos por cliente                                                                                                    | https://tiendas.axoft.com/api/Aperture/DiscountByCustomer?pageSize=500&pageNumber=1                           |
 
 Respuesta
