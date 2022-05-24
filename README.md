@@ -703,6 +703,7 @@ Este tópico se completa siempre que se requiere informar el envío. Se puede co
 | **DeliversSaturday**  | No            | Entrega sábado                                                      | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliversSunday**    | No            | Entrega domingo                                                     | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliveryHours**     | No            | Hora de entrega                                                     | Alfanumérico de hasta 100 caracteres                                                                    |                                                                 |
+| **DeliveryDate**      | No            | Fecha de entrega                                                     | Datetime                                                                                              | Si se deja vacío toma como defecto nulo                         |
 
 **Consideraciones en la dirección de entrega**
 
@@ -815,14 +816,18 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 
 #### Condición Fiscal
 
-| **Código** | **Descripción**              |
-| ---------- | ---------------------------- |
-| CF         | CONSUMIDOR FINAL             |
-| EX         | EXENTO                       |
-| EXE        | EXENTO OPERACIÓN EXPORTACIÓN |
-| INR        | NO RESPONSABLE               |
-| RI         | RESPONSABLE INSCRIPTO        |
-| RS         | RESPONSABLE MONOTRIBUTISTA   |
+| **Código** | **Descripción**                          |
+| ---------- | ---------------------------------------- |
+| CF         | CONSUMIDOR FINAL                         |
+| EX         | EXENTO                                   |
+| EXE        | EXENTO OPERACIÓN EXPORTACIÓN             |
+| INR        | NO RESPONSABLE                           |
+| RI         | RESPONSABLE INSCRIPTO                    |
+| RS         | RESPONSABLE MONOTRIBUTISTA               |
+| RSS        | RESPONSABLE MONOTRIBUTISTA SOCIAL        |
+| PCE        | PEQUEÑO CONTRIBUYENTE EVENTUAL           |
+| PCS        | PEQUEÑO CONTRIBUYENTE EVENTUAL SOCIAL    |
+| SNC        | SUJETO NO CATEGORIZADO                   |
 
 <a name="fpago"></a>
 
