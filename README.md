@@ -220,7 +220,7 @@ _El campo CancelReason a informar por API es soportado **solo** en Delta y super
 
 **Aclaración**: 
 
-_Estos nuevos campos OrderCounterFoil, SelectMeasureUnit y MeasureCode a informar por API son soportado **solo** en Delta y superior_
+_Estos nuevos campos OrderCounterFoil, SelectMeasureUnit y MeasureCode a informar por API son soportados **solo** en Delta y superior_
 
 #### Consideraciones al enviar órdenes para Doble Unidad de Medida
 
