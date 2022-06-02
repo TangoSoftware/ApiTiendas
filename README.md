@@ -198,8 +198,17 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 ### Período - Abril 2022
 • CancelDate: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para registrar la fecha de cancelación de la orden ([Tópico Principal](#topicoprincipal)). Si no se informa asume vacío.
 
+
+**Aclaración**: 
+
+_El campo CancelDate a informar por API es soportado **solo** en Delta y superior_
+
 ### Período - Marzo 2022
 • CancelReason: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para registrar el motivo de cancelación de la orden ([Tópico Principal](#topicoprincipal)). En el caso de informar la cancelación de la orden la fecha pasa a ser un dato requerido, caso contrario, no se informa y se asume vacío.
+
+**Aclaración**: 
+
+_El campo CancelReason a informar por API es soportado **solo** en Delta y superior_
 
 ### Período - Febrero 2022
 
@@ -211,7 +220,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 **Aclaración**: 
 
-*_Estos nuevos campos a informar por API son soportado solo en Delta y superior_*
+_Estos nuevos campos a informar por API son soportado **solo** en Delta y superior_
 
 #### Consideraciones al enviar órdenes para Doble Unidad de Medida
 
