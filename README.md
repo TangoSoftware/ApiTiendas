@@ -209,6 +209,10 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 • MeasureCode: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
 
+**Aclaración**: 
+
+_Estos nuevos campos a informar por API son soportado solo en Delta y superior_
+
 #### Consideraciones al enviar órdenes para Doble Unidad de Medida
 
 Las características que posee un artículo con doble unidad de medida son las siguientes:
