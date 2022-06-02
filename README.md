@@ -211,7 +211,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 **Aclaración**: 
 
-_Estos nuevos campos a informar por API son soportado solo en Delta y superior_
+*_Estos nuevos campos a informar por API son soportado solo en Delta y superior_*
 
 #### Consideraciones al enviar órdenes para Doble Unidad de Medida
 
