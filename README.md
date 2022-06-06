@@ -195,6 +195,9 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 
 ### Novedades en el JSON de la orden
 
+### Período - Junio 2022
+• DeliveryDate: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar la fecha de entrega de la orden ([Tópico Shipping](#topicoshipping)). En el caso de informarla no podrá ser anterior a la fecha de la orden, caso contrario, se asume vacío.
+
 ### Período - Abril 2022
 • CancelDate: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para registrar la fecha de cancelación de la orden ([Tópico Principal](#topicoprincipal)). Si no se informa asume vacío.
 
@@ -211,7 +214,6 @@ _El campo CancelDate a informar por API es soportado **solo** en Delta y superio
 _El campo CancelReason a informar por API es soportado **solo** en Delta y superior_
 
 ### Período - Febrero 2022
-
 • OrderCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar el código de talonario de pedidos a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
 
 • SelectMeasureUnit: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar la unidad de medida seleccionada de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor V (Ventas).
@@ -716,6 +718,7 @@ Este tópico se completa siempre que se requiere informar el envío. Se puede co
 | **DeliversSaturday**  | No            | Entrega sábado                                                      | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliversSunday**    | No            | Entrega domingo                                                     | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliveryHours**     | No            | Hora de entrega                                                     | Alfanumérico de hasta 100 caracteres                                                                    |                                                                 |
+| **DeliveryDate**      | No            | Fecha de entrega                                                     | Datetime                                                                                              | La fecha a informar no podrá ser anterior a la fecha de la orden. Si se deja vacío toma como defecto nulo                         |
 
 **Consideraciones en la dirección de entrega**
 
@@ -828,14 +831,18 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 
 #### Condición Fiscal
 
-| **Código** | **Descripción**              |
-| ---------- | ---------------------------- |
-| CF         | CONSUMIDOR FINAL             |
-| EX         | EXENTO                       |
-| EXE        | EXENTO OPERACIÓN EXPORTACIÓN |
-| INR        | NO RESPONSABLE               |
-| RI         | RESPONSABLE INSCRIPTO        |
-| RS         | RESPONSABLE MONOTRIBUTISTA   |
+| **Código** | **Descripción**                          |
+| ---------- | ---------------------------------------- |
+| CF         | CONSUMIDOR FINAL                         |
+| EX         | EXENTO                                   |
+| EXE        | EXENTO OPERACIÓN EXPORTACIÓN             |
+| INR        | NO RESPONSABLE                           |
+| RI         | RESPONSABLE INSCRIPTO                    |
+| RS         | RESPONSABLE MONOTRIBUTISTA               |
+| RSS        | RESPONSABLE MONOTRIBUTISTA SOCIAL        |
+| PCE        | PEQUEÑO CONTRIBUYENTE EVENTUAL           |
+| PCS        | PEQUEÑO CONTRIBUYENTE EVENTUAL SOCIAL    |
+| SNC        | SUJETO NO CATEGORIZADO                   |
 
 <a name="fpago"></a>
 
