@@ -196,7 +196,7 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 ### Novedades en el JSON de la orden
 
 ### Período - Junio 2022
-• DeliveryDate: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar la fecha de entrega de la orden ([Tópico Shipping](#topicoshipping)). En el caso de informarla no podrá ser anterior a la fecha de la orden, caso contrario, se asume vacío.
+• DeliveryDate: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar la fecha de entrega de la orden ([Tópico Shipping](#topicoshipping)). En el caso de informarla no podrá ser anterior a la fecha de la orden. Si no fuera informada se asume vacía y tomará la fecha del día en que se genera el pedido o el plazo definido en los Parámetros de Ventas para la entrega de pedidos.
 
 ### Período - Abril 2022
 • CancelDate: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para registrar la fecha de cancelación de la orden ([Tópico Principal](#topicoprincipal)). Si no se informa asume vacío.
@@ -718,7 +718,7 @@ Este tópico se completa siempre que se requiere informar el envío. Se puede co
 | **DeliversSaturday**  | No            | Entrega sábado                                                      | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliversSunday**    | No            | Entrega domingo                                                     | Alfanumérico de hasta 1 caracteres                                                                      | [S/N] Si se deja vacío toma como defecto el valor &quot;N&quot; |
 | **DeliveryHours**     | No            | Hora de entrega                                                     | Alfanumérico de hasta 100 caracteres                                                                    |                                                                 |
-| **DeliveryDate**      | No            | Fecha de entrega                                                     | Datetime                                                                                              | La fecha a informar no podrá ser anterior a la fecha de la orden. Si se deja vacío toma como defecto nulo                         |
+| **DeliveryDate**      | No            | Fecha de entrega                                                     | Datetime                                                                                              | La fecha a informar no podrá ser anterior a la fecha de la orden. Si se deja vacío tomará la fecha del día en que se genera el pedido o el plazo definido en los Parámetros de Ventas para la entrega de pedidos.                         |
 
 **Consideraciones en la dirección de entrega**
 
