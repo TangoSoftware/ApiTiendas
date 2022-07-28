@@ -169,7 +169,11 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 **Aclaración**: 
 
-• La propiedad "Resource" asociado al registro informado y que puede utilizarse como filtro en la llamada al recurso.
+• La propiedad "Resource" corresponde al identificador de la orden informado en el JSON (OrderId).
+
+• Para el caso que se produzca una actualización del stock de un artículo, al notificar el tópico StockProductUpdate la propiedad "Resource" corresponde a la identificación (Id) del registro modificado.
+
+• Para el caso que se produzca una actualización del precio de un artículo, al notificar el tópico PriceProductUpdate la propiedad "Resource" corresponde a la identificación (Id) del registro modificado.
 
 • Para el caso de los artículos parametrizados para que generan movimientos de stock, al notificar el tópico OrderProcessed corresponden a cantidades comprometidas.
 
@@ -2274,13 +2278,13 @@ Solo se mostrarán precios de:
 
 Ejemplos
 
-| **Para**                                                                                                             | **GET**                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Obtener los precios de la lista de precios cuyo número de lista es 1                                                 | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1                       |
-| Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01            |
-| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)        | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
-| Obtener todos los precios                                                                                            | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                                |
-| Obtener, con el identificador del registro, el precio de un artículo actualizado.                                    | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&id=1                           |
+| **Para**                                                                                                                                                       | **GET**                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Obtener los precios de la lista de precios cuyo número de lista es 1                                                                                           | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1                       |
+| Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01"                                           | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01            |
+| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                  | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
+| Obtener todos los precios                                                                                                                                      | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                                |
+| Obtener el precio de un artículo cuyo identificador del registro sea igual a 1. El identificador se recibe a traves de las [notificaciones](#notificaciones).  | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&id=1                           |
 
 Respuesta
 
@@ -2574,7 +2578,7 @@ Ejemplos
 | Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                           | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
 | En el caso que se desee realizar una búsqueda exacta del dato indicado a través de los parámetros mencionados se deberá agregar "UseEqual=TRUE"                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&WarehouseCode=2&UseEqual=true           |
 | Obtener todos los saldos de stock                                                                                                                                                                                                               | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1                                         |
-| Obtener, con el identificador del registro, el stock de un artículo actualizado.                                                                                                                                                                | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&id=1                                    |
+| Obtener el saldo de un artículo cuyo identificador del registro sea igual a 1. El identificador se recibe a traves de las [notificaciones](#notificaciones).                                                                                          | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&id=1                                    |
 
 Respuesta
 
