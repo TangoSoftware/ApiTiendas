@@ -139,6 +139,10 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 • Al disponer de un comprobante electrónico de facturación en PDF. (Se enviará el Tópico: InvoiceFile)
 
+• Al actualizar el precio de un artículo. (Se enviará el Tópico: PriceProductUpdate)
+
+• Al actualizar el saldo de stock de un artículo. (Se enviará el Tópico: StockProductUpdate)
+
 **Formato de JSON de notificación:**
 
 ```
@@ -165,7 +169,7 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 
 **Aclaración**: 
 
-• La propiedad "Resource" corresponde al identificador de la orden informado en el JSON (OrderId).
+• La propiedad "Resource" asociado al registro informado y que puede utilizarse como filtro en la llamada al recurso.
 
 • Para el caso de los artículos parametrizados para que generan movimientos de stock, al notificar el tópico OrderProcessed corresponden a cantidades comprometidas.
 
@@ -2276,6 +2280,7 @@ Ejemplos
 | Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01" | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01            |
 | Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)        | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
 | Obtener todos los precios                                                                                            | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                                |
+| Obtener, con el identificador del registro, el precio de un artículo actualizado.                                    | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&id=1                           |
 
 Respuesta
 
@@ -2567,8 +2572,9 @@ Ejemplos
 | Obtener los saldos de stock acumulados por artículo (En este caso la consulta no devolverá datos en los campos "StoreNumber" y "WarehouseCode")                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&groupByProduct=true                     |
 | Obtener los saldos de stock, restando al mismo las órdenes pendientes de revisión (en el caso de no solicitar agrupado por artículo, los registros de la cantidad en órdenes no devolverán datos en los campos "StoreNumber" y "WarehouseCode") | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&discountPendingOrders=true              |
 | Obtener todos los saldos de stock con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                                                                                           | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00          |
-| En el caso que se desee realizar una búsqueda exacta del dato indicado a través de los parámetros mencionados se deberá agregar "UseEqual=TRUE"| https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&WarehouseCode=2&UseEqual=true                            |
+| En el caso que se desee realizar una búsqueda exacta del dato indicado a través de los parámetros mencionados se deberá agregar "UseEqual=TRUE"                                                                                                 | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&WarehouseCode=2&UseEqual=true           |
 | Obtener todos los saldos de stock                                                                                                                                                                                                               | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1                                         |
+| Obtener, con el identificador del registro, el stock de un artículo actualizado.                                                                                                                                                                | https://tiendas.axoft.com/api/Aperture/Stock?pageSize=500&pageNumber=1&id=1                                    |
 
 Respuesta
 
