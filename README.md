@@ -2282,7 +2282,8 @@ Ejemplos
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Obtener los precios de la lista de precios cuyo número de lista es 1                                                                                           | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1                       |
 | Obtener los precios de la lista de precios cuyo número de lista es 1 y el código de artículo contenga la cadena "01"                                           | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&filter=1&SKUCode=01            |
-| Obtener todos los precios con última actualización igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                  | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
+| Obtener todos los precios cuya última sincronización a Tiendas sea igual o posterior al 01/01/2020 a las 00:00:00 horas (UTC)                                                  | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&lastUpdate=2020-01-01T00:00:00 |
+| Obtener todos los precios cuya fecha de modificación en Tango Gestión sea igual o posterior al 01/01/2020 a las 00:00:00 horas                                                  | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&datePrice=2020-01-01T00:00:00 |
 | Obtener todos los precios                                                                                                                                      | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1                                |
 | Obtener el precio de un artículo cuyo identificador del registro sea igual a 1. El identificador se recibe a traves de las [notificaciones](#notificaciones).  | https://tiendas.axoft.com/api/Aperture/Price?pageSize=500&pageNumber=1&id=1                           |
 
@@ -2300,6 +2301,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0200200065",
             "Price": 45.08,
+            "DatePrice": "2018-01-01T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2307,6 +2309,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0100100134",
             "Price": 20215.55,
+            "DatePrice": "2018-01-01T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2314,6 +2317,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0100100265",
             "Price": 30330.55,
+            "DatePrice": "2018-01-02T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2321,6 +2325,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0100200528",
             "Price": 87408.05,
+            "DatePrice": "2018-01-02T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2328,6 +2333,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0100200530",
             "Price": 53465,
+            "DatePrice": "2018-01-03T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2335,6 +2341,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0100200630",
             "Price": 41168.05,
+            "DatePrice": "2018-01-03T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2342,6 +2349,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0200100013",
             "Price": 27.51,
+            "DatePrice": "2018-01-03T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2349,6 +2357,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0200100124",
             "Price": 98.26,
+            "DatePrice": "2018-01-03T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2356,6 +2365,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0200200033",
             "Price": 41.62,
+            "DatePrice": "2018-01-04T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         },
@@ -2363,6 +2373,7 @@ Respuesta
             "PriceListNumber": 1,
             "SKUCode": "0200200034",
             "Price": 199.46,
+            "DatePrice": "2018-01-04T00:00:00",
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00"
         }
