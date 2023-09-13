@@ -1409,6 +1409,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Publicaciones](#Publicaciones)
 - [Comprobantes de facturación](#ComprobantesDeFacturacion)
 - [Talonarios](#Talonarios)
+- [Estado de órdenes](#EstadosOrdenes)
 
 <a name="sucursales"></a>
 
@@ -3424,6 +3425,7 @@ Respuesta
     "PagingError": null
 }
 ```
+<a name="estadoordenes"></a>
 
 ### Estado de órdenes
 
