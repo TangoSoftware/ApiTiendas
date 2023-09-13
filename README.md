@@ -3465,20 +3465,31 @@ Respuesta
 
 ```
 {
-    "Paging": {
-        "PageNumber": 1,
-        "PageSize": 50,
-        "MoreData": false
-    },
-    "Data": [
-        {
-            "CounterfoilCode": 6,
-            "Description": "PEDIDOS",
-            "CounterfoilType": "",
-            "Voucher": "PED",
-            "CounterfoilExpiration": "2024-11-30T00:00:00"
-        }
-    ],
-    "PagingError": null
+   "Paging":{
+      "PageNumber":1,
+      "PageSize":500,
+      "MoreData":false
+   },
+   "Data":[
+      {
+         "OrderID":"116079",
+         "Date":"2023-04-14T12:08:02",
+         "Status":"FINALIZADA",
+         "InvoiceType":"FAC",
+         "InvoiceNumber":"B0020400000013",
+         "InvoiceFileUrl":"https://nexo-tiendas-test-ue1-data.s3.amazonaws.com/PDF/30867/788466/FACB0020400000013.pdf?AWSAccessKeyId=AKIA6AQ4YDSLGJLAFLWT&Expires=1682678459&Signature=ovPKkSEVXK3jAR%2B6P8F8esIYwpQ%3D",
+         "InvoiceFileExpiration":"2023-04-28T07:40:58.7733276-03:00"
+      },
+      {
+         "OrderID":"116080",
+         "Date":"2023-04-14T12:08:02",
+         "Status":"ANULADA",
+         "InvoiceType":null,
+         "InvoiceNumber":null,
+         "InvoiceFileUrl":null,
+         "InvoiceFileExpiration":null
+      }
+   ],
+   "PagingError":null
 }
 ```
