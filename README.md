@@ -793,8 +793,6 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 
 Recepción de órdenes en forma masiva 
 
- 
-
 La URL del servicio de API para órdenes en lote es: 
 
 https://tiendas.axoft.com/api/Aperture/order/batch 
@@ -820,7 +818,7 @@ Si desea enviar órdenes en forma masiva, puede realizar una llamada utilizando 
  
 Tenga en cuenta que el número máximo de órdenes a enviar por lote es de 25. 
 
-##Response 
+**Response** 
 
 Una vez procesado el lote, el response devolverá un json en el campo data con los ids generados y los errores obtenidos en caso de que los hubiera. 
 
