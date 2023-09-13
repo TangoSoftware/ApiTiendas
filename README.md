@@ -3424,3 +3424,23 @@ Respuesta
     "PagingError": null
 }
 ```
+
+### Estado de órdenes
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener información de las órdenes, su estado y comprobante de facturación asociado.
+
+Los distintos estados por los que puede pasar una orden y que pueden ser consultados en este recurso, son los siguientes: 
+
+- INGRESADA: estado inicial de una orden en nube.  
+- RECIBIDA: la orden fue sincronizada a tierra para generar el pedido.  
+- EN PROCESO: la orden tiene un pedido generado.  
+- RECHAZADA: orden rechazada desde el proceso de “Revisión de pedidos Tango Tiendas”  
+- ANULADA: Orden con pedido generado y posteriormente anulado sin reconstruir cantidades.  
+- FINALIZADA: la orden tiene una factura generada.  
+- PENDIENTE: Corresponde a las órdenes que fueron enviadas y se validaron correctamente, pero se encuentran en cola de procesamiento. 
+
+Si se desea obtener las facturas asociadas a las órdenes consultadas, si existen, se debe enviar el parámetro IncludeInvoices con el valor TRUE. 
+
+Se debe tener en cuenta que, la información del comprobante se podrá visualizar una vez que el mismo se encuentre disponible, es decir que haya sido enviado desde el proceso de “Administración de comprobantes electrónicos” en Tango. 
