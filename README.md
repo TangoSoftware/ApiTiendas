@@ -10,6 +10,7 @@ Tango Software - API REST de Tango Tiendas
 - [Recepción de órdenes API](#ordenes)
   - [Novedades](#novedades)
   - [Datos del JSON](#djson)
+  - [Ordenes por Lote](#lote)
   - [Tablas de Referencia](#tablas)
   - [Ejemplo de JSON de una órden](#ejemplojson)
 - [Consulta de datos](#subida)
@@ -785,6 +786,68 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 | **VoucherNo**          | Si            | Número de cupón de tarjeta de crédito.                                                                           | Numérico hasta 8 posiciones                                                                            | &gt;0                                                                                                                                                    |
 | **CardPromotionCode**  | No            | Código de promoción de la tarjeta de crédito.                                                                    | Alfanumérico de hasta 10 caracteres                                                                    | Código de promoción de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Promociones. |
 
+
+<a name="lote"></a>
+
+### Órdenes por Lote
+
+[<sub>Volver</sub>](#inicio)
+
+Recepción de órdenes en forma masiva 
+
+La URL del servicio de API para órdenes en lote es: 
+
+https://tiendas.axoft.com/api/Aperture/order/batch 
+
+Si desea enviar órdenes en forma masiva, puede realizar una llamada utilizando el método POST al recurso, con el siguiente formato: 
+
+```
+{  
+ "OrderBatch":
+    [
+	{ 
+            "OrderId": 1…. 
+        }, 
+        { 
+            "OrderId": 2…. 
+        }, 
+        { 
+            "OrderId": 3…. 
+        } 
+    ] 
+} 
+```
+ 
+Tenga en cuenta que el número máximo de órdenes a enviar por lote es de 25. 
+
+**Response** 
+
+Una vez procesado el lote, el response devolverá un json en el campo data con los ids generados y los errores obtenidos en caso de que los hubiera. 
+
+ 
+Ejemplo  
+
+```
+{
+   "Status":0,
+   "Message":"batch processed",
+   "Data":{
+      "Results":[
+         {
+            "OrderID":"116081",
+            "Inprocess":true
+         },
+         {
+            "OrderID":"116082",
+            "Inprocess":false,
+            "ValidationException":"Order total doesn't add up."
+         }
+      ]
+   },
+   "isOk":false
+}
+```
+
 <a name="tablas"></a>
 
 ### Tablas de Referencia
@@ -1409,6 +1472,7 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 - [Publicaciones](#Publicaciones)
 - [Comprobantes de facturación](#ComprobantesDeFacturacion)
 - [Talonarios](#Talonarios)
+- [Estado de órdenes](#EstadosOrdenes)
 
 <a name="sucursales"></a>
 
@@ -3422,5 +3486,80 @@ Respuesta
         }
     ],
     "PagingError": null
+}
+```
+
+<a name="EstadosOrdenes"></a>
+
+### Estado de órdenes
+
+[<sub>Volver</sub>](#iniciorecursos)
+
+Permite obtener información de las órdenes, su estado y comprobante de facturación asociado.
+
+Los distintos estados por los que puede pasar una orden y que pueden ser consultados en este recurso, son los siguientes: 
+
+- INGRESADA: estado inicial de una orden en nube.  
+- RECIBIDA: la orden fue sincronizada a tierra para generar el pedido.  
+- EN PROCESO: la orden tiene un pedido generado.  
+- RECHAZADA: orden rechazada desde el proceso de “Revisión de pedidos Tango Tiendas”
+- CANCELADA: la orden fue cancelada en la tienda origen.
+- CANCELADA APROB: se procesó la cancelación en forma automática o manualmente desde el  proceso de “Revisión de pedidos Tango Tiendas”
+- ANULADA: Orden con pedido generado y posteriormente anulado sin reconstruir cantidades.  
+- FINALIZADA: la orden tiene una factura generada.  
+- PENDIENTE: Corresponde a las órdenes que fueron enviadas y se validaron correctamente, pero se encuentran en cola de procesamiento. 
+
+Si se desea obtener las facturas asociadas a las órdenes consultadas, si existen, se debe enviar el parámetro IncludeInvoices con el valor TRUE. 
+
+Se debe tener en cuenta que, la información del comprobante se podrá visualizar una vez que el mismo se encuentre disponible, es decir que haya sido enviado desde el proceso de “Administración de comprobantes electrónicos” en Tango. 
+
+| **Recurso**                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- |
+|  https://tiendas.axoft.com/api/Aperture/order?{pageSize}&{pageNumber}&[filter]                                     |
+
+Ejemplos
+
+| **Para**                                                                                                                                                                   | **GET**                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Obtener información de las órdenes 1, 5 y 7                                                                                | https://tiendas.axoft.com/api/Aperture/order?pageSize=500&pageNumber=1&OrderId= [1,5,7]                              |
+| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                | https://tiendas.axoft.com/api/Aperture/order?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                          |
+| Obtener información de las órdenes cuya fecha de generación se encuentre entre 01/01/2022 y 01/01/2023 (no son obligatorias ambas fechas)  | https://tiendas.axoft.com/api/Aperture/order?pageSize=500&pageNumber=1&fromDate=2022-01-01&toDate=2023-01-01  |
+| Obtener información de todas las ordenes generadas a partir del 01/01/2023 incluyendo los comprobantes de facturación.                     | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&fromDate=2023-01-01&IncludeInvoices=true                                        | 
+
+Respuesta
+
+```
+{
+   "Paging":{
+      "PageNumber":1,
+      "PageSize":500,
+      "MoreData":false
+   },
+   "Data":[
+      {
+         "OrderID":"116079",
+         "Date":"2023-04-14T12:08:02",
+         "Status":"FINALIZADA",
+         "InvoiceType":"FAC",
+         "InvoiceNumber":"B0020400000013",
+         "InvoiceFileUrl":"https://nexo-tiendas-test-ue1-data.s3.amazonaws.com/PDF/30867/788466/FACB0020400000013.pdf?AWSAccessKeyId=AKIA6AQ4YDSLGJLAFLWT&Expires=1682678459&Signature=ovPKkSEVXK3jAR%2B6P8F8esIYwpQ%3D",
+         "InvoiceFileExpiration":"2023-04-28T07:40:58.7733276-03:00"
+      },
+      {
+         "OrderID":"116080",
+         "Date":"2023-04-14T12:08:02",
+         "Status":"ANULADA",
+         "InvoiceType":null,
+         "InvoiceNumber":null,
+         "InvoiceFileUrl":null,
+         "InvoiceFileExpiration":null
+      }
+   ],
+   "OrderError":  
+   {
+	"Orders": "116081, 116082, 116083",
+	"Message": “Unexisting Order ID”
+   }, 
+   "PagingError":null
 }
 ```
