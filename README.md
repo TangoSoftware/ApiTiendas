@@ -3551,6 +3551,11 @@ Respuesta
          "InvoiceFileExpiration":null
       }
    ],
+   "OrderError":  
+   {
+	"Orders": "116081, 116082, 116083",
+	"Message": “Unexisting Order ID”
+   }, 
    "PagingError":null
 }
 ```
