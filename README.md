@@ -791,6 +791,8 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 
 ### Órdenes por Lote
 
+[<sub>Volver</sub>](#inicio)
+
 Recepción de órdenes en forma masiva 
 
 La URL del servicio de API para órdenes en lote es: 
