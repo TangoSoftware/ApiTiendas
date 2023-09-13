@@ -3425,6 +3425,7 @@ Respuesta
     "PagingError": null
 }
 ```
+
 <a name="EstadosOrdenes"></a>
 
 ### Estado de órdenes
@@ -3446,3 +3447,39 @@ Los distintos estados por los que puede pasar una orden y que pueden ser consult
 Si se desea obtener las facturas asociadas a las órdenes consultadas, si existen, se debe enviar el parámetro IncludeInvoices con el valor TRUE. 
 
 Se debe tener en cuenta que, la información del comprobante se podrá visualizar una vez que el mismo se encuentre disponible, es decir que haya sido enviado desde el proceso de “Administración de comprobantes electrónicos” en Tango. 
+
+| **Recurso**                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- |
+|  https://tiendas.axoft.com/api/Aperture/order/?{pageSize}&{pageNumber}&[filter]                                     |
+
+Ejemplos
+
+| **Para**                                                                                                                                                                   | **GET**                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Obtener información de las órdenes 1, 5 y 7                                                                                | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&OrderId= [1,5,7]                              |
+                          |
+| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                                                 | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                              |
+| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                                                 | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                              |
+| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                                                 | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                              |
+ 
+Respuesta
+
+```
+{
+    "Paging": {
+        "PageNumber": 1,
+        "PageSize": 50,
+        "MoreData": false
+    },
+    "Data": [
+        {
+            "CounterfoilCode": 6,
+            "Description": "PEDIDOS",
+            "CounterfoilType": "",
+            "Voucher": "PED",
+            "CounterfoilExpiration": "2024-11-30T00:00:00"
+        }
+    ],
+    "PagingError": null
+}
+```
