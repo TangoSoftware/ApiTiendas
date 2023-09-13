@@ -10,6 +10,7 @@ Tango Software - API REST de Tango Tiendas
 - [Recepción de órdenes API](#ordenes)
   - [Novedades](#novedades)
   - [Datos del JSON](#djson)
+  - [Ordenes por Lote](#lote)
   - [Tablas de Referencia](#tablas)
   - [Ejemplo de JSON de una órden](#ejemplojson)
 - [Consulta de datos](#subida)
@@ -784,6 +785,68 @@ _Recuerde_: si no carga un registro en Payments, CashPayments (en reemplazo de C
 | **CardPlanCode**       | Si            | Plan de la tarjeta de crédito.                                                                                   | Alfanumérico de hasta 10 caracteres                                                                    | Código del plan de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Planes.          |
 | **VoucherNo**          | Si            | Número de cupón de tarjeta de crédito.                                                                           | Numérico hasta 8 posiciones                                                                            | &gt;0                                                                                                                                                    |
 | **CardPromotionCode**  | No            | Código de promoción de la tarjeta de crédito.                                                                    | Alfanumérico de hasta 10 caracteres                                                                    | Código de promoción de tarjeta de crédito de Tango Gestión Se localiza en la opción de menú del módulo de Tesorería / Archivos / Tarjetas / Promociones. |
+
+
+<a name="lote"></a>
+
+### Órdenes por Lote
+
+Recepción de órdenes en forma masiva 
+
+ 
+
+La URL del servicio de API para órdenes en lote es: 
+
+https://tiendas.axoft.com/api/Aperture/order/batch 
+
+Si desea enviar órdenes en forma masiva, puede realizar una llamada utilizando el método POST al recurso, con el siguiente formato: 
+
+```
+{  
+ "OrderBatch":
+    [
+	{ 
+            "OrderId": 1…. 
+        }, 
+        { 
+            "OrderId": 2…. 
+        }, 
+        { 
+            "OrderId": 3…. 
+        } 
+    ] 
+} 
+```
+ 
+Tenga en cuenta que el número máximo de órdenes a enviar por lote es de 25. 
+
+##Response 
+
+Una vez procesado el lote, el response devolverá un json en el campo data con los ids generados y los errores obtenidos en caso de que los hubiera. 
+
+ 
+Ejemplo  
+
+```
+{
+   "Status":0,
+   "Message":"batch processed",
+   "Data":{
+      "Results":[
+         {
+            "OrderID":"116081",
+            "Inprocess":true
+         },
+         {
+            "OrderID":"116082",
+            "Inprocess":false,
+            "ValidationException":"Order total doesn't add up."
+         }
+      ]
+   },
+   "isOk":false
+}
+```
 
 <a name="tablas"></a>
 
