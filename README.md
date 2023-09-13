@@ -3450,18 +3450,17 @@ Se debe tener en cuenta que, la información del comprobante se podrá visualiza
 
 | **Recurso**                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------- |
-|  https://tiendas.axoft.com/api/Aperture/order/?{pageSize}&{pageNumber}&[filter]                                     |
+|  https://tiendas.axoft.com/api/Aperture/order?{pageSize}&{pageNumber}&[filter]                                     |
 
 Ejemplos
 
 | **Para**                                                                                                                                                                   | **GET**                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Obtener información de las órdenes 1, 5 y 7                                                                                | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&OrderId= [1,5,7]                              |
-                          
-| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                                                 | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                              |
-| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                                                 | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                              |
-| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                                                 | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                              |
- 
+| Obtener información de las órdenes 1, 5 y 7                                                                                | https://tiendas.axoft.com/api/Aperture/order?pageSize=500&pageNumber=1&OrderId= [1,5,7]                              |
+| Obtener información de las órdenes cuyo estado sea “INGRESADA” o “RECIBIDA”                                                | https://tiendas.axoft.com/api/Aperture/order?pageSize=500&pageNumber=1&State= [“INGRESADA”, “RECIBIDA”]                          |
+| Obtener información de las órdenes cuya fecha de generación se encuentre entre 01/01/2022 y 01/01/2023 (no son obligatorias ambas fechas)  | https://tiendas.axoft.com/api/Aperture/order?pageSize=500&pageNumber=1&fromDate=2022-01-01&toDate=2023-01-01  |
+| Obtener información de todas las ordenes generadas a partir del 01/01/2023 incluyendo los comprobantes de facturación.                     | https://tiendas.axoft.com/api/Aperture/order/?pageSize=500&pageNumber=1&fromDate=2023-01-01&IncludeInvoices=true                                        | 
+
 Respuesta
 
 ```
