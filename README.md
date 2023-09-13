@@ -3502,7 +3502,9 @@ Los distintos estados por los que puede pasar una orden y que pueden ser consult
 - INGRESADA: estado inicial de una orden en nube.  
 - RECIBIDA: la orden fue sincronizada a tierra para generar el pedido.  
 - EN PROCESO: la orden tiene un pedido generado.  
-- RECHAZADA: orden rechazada desde el proceso de “Revisión de pedidos Tango Tiendas”  
+- RECHAZADA: orden rechazada desde el proceso de “Revisión de pedidos Tango Tiendas”
+- CANCELADA: la orden fue cancelada en la tienda origen.
+- CANCELADA APROB: se procesó la cancelación en forma automática o manualmente desde el  proceso de “Revisión de pedidos Tango Tiendas”
 - ANULADA: Orden con pedido generado y posteriormente anulado sin reconstruir cantidades.  
 - FINALIZADA: la orden tiene una factura generada.  
 - PENDIENTE: Corresponde a las órdenes que fueron enviadas y se validaron correctamente, pero se encuentran en cola de procesamiento. 
