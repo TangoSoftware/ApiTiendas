@@ -290,7 +290,7 @@ Según la parametrización que posea el artículo (Simple o Doble Unidad de Medi
   "WarehouseCode": "1",
   "SellerCode": "1",
   "TransportCode": "01",
-  "SaleCondition": "1",
+  "SaleConditionCode": "1",
   "OrderID": "1000",    
   "OrderNumber": "1000",
   "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
@@ -366,7 +366,7 @@ Y se informa en el JSON de la orden lo siguiente:
   "WarehouseCode": "1",
   "SellerCode": "1",
   "TransportCode": "01",
-  "SaleCondition": "1",
+  "SaleConditionCode": "1",
   "OrderID": "1000",    
   "OrderNumber": "1000",
   "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
