@@ -405,48 +405,6 @@ Y se informa en el JSON de la orden lo siguiente:
 
 • UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1) 
 
-
-
-### Período - Diciembre 2020
-
-• InvoiceCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que código de talonario de facturación a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
-
-### Período - Noviembre 2020
-
-• AgreedWithSeller: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que el pago de la orden se acuerda con el vendedor. ([Tópico Principal](#topicoprincipal)). Esto permite enviar ordenes de contado sin pagos asociados. Si no se informa asume el valor 'falso' (False).
-
-### Período - Septiembre 2020
-
-#### Código de cliente
-
-• Code: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para informar el "código del cliente" en Tango ([Tópico Customer](#topicocustomer)). En el caso que se informe y no exista, la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
-
-• PayInternalTax: Se agrega este nuevo campo al tópico "Customer" (dentro de la orden), para indicar si "liquida impuesto interno" en Tango ([Tópico Customer](#topicocustomer)). Solo aplica en caso de existir el cliente habitual, en este caso se verifica que coincidan, si no coinciden la orden del pedido quedará observada. Si el cliente liquida II se deberá informar, caso contrario por defecto asume el valor 'falso' (False).
-
-• Búsqueda del cliente habitual ([Búsqueda habitual](#topicocustomerhabitual)).
-
-#### Lista de precios
-
-• PriceListNumber: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para informar el "número de lista de precios" en Tango ([Tópico Principal](#topicoprincipal)). En el caso que se informe y no exista, la orden del pedido quedará observada. Si no se informa, se mantiene el comportamiento actual.
-
-• IvaIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la "lista de precios informada incluye IVA" ([Tópico Principal](#topicoprincipal)). Este campo solo aplica si se informa un valor del campo "PriceListNumber" (número de lista de precios), de informarse el valor de "PriceListNumber" y no especificar el valor en este campo entonces por defecto asume el valor 'falso' (False).
-
-• InternalTaxIncluded: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar que la "lista de precios informada incluye impuesto interno". ([Tópico Principal](#topicoprincipal)). Este campo solo aplica si se informa un valor del campo "PriceListNumber" (número de lista de precios), de informarse el valor de "PriceListNumber" y no especificar el valor en este campo entonces por defecto asume el valor 'falso' (False).
-
-### Período - Jul 2020
-
-• ShippingCode: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar el código de la dirección.([Tópico Shipping](#topicoshipping))
-
-### Período - Jun 2020
-
-Ahora en los datos del JSON se puede especificar los siguientes campos:
-
-• SaleConditionCode: Condición de Venta
-
-• TranportCode: Código del transporte
-
-• SellerCode: Código del vendedor
-
 #### Consideraciones al enviar órdenes
 
 - **Condición de venta**
@@ -460,8 +418,6 @@ Si la "Condicíón de Venta" es 'Contado' (o en su defecto no se informa), enton
 - **Pagos**
 
 Si la "Condición de Venta" es distinto de 'Contado', entonces se válida que no se informen los tópicos de:
-
-• CashPayment (obsoleto, será reemplazado por CashPayments).
 
 • CashPayments.
 
