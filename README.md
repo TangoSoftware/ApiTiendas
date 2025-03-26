@@ -28,23 +28,24 @@ Tango Software - API REST de Tango Tiendas
 
 ##### Recepción de órdenes por API
 
-La versión mínima de ventas requerida para implementar la API de Tango Tiendas es la 19.01.000.605 (o superior),
-correspondiente al hotfix ftp://ftp.axoft.com/version_interna/HotfixPublicados/HotFix_19_01_000_0437.exe (o posterior). Es necesario contar con el producto Tango Gestión y Tango Punto de Venta Argentina, el módulo de tesorería activado y la aplicación **Tango Tiendas** activada.
+Para implementar la API de Tango Tiendas, debe tener instalada la versión vigente  o la inmediata anterior del sistema Tango Gestión ó Tango Punto de Venta Argentina. Comuníquese con su distribuidor para mayor información. Además, es necesario contar con el módulo de tesorería y la licencia **Tango Tiendas Full**  activada.
 
 ##### Consulta de datos
 
 Los datos comienzan a estar disponibles cuando se cumplen las siguientes condiciones:  
-La versión requerida de ventas para implementar Tango Tiendas API es: 19.01.000.605 (o superior).  
-correspondiente al hotfix ftp://ftp.axoft.com/version_interna/HotfixPublicados/HotFix_19_01_000_0437.exe (o posterior)
-Es necesario que la licencia de **Tango Gestión y Tango Punto de Venta Argentina** tenga la aplicación **Tango Tiendas Full** activada.
+
+La versión del sistema Tango instalado es la vigente  o la inmediata anterior.
+La licencia de **Tango Gestión ó Tango Punto de Venta Argentina** tiene la licencia **Tango Tiendas Full** activada.
+Se ejecuto el wizard de la aplicación Nexo Tiendas en su sistema **Tango Gestión ó Tango Punto de Venta Argentina** para asociar la empresa que desea utilizar.
+Se accedió a Tango Tiendas / API y se obtuvo el AccessToken de su cuenta.
+
+Importante: El requerimiento minimo de la API de Tiendas de TLS corresponde a la versión 1.2. Tango Tiendas no da soporte a TLS 1.0 ni TLS 1.1.
 
 <a name="generalidades"></a>
 
 #### Generalidades
 
 [<sub>Volver</sub>](#inicio)
-
-Para utilizar **Tango Tiendas** debe tener instalada la versión vigente del sistema o la inmediata anterior. Comuníquese con su distribuidor para mayor información.
 
 Esta versión soporta órdenes de pedido únicamente en moneda nacional argentina.
 
@@ -58,11 +59,11 @@ Aceptando hasta 2 decimales en los datos de importes y precios.
 
 • Ambiente de testeo
 
-Para configurar el ambiente de testeo desde Tango Sync debe asociar una empresa de nube con una empresa ejemplo de Tango Gestión o Tango Punto de Venta.
+Para configurar un ambiente de testeo puede asociar una empresa de nube con una empresa ejemplo de Tango Gestión o Tango Punto de Venta.
 
 • Ambiente de producción
 
-Para configurar el ambiente de producción desde Tango Sync debe asociar una empresa de nube con una empresa operativa de Tango Gestión o Tango Punto de Venta.
+Para configurar el ambiente de producción debe asociar una empresa de nube con una empresa operativa de Tango Gestión o Tango Punto de Venta.
 
 <a name="asociarapi"></a>
 
@@ -203,35 +204,6 @@ Cuando en la orden de pedido viene informado el número del C.U.I.L / C.U.I.T. �
 <a name="novedades"></a>
 
 ### Novedades en el JSON de la orden
-
-### Período - Junio 2022
-• DeliveryDate: Se agrega este nuevo campo al tópico "Shipping" (dentro de la orden), para informar la fecha de entrega de la orden ([Tópico Shipping](#topicoshipping)). En el caso de informarla no podrá ser anterior a la fecha de la orden. Si no fuera informada se asume vacía y tomará la fecha del día en que se genera el pedido o el plazo definido en los Parámetros de Ventas para la entrega de pedidos.
-
-### Período - Abril 2022
-• CancelDate: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para registrar la fecha de cancelación de la orden ([Tópico Principal](#topicoprincipal)). Si no se informa asume vacío.
-
-
-**Aclaración**: 
-
-_El campo CancelDate a informar por API es soportado **solo** en Delta y superior_
-
-### Período - Marzo 2022
-• CancelReason: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para registrar el motivo de cancelación de la orden ([Tópico Principal](#topicoprincipal)). En el caso de informar la cancelación de la orden la fecha pasa a ser un dato requerido, caso contrario, no se informa y se asume vacío.
-
-**Aclaración**: 
-
-_El campo CancelReason a informar por API es soportado **solo** en Delta y superior_
-
-### Período - Febrero 2022
-• OrderCounterfoil: Se agrega este nuevo campo al tópico "Principal" (dentro de la orden), para indicar el código de talonario de pedidos a utilizar ([Tópico Principal](#topicoprincipal)). Si no se informa asume el valor 0.
-
-• SelectMeasureUnit: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar la unidad de medida seleccionada de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor V (Ventas).
-
-• MeasureCode: Se agrega este nuevo campo al tópico "OrderItems" (dentro de la orden), para indicar el código de medida de la orden a utilizar ([Tópico OrderItems](#topicoordenitems)). Si no se informa asume el valor vacío.
-
-**Aclaración**: 
-
-_Estos nuevos campos OrderCounterFoil, SelectMeasureUnit y MeasureCode a informar por API son soportados **solo** en Delta y superior_
 
 #### Consideraciones al enviar órdenes para Doble Unidad de Medida
 
@@ -434,13 +406,6 @@ Y se informa en el JSON de la orden lo siguiente:
 • UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1) 
 
 
-### Período - Noviembre 2021
-
-• Comments (Customer): se quita el campo al tópico "Customer" ya que no tiene injerencia en el circuito de órdenes.
-
-### Período - Mayo 2021
-
-• CashPayments: se agrega un nuevo tópico para dar soporte a lista del elemento CashPayment ([Tópico CashPayments](#topicocashpayments)). Considere que el actual tópico CashPayment quedará obsoleto y será reemplazado por este nuevo tópico.
 
 ### Período - Diciembre 2020
 
@@ -539,9 +504,9 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **CancelReason**               | No                                                  | Indica el motivo por el cual la orden fue cancelada  | Alfanumérico de hasta 200 carácteres                   | El comprador se arrepintió                                      |
 | **CancelDate**                 | Si CancelOrder es True se comporta como un campo requerido | Fecha de cancelación de la orden. No puede ser anterior a la fecha de la orden.                                                  | Datetime                                                                            | yyyy-MM-ddTHH:mm:ss | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
-| **InvoiceCounterfoil**         | No                                                  | Número de talonario asociado a la orden                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
+| **InvoiceCounterfoil**         | No                                                  | Número de talonario de facturación asociado a la orden                                                                       | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 | **Comment**          | No            | Representa los comentarios realizados por el comprador en la orden| Alfanumérico de hasta 280 caracteres        | El pedido será recibido por |
-| **OrderCounterfoil**         | No                                                  | Número de talonario a utilizar al generar el pedido                                                                             | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
+| **OrderCounterfoil**         | No                                                  | Número de talonario de pedido a utilizar                                                                                         | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 
 <a name="topicocustomer"></a>
 **Tópico Customer**
@@ -1394,7 +1359,7 @@ La consulta de datos se basa en una serie de servicios que permiten consultar da
 
 [<sub>Volver</sub>](#inicio)
 
-Previo a comenzar a utilizar los servicios de consulta debe verificar la configuración general de **Tango Tiendas**. Allí debe indicar mediante la configuración "Centraliza stock de varias sucursales", si los saldos de stock se tomarán desde central o desde la sucursal de la empresa asociada.
+Previo a comenzar a utilizar los servicios de consulta debe verificar la configuración de **Tango Tiendas** desde su sistema **Tango Gestión o Tango Punto de Venta**, accediendo al wizard de la aplicación de Nexo > Tiendas . Allí debe indicar mediante la configuración la información que desea sincronizar. Tenga en cuenta que, si centraliza stock de varias sucursales, y desea informar a tiendas los saldos centralizados, deberá seleccionar la opción "Incluir información de saldos de otras sucursales (Inf. y estadísticas)".
 
 Se debe tener en cuenta que los artículos se obtienen siempre de la sucursal asociada, por lo cual si se centralizan saldos de stock es necesario que todos los artículos de las diferentes sucursales hayan sido importados en la sucursal asociada.
 
