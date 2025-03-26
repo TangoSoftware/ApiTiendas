@@ -34,10 +34,10 @@ Para implementar la API de Tango Tiendas, debe tener instalada la versión vigen
 
 Los datos comienzan a estar disponibles cuando se cumplen las siguientes condiciones:  
 
-La versión del sistema Tango instalado es la vigente  o la inmediata anterior.
-La licencia de **Tango Gestión ó Tango Punto de Venta Argentina** tiene la licencia **Tango Tiendas Full** activada.
-Se ejecuto el wizard de la aplicación Nexo Tiendas en su sistema **Tango Gestión ó Tango Punto de Venta Argentina** para asociar la empresa que desea utilizar.
-Se accedió a Tango Tiendas / API y se obtuvo el AccessToken de su cuenta.
+* La versión del sistema Tango instalado es la vigente  o la inmediata anterior.
+* La licencia de **Tango Gestión ó Tango Punto de Venta Argentina** tiene la licencia **Tango Tiendas Full** activada.
+* Se ejecuto el wizard de la aplicación Nexo Tiendas en su sistema **Tango Gestión ó Tango Punto de Venta Argentina** para asociar la empresa que desea utilizar.
+* Se accedió a Tango Tiendas / API y se obtuvo el AccessToken de su cuenta.
 
 Importante: El requerimiento minimo de la API de Tiendas de TLS corresponde a la versión 1.2. Tango Tiendas no da soporte a TLS 1.0 ni TLS 1.1.
 
