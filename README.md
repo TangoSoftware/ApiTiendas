@@ -454,8 +454,8 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **TransportCode**              | No                                                  | Código del transporte. Si el transporte no existe o está inhabilitado en Tango, no se podrá generar el pedido.      | Alfanumérico de hasta 12 caracteres                                                                    |                                                                                                                                                                          |
 | **SaleConditionCode**          | No                                                  | Condición de venta. Si la condición de venta no existe o está inhabilitado en Tango, no se podrá generar el pedido. | Numérico de tipo entero hasta 10 posiciones                                                            |                                                                                                                                                                          |
 | **PriceListNumber**            | No                                                  | Número de lista de precios.                                                                                         | Numérico de tipo entero hasta 4 posiciones                                                             |                                                                                                                                                                          |
-| **IvaIncluded**                | No (Requerido solo si se informa PriceListNumber)   | Indica que los importes informados incluyen IVA                                                                     | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
-| **InternalTaxIncluded**        | No (Requerido solo si se informa PriceListNumber)   | Indica que los importes informados incluyen impuestos internos                                                      | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
+| **IvaIncluded DEPRECADO**    | No                             | Indica que los importes informados incluyen IVA                                                                     | De tipo lógico                                                                                         | True/False **Si se envia este campo, los valores seran ignorados. Si se informa PriceListNumber, se tomará la definicion de la Lista de precios en Tango**                                                                                                                                                            |
+| **InternalTaxIncluded DEPRECADO**  | No                        | Indica que los importes informados incluyen impuestos internos                                                      | De tipo lógico                                                                                         | True/False **Si se envia este campo, los valores seran ignorados. Si se informa PriceListNumber, se tomará la definicion de la Lista de precios en Tango**                                                                                                                                                                 |
 | **CancelOrder**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **CancelReason**               | No                                                  | Indica el motivo por el cual la orden fue cancelada  | Alfanumérico de hasta 200 carácteres                   | El comprador se arrepintió                                      |
 | **CancelDate**                 | Si CancelOrder es True se comporta como un campo requerido | Fecha de cancelación de la orden. No puede ser anterior a la fecha de la orden.                                                  | Datetime                                                                            | yyyy-MM-ddTHH:mm:ss | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
@@ -1183,8 +1183,6 @@ Ejemplo
   "SaleConditionCode": 1,
   "InvoiceCounterfoil": 2,
   "PriceListNumber": 2,
-  "IvaIncluded": true,
-  "InternalTaxIncluded": false,
   "OrderID": "75906",
   "OrderNumber": "75906",
   "ValidateTotalWithPaidTotal": true,
@@ -2200,8 +2198,6 @@ Respuesta
             "PriceListNumber": 1,
             "Description": "Venta Mayorista1",
             "CommonCurrency": true,
-            "IvaIncluded": true,
-            "InternalTaxIncluded": true,
             "ValidityDateSince": "2018-01-01T00:00:00",
             "ValidityDateUntil": "2019-01-01T00:00:00",
             "Disabled": false
@@ -2210,8 +2206,6 @@ Respuesta
             "PriceListNumber": 2,
             "Description": "Venta Minorista1",
             "CommonCurrency": true,
-            "IvaIncluded": true,
-            "InternalTaxIncluded": true,
             "ValidityDateSince": null,
             "ValidityDateUntil": null,
             "Disabled": false
@@ -2220,8 +2214,6 @@ Respuesta
             "PriceListNumber": 4,
             "Description": "LISTA DE PRECIOS1",
             "CommonCurrency": false,
-            "IvaIncluded": true,
-            "InternalTaxIncluded": true,
             "ValidityDateSince": null,
             "ValidityDateUntil": null,
             "Disabled": false
@@ -2230,8 +2222,6 @@ Respuesta
             "PriceListNumber": 20,
             "Description": "LISTA VENTA MAYORIST",
             "CommonCurrency": true,
-            "IvaIncluded": true,
-            "InternalTaxIncluded": true,
             "ValidityDateSince": "2019-01-01T00:00:00",
             "ValidityDateUntil": "2019-02-01T00:00:00",
             "Disabled": false
