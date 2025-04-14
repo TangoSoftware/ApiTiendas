@@ -2544,10 +2544,11 @@ Solo se mostrarán saldos de stock de:
 
 - Artículos que en **Tango Gestión y Tango Punto de Venta Argentina** cumplan:
   - Perfil de Venta, Compra-Venta o Inhabilitado.
-  - Tipo Simple, Fórmula, o Kit fijo.
+  - Tipo Simple, Fórmula.
   - No sean artículos Base.
   - No estén inhabilitados.
 - Depósitos que en **Tango Gestión y Tango Punto de Venta Argentina** no estén inhabilitados.
+- Se debe tener en cuenta que, para obtener saldos de kits se debe implementar una logica en la integración ya que los mismos se calculan en base al stock disponible de los componentes del kit.
 
 | **Recurso**                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
