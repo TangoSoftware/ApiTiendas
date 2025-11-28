@@ -835,6 +835,7 @@ Ejemplo
 | PCE        | PEQUEÑO CONTRIBUYENTE EVENTUAL           |
 | PCS        | PEQUEÑO CONTRIBUYENTE EVENTUAL SOCIAL    |
 | SNC        | SUJETO NO CATEGORIZADO                   |
+| INA        | IVA NO ALCANZADO                         |
 
 <a name="fpago"></a>
 
@@ -3475,3 +3476,4 @@ Respuesta
    "PagingError":null
 }
 ```
+
