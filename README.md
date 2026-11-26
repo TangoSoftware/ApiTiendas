@@ -150,21 +150,15 @@ Se enviarán notificaciones a la URL configurada de los siguientes eventos:
 ```
 {
   "Topic": "OrderObserved",
-  
   "Resource": "1",
-  
   "Message": "Lista de precios inexistente"
 }
 
 {
-
   "Topic": "OrderProcessed",
-
   "Resource": "1",
-  
   "Message": ""
 }
-
 ```
 
 **Importante**: los tópicos del JSON son case sensitive, de forma que deben respetarse las mayúsculas iniciales de "Topic" y "Resource".
@@ -251,7 +245,63 @@ Según la parametrización que posea el artículo (Simple o Doble Unidad de Medi
 **Nota**: Para el caso de un artículo simple se podrá indicar con P (Stock 1) la unidad elegida al momento de generar el pedido. 
 
 
+- **Código de medida (MeasureCode)**
+
+• Si se informa solo la letra, sin MeasureCode, se toma la unidad de medida del artículo que corresponde a esa letra.
+
+• Con P o S, si la unidad informada es también la unidad de ventas del artículo, la orden se procesa con V. Por ejemplo, si la unidad de stock 2 y la unidad de ventas del artículo son la misma, una orden con S genera el pedido con V.
+
+• El pedido se genera con la unidad de ventas o con la UM de control de stock del artículo. Si se informa otra unidad, o un MeasureCode que no corresponde a la letra P o S informada, la API acepta la orden. Al intentar generar el pedido, la orden queda observada.
+
+- **Precio (UnitPrice)**
+
+UnitPrice es siempre el precio de la unidad de stock 1 (Precios y costos) del artículo, cualquiera sea la unidad de medida informada en la orden. El pedido se genera con ese precio, sin convertirlo.
+
+El total del renglón se calcula con la cantidad expresada en la unidad de stock 1.
+
+Los tres primeros ejemplos de la tabla corresponden a un artículo con doble unidad de medida, con un precio de 15 por kilo y la siguiente configuración:
+
+• Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+
+• Unidad de stock 2 = HORMA (Hormas)
+
+• Equivalencia = 2 Kilos (Una horma equivale a 2 kilos)
+
+• Unidad de ventas = CAJA (Cajas)
+
+• Equivalencia de ventas = 5 Hormas (Una caja equivale a 5 hormas)
+
+El último ejemplo corresponde a empanadas sin doble unidad de medida que se venden por docena, con una equivalencia de ventas de 12 y un precio de 500 por empanada.
+
+| **Unidad de medida del renglón** | **Total del renglón** | **Ejemplo** |
+| --------------------- | --------------------------- | ----------- |
+| P (Stock 1) | Quantity x UnitPrice | 4 kilos: 4 x 15 = 60 |
+| S (Stock 2) | Quantity x UnitPrice x la equivalencia de la unidad de stock 2 | 1 horma: 1 x 15 x 2 = 30 |
+| V (Ventas), en un artículo con doble unidad de medida | Quantity x UnitPrice x la equivalencia de ventas x la equivalencia de la unidad de stock 2 | 1 caja: 1 x 15 x 5 x 2 = 150 |
+| V (Ventas), en un artículo sin doble unidad de medida | Quantity x UnitPrice x la equivalencia de ventas | 2 docenas: 2 x 500 x 12 = 12000 |
+
+La API valida el total de la orden con Quantity x UnitPrice. Si el total de algún renglón lleva equivalencias, la orden debe enviarse con ValidateTotalWithItems en false.
+
 - **Ejemplos**
+
+Para este caso se utiliza un artículo con doble unidad de medida cuya característica en Tango es:
+
+• Unidad de stock 1 = KILOGRAMOS (Kilogramos)
+
+• Unidad de stock 2 = UNI (Unidades)
+
+• Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
+
+• Unidad de ventas = UNI (Unidades), con equivalencia de ventas = 1
+
+
+Y se informa en el JSON de la orden lo siguiente:
+
+• SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas) 
+
+• MeasureCode (Código de medida): UNI (Unidades)
+
+• UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1. El total del renglón es 1 x 10 x 3 = 30)
 
 ```
 {
@@ -263,14 +313,14 @@ Según la parametrización que posea el artículo (Simple o Doble Unidad de Medi
   "SellerCode": "1",
   "TransportCode": "01",
   "SaleConditionCode": "1",
-  "OrderID": "1000",    
+  "OrderID": "1000",
   "OrderNumber": "1000",
   "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
   "ValidateTotalWithPaidTotal": false,
-  "ValidateTotalWithItems": false,  //Para el caso de DUM donde se informe unidad de Ventas y la equivalencia sea distinto de 1 
+  "ValidateTotalWithItems": false,  //Para el caso de DUM donde el total del renglón lleva equivalencias
   "Customer": {
     "CustomerID": 1000,
-    "Code": "",      
+    "Code": "",
     "DocumentType": "96",
     "DocumentNumber": "99999999",
     "IVACategoryCode": "CF",
@@ -278,7 +328,7 @@ Según la parametrización que posea el artículo (Simple o Doble Unidad de Medi
     "Email": "test@axoft.com",
     "FirstName": "Test",
     "LastName": "Test",
-    "BusinessName": "",        
+    "BusinessName": "",
     "Street": "Cerrito",
     "HouseNumber": "1000",
     "Floor": "",
@@ -294,25 +344,26 @@ Según la parametrización que posea el artículo (Simple o Doble Unidad de Medi
   "OrderItems": [
     {
       "ProductCode": "1000",
-      "SKUCode": "ART_DOBLEUNIDAD",    
-      "VariantCode": null,        
+      "SKUCode": "ART_DOBLEUNIDAD",
+      "VariantCode": null,
       "Description": "Artículo de doble unidad de medida",
       "VariantDescription": null,
       "Quantity": 1.0,
-      "UnitPrice": 30.0,  
+      "UnitPrice": 10.0,
       "DiscountPercentage": 0.0,
-      "MeasureCode":"UNI",  //Código de medida con el cual se generará el pedido
-      "SelectMeasureUnit": "V" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
+      "MeasureCode":"UNI",  //Código de medida informado para generar el pedido
+      "SelectMeasureUnit": "V" //Unidad de medida seleccionada para generar el pedido (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas). Si se informa sin MeasureCode, se toma la unidad de medida del artículo que corresponde a la letra
     }
   ],
- "CashPayment": {
+  "CashPayment": {
     "PaymentID": 1000,
     "PaymentMethod": "MPA",
     "PaymentTotal": 30.0
   }
 }
 ```
-Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
+
+Para este caso se utiliza un artículo con doble unidad de medida cuya característica en Tango es:
 
 • Unidad de stock 1 = KILOGRAMOS (Kilogramos)
 
@@ -320,14 +371,16 @@ Para este caso se utiliza un artículo con doble unidad de medida cuya caracter�
 
 • Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
 
+• UM de control de stock = Stock 1
+
 
 Y se informa en el JSON de la orden lo siguiente:
 
-• SelectMeasureUnit (Unidad de medida seleccionada): V (Ventas) 
+• SelectMeasureUnit (Unidad de medida seleccionada): P (Stock1) 
 
-• MeasureCode (Código de medida): UNI (Unidades)
+• MeasureCode (Código de medida): KILOGRAMOS (Kilogramos)
 
-• UnitPrice: 30 (El precio informado es el correspondiente a la venta, ya que al momento de generar el pedido se expresará en unidad de medida de Stock1) 
+• UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1) 
 
 ```
 {
@@ -339,13 +392,13 @@ Y se informa en el JSON de la orden lo siguiente:
   "SellerCode": "1",
   "TransportCode": "01",
   "SaleConditionCode": "1",
-  "OrderID": "1000",    
+  "OrderID": "1000",
   "OrderNumber": "1000",
   "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
   "ValidateTotalWithPaidTotal": false,
   "Customer": {
     "CustomerID": 1000,
-    "Code": "",      
+    "Code": "",
     "DocumentType": "96",
     "DocumentNumber": "99999999",
     "IVACategoryCode": "CF",
@@ -353,7 +406,7 @@ Y se informa en el JSON de la orden lo siguiente:
     "Email": "test@axoft.com",
     "FirstName": "Test",
     "LastName": "Test",
-    "BusinessName": "",        
+    "BusinessName": "",
     "Street": "Cerrito",
     "HouseNumber": "1000",
     "Floor": "",
@@ -369,18 +422,18 @@ Y se informa en el JSON de la orden lo siguiente:
   "OrderItems": [
     {
       "ProductCode": "1000",
-      "SKUCode": "ART_DOBLEUNIDAD",    
-      "VariantCode": null,        
+      "SKUCode": "ART_DOBLEUNIDAD",
+      "VariantCode": null,
       "Description": "Artículo de doble unidad de medida",
       "VariantDescription": null,
       "Quantity": 1.0,
       "UnitPrice": 10.0,
       "DiscountPercentage": 0.0,
-      "MeasureCode":"KILOGRAMOS",  //Código de medida con el cual se generará el pedido
-      "SelectMeasureUnit": "P" //Unidad de medida seleccionada (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas) con la cual se generará el pedido
+      "MeasureCode":"KILOGRAMOS",  //Código de medida informado para generar el pedido
+      "SelectMeasureUnit": "P" //Unidad de medida seleccionada para generar el pedido (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas). Si se informa sin MeasureCode, se toma la unidad de medida del artículo que corresponde a la letra
     }
   ],
- "CashPayment": {
+  "CashPayment": {
     "PaymentID": 1000,
     "PaymentMethod": "MPA",
     "PaymentTotal": 10.0
@@ -388,22 +441,88 @@ Y se informa en el JSON de la orden lo siguiente:
 }
 ```
 
-Para este caso se utiliza un artículo con doble unidad de medida cuya característa en Tango es:
+Para este caso se utiliza un artículo con doble unidad de medida cuya característica en Tango es:
 
 • Unidad de stock 1 = KILOGRAMOS (Kilogramos)
 
-• Unidad de stock 2 = UNI (Unidades)
+• Unidad de stock 2 = HORMA (Hormas)
 
-• Equivalencia = 3 Kilos (Una unidad equivale a 3 kilos)
+• Equivalencia = 2 Kilos (Una horma equivale a 2 kilos)
+
+• UM de control de stock = Stock 2
+
+• Unidad de ventas = CAJA (Cajas)
 
 
 Y se informa en el JSON de la orden lo siguiente:
 
-• SelectMeasureUnit (Unidad de medida seleccionada): P (Stock1) 
+• SelectMeasureUnit (Unidad de medida seleccionada): S (Stock2)
 
-• MeasureCode (Código de medida): KILOGRAMOS (Kilogramos)
+• MeasureCode (Código de medida): HORMA (Hormas)
 
-• UnitPrice: 10 (El precio informado es el correspondiente a la unidad de medida de Stock1) 
+• UnitPrice: 15 (El precio informado es el correspondiente a la unidad de medida de Stock1. El total del renglón es 1 x 15 x 2 = 30)
+
+```
+{
+  "Date": "2022-02-10T00:00:00",
+  "Total": 30.0,
+  "PaidTotal": 30.0,
+  "FinancialSurcharge": 0.0,
+  "WarehouseCode": "1",
+  "SellerCode": "1",
+  "TransportCode": "01",
+  "SaleConditionCode": "1",
+  "OrderID": "1000",
+  "OrderNumber": "1000",
+  "OrderCounterfoil": 10, // Informa el número de Talonario de Pedidos
+  "ValidateTotalWithPaidTotal": false,
+  "ValidateTotalWithItems": false,  //Para el caso de DUM donde el total del renglón lleva equivalencias
+  "Customer": {
+    "CustomerID": 1000,
+    "Code": "",
+    "DocumentType": "96",
+    "DocumentNumber": "99999999",
+    "IVACategoryCode": "CF",
+    "User": "Test",
+    "Email": "test@axoft.com",
+    "FirstName": "Test",
+    "LastName": "Test",
+    "BusinessName": "",
+    "Street": "Cerrito",
+    "HouseNumber": "1000",
+    "Floor": "",
+    "Apartment": "",
+    "City": "CABA",
+    "ProvinceCode": "01",
+    "PostalCode": "1000",
+    "PhoneNumber1": "9999-9999",
+    "PhoneNumber2": "99-9999-9999",
+    "BusinessAddress": "Dirección negocio",
+    "NumberListPrice": 10
+  },
+  "OrderItems": [
+    {
+      "ProductCode": "1001",
+      "SKUCode": "ART_HORMA",
+      "VariantCode": null,
+      "Description": "Queso en hormas",
+      "VariantDescription": null,
+      "Quantity": 1.0,
+      "UnitPrice": 15.0,
+      "DiscountPercentage": 0.0,
+      "MeasureCode":"HORMA",  //Código de medida informado para generar el pedido
+      "SelectMeasureUnit": "S" //Unidad de medida seleccionada para generar el pedido (P: Stock 1 - Precios y Costos;  S: Stock 2 ;  V: Ventas). Si se informa sin MeasureCode, se toma la unidad de medida del artículo que corresponde a la letra
+    }
+  ],
+  "CashPayment": {
+    "PaymentID": 1000,
+    "PaymentMethod": "MPA",
+    "PaymentTotal": 30.0
+  }
+}
+```
+
+El pedido se genera con S, porque HORMA es la UM de control de stock del artículo y no es su unidad de ventas.
 
 #### Consideraciones al enviar órdenes
 
@@ -459,6 +578,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
 | **CancelOrder**                | No                                                  | Indica que la orden está cancelada                                                                                  | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **CancelReason**               | No                                                  | Indica el motivo por el cual la orden fue cancelada  | Alfanumérico de hasta 200 carácteres                   | El comprador se arrepintió                                      |
 | **CancelDate**                 | Si CancelOrder es True se comporta como un campo requerido | Fecha de cancelación de la orden. No puede ser anterior a la fecha de la orden.                                                  | Datetime                                                                            | yyyy-MM-ddTHH:mm:ss | **ValidateTotalWithPaidTotal** | Si                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total pagado.                         | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
+| **ValidateTotalWithItems**     | No                                                  | Indica si al momento de enviar la orden se valida el total de la orden con el total de los renglones.               | De tipo lógico                                                                                         | True/False. En caso de no informarlo se tomará True por defecto.                                                                                                         |
 | **AgreedWithSeller**           | No                                                  | Indica si el pago de la orden se acuerda con el vendedor                                                            | De tipo lógico                                                                                         | True/False                                                                                                                                                               |
 | **InvoiceCounterfoil**         | No                                                  | Número de talonario de facturación asociado a la orden                                                                       | Numérico de tipo entero de hasta 4 posiciones                                                          | &gt;= 0 , <= 9999                                                                                                                                                        |
 | **Comment**          | No            | Representa los comentarios realizados por el comprador en la orden| Alfanumérico de hasta 280 caracteres        | El pedido será recibido por |
@@ -553,8 +673,8 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
       "Quantity": 1.0,
       "UnitPrice": 500.0,
       "DiscountPercentage": 0.0
-    },
-    {
+   },
+   {
       "ProductCode": "010040",
       "SKUCode": "010040002NG",
       "VariantCode": "NG",
@@ -563,7 +683,7 @@ _Recuerde_: es obligatorio cargar un registro en este tópico para generar una o
       "Quantity": 1.0,
       "UnitPrice": 1000.0,
       "DiscountPercentage": 0.0
-    }
+   }
 ]
 ```
 
@@ -723,20 +843,20 @@ https://tiendas.axoft.com/api/Aperture/order/batch
 Si desea enviar órdenes en forma masiva, puede realizar una llamada utilizando el método POST al recurso, con el siguiente formato: 
 
 ```
-{  
- "OrderBatch":
+{
+    "OrderBatch":
     [
-	{ 
-            "OrderId": 1…. 
-        }, 
-        { 
-            "OrderId": 2…. 
-        }, 
-        { 
-            "OrderId": 3…. 
-        } 
-    ] 
-} 
+        {
+            "OrderId": 1….
+        },
+        {
+            "OrderId": 2….
+        },
+        {
+            "OrderId": 3….
+        }
+    ]
+}
 ```
  
 Tenga en cuenta que el número máximo de órdenes a enviar por lote es de 25. 
@@ -953,11 +1073,11 @@ Ejemplo
     "DeliveryHours": "8"
   },
   "CashPayments": [
-	{
-	"PaymentID": 38566912,
-	"PaymentMethod": "A02",
-	"PaymentTotal": 123.0
-	}
+    {
+      "PaymentID": 38566912,
+      "PaymentMethod": "A02",
+      "PaymentTotal": 123.0
+    }
   ],
   "Payments": [
     {
@@ -1263,11 +1383,11 @@ Ejemplo
     "DeliveryHours": "8"
   },
   "CashPayments": [
-	{
-	"PaymentID": 38566912,
-	"PaymentMethod": "A02",
-	"PaymentTotal": 123.0
-	}
+    {
+      "PaymentID": 38566912,
+      "PaymentMethod": "A02",
+      "PaymentTotal": 123.0
+    }
   ],
   "Payments": [
     {
@@ -1346,9 +1466,9 @@ El resultado contiene dos secciones, **Paging**, que muestra información acerca
 
 ```
 "Paging": {
-        "PageNumber": 1,
-        "PageSize": 500,
-        "MoreData": false
+    "PageNumber": 1,
+    "PageSize": 500,
+    "MoreData": false
 },
 ```
 
@@ -2430,7 +2550,6 @@ Respuesta
         }
     ]
 }
-
 ```
 
 <a name="descuentoscliente"></a>
@@ -2974,7 +3093,6 @@ Respuesta
     ],
     "PagingError": null
 }
-
 ```
 
 <a name="ArticulosEnCarpetaClasificador"></a>
@@ -3166,7 +3284,6 @@ Respuesta
     ],
     "PagingError": null
 }
-
 ```
 
 <a name="ClientesRelacionadosClasificador"></a>
@@ -3207,7 +3324,6 @@ Respuesta
     ],
     "PagingError": null
 }
-
 ```
 
 <a name="CotizacionMonedaExtranjera"></a>
@@ -3468,11 +3584,11 @@ Respuesta
          "InvoiceFileExpiration":null
       }
    ],
-   "OrderError":  
-   {
-	"Orders": "116081, 116082, 116083",
-	"Message": “Unexisting Order ID”
-   }, 
+   "OrderError":
+   {
+      "Orders":"116081, 116082, 116083",
+      "Message":“Unexisting Order ID”
+   },
    "PagingError":null
 }
 ```
